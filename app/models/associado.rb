@@ -1,0 +1,2 @@
+class Associado < ApplicationRecord
+end

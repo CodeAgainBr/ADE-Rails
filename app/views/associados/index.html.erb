@@ -1,0 +1,33 @@
+<section>
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <%= link_to new_associado_path, class: "btn btn-success btn-block btn-lg btn-table" do %>
+              <i class="fas fa-plus"></i> Incluir Novo Associado
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @associados.each do |associado| %>
+            <tr class="row no-gutters">
+              <td class="col-xl-10 col-sm-8 col-5">
+                <%= link_to associado.nome, associado %>
+              </td>
+
+              <td class="col-auto ml-auto">
+                <%= link_to 'Editar', edit_associado_path(associado), class: "btn btn-outline-success btn-sm" %>
+              </td>
+
+              <td class="col-auto">
+                <%= link_to 'Apagar', associado, method: :delete, data: { confirm: 'Realmente deseja apagar?' }, class: "btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

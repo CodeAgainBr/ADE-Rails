@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180622193712) do
+ActiveRecord::Schema.define(version: 20180626181346) do
+
+  create_table "associados", force: :cascade do |t|
+    t.string   "nome",             null: false
+    t.date     "data_nascimento"
+    t.string   "local_nascimento"
+    t.string   "rg"
+    t.string   "cpf"
+    t.string   "cep"
+    t.string   "email"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "bairro"
+    t.string   "rua"
+    t.integer  "numero"
+    t.string   "telefone"
+    t.string   "prato_preferido"
+    t.text     "observacoes"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
