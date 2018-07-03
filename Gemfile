@@ -45,11 +45,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Bootstrap do Rails
+# Bootstrap for Rails
 gem 'bootstrap', '~> 4.0.0'
 
 # Use Devise for Authentication
 gem 'devise'
+
+# Plugin jquery mask
+gem 'jquery_mask_rails', '~> 0.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
