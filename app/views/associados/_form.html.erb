@@ -13,96 +13,198 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="informacoes">
-      <br>
-      <div class="field">
-        <%= f.label :nome %>
-        <%= f.text_field :nome %>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :nome %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :nome, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :data_nascimento %>
-        <%= f.date_select :data_nascimento %>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :data_nascimento %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :data_nascimento, class: "date form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :local_nascimento %>
-        <%= f.text_field :local_nascimento %>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :local_nascimento %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :local_nascimento, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :rg %>
-        <%= f.text_field :rg %>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :rg %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :rg, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :cpf %>
-        <%= f.text_field :cpf %>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :cpf %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :cpf, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :prato_preferido %>
-        <%= f.text_field :prato_preferido %>
-      </div>      
-    </div>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :prato_preferido %>
+        </div>
 
-    <div role="tabpanel" class="tab-pane fade" id="contato">
-      <br>
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.text_field :email %>
+        <div class="col">
+          <%= f.text_field :prato_preferido, class: "form-control" %>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :telefone %>
-        <%= f.text_field :telefone %>
-      </div>      
-    </div>
+      <div class="row no-gutters">
+        <div class="col-sm-2 col">
+          <%= f.label :observacoes %>
+        </div>
 
-    <div role="tabpanel" class="tab-pane fade" id="endereco">
-      <br>
-      <div class="field">
-        <%= f.label :cep %>
-        <%= f.text_field :cep %>
-      </div>
-
-      <div class="field">
-        <%= f.label :cidade %>
-        <%= f.text_field :cidade %>
-      </div>
-
-      <div class="field">
-        <%= f.label :estado %>
-        <%= f.text_field :estado %>
-      </div>
-
-      <div class="field">
-        <%= f.label :bairro %>
-        <%= f.text_field :bairro %>
-      </div>
-
-      <div class="field">
-        <%= f.label :rua %>
-        <%= f.text_field :rua %>
-      </div>
-
-      <div class="field">
-        <%= f.label :numero %>
-        <%= f.text_field :numero %>
+        <div class="col">
+          <%= f.text_area :observacoes, class: "form-control" %>
+        </div>
       </div>
     </div>
 
-    <div role="tabpanel" class="tab-pane fade" id="observacoes">
-      <br>
-      <div class="field">
-        <%= f.label :observacoes %>
-        <%= f.text_area :observacoes %>
+    <div role="tabpanel" class="tab-pane" id="contato">
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :email %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
       </div>
+
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :telefone %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :telefone, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="endereco">
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :cep %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :cep, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :cidade %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :cidade, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :estado %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :estado, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :bairro %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :bairro, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :rua %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :rua, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-sm-2 col-3">
+          <%= f.label :numero %>
+        </div>
+
+        <div class="col">
+          <%= f.text_field :numero, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="parentes">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <button class="btn btn-success btn-block btn-lg btn-table" ng-click="novoParente()">
+              <i class="fas fa-plus"></i> Adicionar Parente
+            </button>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row no-gutters" ng-repeat="parente in associado.parentes">
+            <td class="col-sm-4 col-12">
+              <input class="form-control btn-sm" type="text" ng-model="parente.nome" placeholder="Nome do Parente">
+            </td>
+
+            <td class="col-sm-4 col-12">
+              <input class="form-control btn-sm" type="text" ng-model="parente.parentesco" placeholder="Parentesco">
+            </td>
+
+            <td class="col-sm-3 col-12">
+              <input class="form-control btn-sm date" type="text" ng-model="parente.nascimento" placeholder="Data de Nascimento">
+            </td>
+
+            <td class="col-sm-1 col-12">
+              <button type="button" class="btn btn-danger btn-sm btn-block">Apagar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
 
-  <div class="actions">
-    <br>
-    <%= f.submit %>
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', associados_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>
