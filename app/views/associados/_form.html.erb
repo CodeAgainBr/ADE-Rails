@@ -11,82 +11,98 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacoes">
+      <br>
+      <div class="field">
+        <%= f.label :nome %>
+        <%= f.text_field :nome %>
+      </div>
 
-  <div class="field">
-    <%= f.label :data_nascimento %>
-    <%= f.date_select :data_nascimento %>
-  </div>
+      <div class="field">
+        <%= f.label :data_nascimento %>
+        <%= f.date_select :data_nascimento %>
+      </div>
 
-  <div class="field">
-    <%= f.label :local_nascimento %>
-    <%= f.text_field :local_nascimento %>
-  </div>
+      <div class="field">
+        <%= f.label :local_nascimento %>
+        <%= f.text_field :local_nascimento %>
+      </div>
 
-  <div class="field">
-    <%= f.label :rg %>
-    <%= f.text_field :rg %>
-  </div>
+      <div class="field">
+        <%= f.label :rg %>
+        <%= f.text_field :rg %>
+      </div>
 
-  <div class="field">
-    <%= f.label :cpf %>
-    <%= f.text_field :cpf %>
-  </div>
+      <div class="field">
+        <%= f.label :cpf %>
+        <%= f.text_field :cpf %>
+      </div>
 
-  <div class="field">
-    <%= f.label :cep %>
-    <%= f.text_field :cep %>
-  </div>
+      <div class="field">
+        <%= f.label :prato_preferido %>
+        <%= f.text_field :prato_preferido %>
+      </div>      
+    </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+    <div role="tabpanel" class="tab-pane fade" id="contato">
+      <br>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
 
-  <div class="field">
-    <%= f.label :cidade %>
-    <%= f.text_field :cidade %>
-  </div>
+      <div class="field">
+        <%= f.label :telefone %>
+        <%= f.text_field :telefone %>
+      </div>      
+    </div>
 
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.text_field :estado %>
-  </div>
+    <div role="tabpanel" class="tab-pane fade" id="endereco">
+      <br>
+      <div class="field">
+        <%= f.label :cep %>
+        <%= f.text_field :cep %>
+      </div>
 
-  <div class="field">
-    <%= f.label :bairro %>
-    <%= f.text_field :bairro %>
-  </div>
+      <div class="field">
+        <%= f.label :cidade %>
+        <%= f.text_field :cidade %>
+      </div>
 
-  <div class="field">
-    <%= f.label :rua %>
-    <%= f.text_field :rua %>
-  </div>
+      <div class="field">
+        <%= f.label :estado %>
+        <%= f.text_field :estado %>
+      </div>
 
-  <div class="field">
-    <%= f.label :numero %>
-    <%= f.text_field :numero %>
-  </div>
+      <div class="field">
+        <%= f.label :bairro %>
+        <%= f.text_field :bairro %>
+      </div>
 
-  <div class="field">
-    <%= f.label :telefone %>
-    <%= f.text_field :telefone %>
-  </div>
+      <div class="field">
+        <%= f.label :rua %>
+        <%= f.text_field :rua %>
+      </div>
 
-  <div class="field">
-    <%= f.label :prato_preferido %>
-    <%= f.text_field :prato_preferido %>
-  </div>
+      <div class="field">
+        <%= f.label :numero %>
+        <%= f.text_field :numero %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :observacoes %>
-    <%= f.text_area :observacoes %>
+    <div role="tabpanel" class="tab-pane fade" id="observacoes">
+      <br>
+      <div class="field">
+        <%= f.label :observacoes %>
+        <%= f.text_area :observacoes %>
+      </div>
+    </div>
+
   </div>
 
   <div class="actions">
+    <br>
     <%= f.submit %>
   </div>
 <% end %>
