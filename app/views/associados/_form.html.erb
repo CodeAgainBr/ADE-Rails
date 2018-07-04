@@ -1,7 +1,7 @@
 <%= form_for(associado) do |f| %>
   <% if associado.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(associado.errors.count, "error") %> prohibited this associado from being saved:</h2>
+      <h2><%= pluralize(associado.errors.count, "error") %> erros proibem este associado de ser salvo:</h2>
 
       <ul>
       <% associado.errors.full_messages.each do |message| %>
