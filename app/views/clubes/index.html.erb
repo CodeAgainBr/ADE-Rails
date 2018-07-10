@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clubes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cep</th>
+      <th>Cep campo</th>
+      <th>Rua</th>
+      <th>Rua campo</th>
+      <th>Bairro</th>
+      <th>Bairro campo</th>
+      <th>Cidade</th>
+      <th>Cidade campo</th>
+      <th>Estado</th>
+      <th>Estado campo</th>
+      <th>Numero</th>
+      <th>Numero campo</th>
+      <th>Categoria</th>
+      <th>Cor uniforme</th>
+      <th>Campo</th>
+      <th>Telefone clube</th>
+      <th>Telefone contato</th>
+      <th>Nome contato</th>
+      <th>Data fundacao</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clubes.each do |clube| %>
+      <tr>
+        <td><%= clube.nome %></td>
+        <td><%= clube.cep %></td>
+        <td><%= clube.cep_campo %></td>
+        <td><%= clube.rua %></td>
+        <td><%= clube.rua_campo %></td>
+        <td><%= clube.bairro %></td>
+        <td><%= clube.bairro_campo %></td>
+        <td><%= clube.cidade %></td>
+        <td><%= clube.cidade_campo %></td>
+        <td><%= clube.estado %></td>
+        <td><%= clube.estado_campo %></td>
+        <td><%= clube.numero %></td>
+        <td><%= clube.numero_campo %></td>
+        <td><%= clube.categoria %></td>
+        <td><%= clube.cor_uniforme %></td>
+        <td><%= clube.campo %></td>
+        <td><%= clube.telefone_clube %></td>
+        <td><%= clube.telefone_contato %></td>
+        <td><%= clube.nome_contato %></td>
+        <td><%= clube.data_fundacao %></td>
+        <td><%= link_to 'Show', clube %></td>
+        <td><%= link_to 'Edit', edit_clube_path(clube) %></td>
+        <td><%= link_to 'Destroy', clube, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clube', new_clube_path %>
