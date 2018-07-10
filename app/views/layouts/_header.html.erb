@@ -7,7 +7,9 @@
   <div id="navbar-collapse" class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-light" href="associados"><i class="fas fa-user text-light"></i> Associados</a>
+        <%= link_to associados_path, class: "nav-link text-light" do %>
+          <i class="fas fa-user text-light"></i> Associados
+        <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="clubes"><i class="fas fa-users text-light"></i> Clubes</a>

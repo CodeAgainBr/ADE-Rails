@@ -1,105 +1,133 @@
-<h1>
-  <%= @associado.nome %>
-</h1>
+<section> 
+  <div class="row">
+    <div class="col-12 form-associado">
+      <ul class="nav nav-tabs pagination" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+        </li>
 
-<br>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success" href="#contato" role="tab" data-toggle="tab">Contato</a>
+        </li>
 
-<!-- Tab header -->
-<ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" href="#info_geral" role="tab" data-toggle="tab">Informações gerais</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#contato" role="tab" data-toggle="tab">Contato</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#endereco" role="tab" data-toggle="tab">Endereço</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#observacao" role="tab" data-toggle="tab">Observações</a>
-  </li>
-</ul>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success" href="#endereco" role="tab" data-toggle="tab">Endereço</a>
+        </li>
 
-<!-- Tab Body -->
-<div class="tab-content">
-  <div role="tabpanel" class="tab-pane active in" id="info_geral">
-    <p>
-      <strong>Data nascimento:</strong>
-      <%= @associado.data_nascimento %>
-    </p>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Parentes</a>
+        </li>    
+      </ul>
 
-    <p>
-      <strong>Local nascimento:</strong>
-      <%= @associado.local_nascimento %>
-    </p>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active in" id="informacoes">
+          <p>
+            <strong>Nome:</strong>
+            <%= @associado.nome %>
+          </p>
 
-    <p>
-      <strong>Rg:</strong>
-      <%= @associado.rg %>
-    </p>
+          <p>
+            <strong>Data de nascimento:</strong>
+            <%= @associado.data_nascimento.strftime("%d/%m/%Y") %>
+          </p>
 
-    <p>
-      <strong>Cpf:</strong>
-      <%= @associado.cpf %>
-    </p>
+          <p>
+            <strong>Local de nascimento:</strong>
+            <%= @associado.local_nascimento %>
+          </p>
 
-    <p>
-      <strong>Prato preferido:</strong>
-      <%= @associado.prato_preferido %>
-    </p>
+          <p>
+            <strong>RG:</strong>
+            <%= @associado.rg %>
+          </p>
+
+          <p>
+            <strong>CPF:</strong>
+            <%= @associado.cpf %>
+          </p>
+
+          <p>
+            <strong>Prato preferido:</strong>
+            <%= @associado.prato_preferido %>
+          </p>
+          
+          <p>
+            <strong>Observações:</strong>
+            <%= @associado.observacoes %>
+          </p>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="contato">
+          <p>
+            <strong>Email:</strong>
+            <%= @associado.email %>
+          </p>
+
+          <p>
+            <strong>Telefone:</strong>
+            <%= @associado.telefone %>
+          </p>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="endereco">
+          <p>
+            <strong>CEP:</strong>
+            <%= @associado.cep %>
+          </p>
+
+          <p>
+            <strong>Cidade:</strong>
+            <%= @associado.cidade %>
+          </p>
+
+          <p>
+            <strong>Estado:</strong>
+            <%= @associado.estado %>
+          </p>
+
+          <p>
+            <strong>Bairro:</strong>
+            <%= @associado.bairro %>
+          </p>
+
+          <p>
+            <strong>Rua:</strong>
+            <%= @associado.rua %>
+          </p>
+
+          <p>
+            <strong>Número:</strong>
+            <%= @associado.numero %>
+          </p>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="parentes">
+          <% #@parentes.each do |parente| %>
+          <!-- 
+            <p>
+              <strong>Nome:</strong>
+              <% #@parente.nome %>
+            </p>
+
+            <p>
+              <strong>Parentesco:</strong>
+              <% #@parente.parentesco %>
+            </p>
+
+            <p>
+              <strong>Data de nascimento:</strong>
+              <% #@parente.data_nascimento %>
+            </p>
+          -->
+          <% #end %>
+        </div>
+      </div>
+
+      <div class="actions row">
+        <div class="ml-auto col-auto mr-auto">
+          <%= link_to 'Voltar', associados_path, class: "btn btn-danger" %>
+          <%= link_to "Editar", edit_associado_path(@associado), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div role="tabpanel" class="tab-pane fade" id="contato">
-    <p>
-      <strong>Email:</strong>
-      <%= @associado.email %>
-    </p>
-
-    <p>
-      <strong>Telefone:</strong>
-      <%= @associado.telefone %>
-    </p>
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="endereco">
-    <p>
-      <strong>Cep:</strong>
-      <%= @associado.cep %>
-    </p>
-
-    <p>
-      <strong>Cidade:</strong>
-      <%= @associado.cidade %>
-    </p>
-
-    <p>
-      <strong>Estado:</strong>
-      <%= @associado.estado %>
-    </p>
-
-    <p>
-      <strong>Bairro:</strong>
-      <%= @associado.bairro %>
-    </p>
-
-    <p>
-      <strong>Rua:</strong>
-      <%= @associado.rua %>
-    </p>
-
-    <p>
-      <strong>Numero:</strong>
-      <%= @associado.numero %>
-    </p>
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="observacao">
-    <p>
-      <strong>Observacoes:</strong>
-      <%= @associado.observacoes %>
-    </p>
-  </div>
-</div>
-<hr/>
-
-<%= link_to 'Edit', edit_associado_path(@associado) %> |
-<%= link_to 'Back', associados_path %>
-
-<footer><p id="notice"><%= notice %></p></footer>
+</section>

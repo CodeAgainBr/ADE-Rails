@@ -14,156 +14,96 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="informacoes">
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :nome %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :nome, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :nome, class: "form-control", placeholder: "Nome", required: "required" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :data_nascimento %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :data_nascimento, class: "date form-control" %>
+        <div class="col-12">
+          <%= f.text_field :data_nascimento, class: "date form-control", placeholder: "Data de nascimento" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :local_nascimento %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :local_nascimento, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :local_nascimento, class: "form-control", placeholder: "Local de nascimento" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :rg %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :rg, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :rg, class: "rg form-control", placeholder: "RG" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :cpf %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :cpf, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :cpf, class: "cpf form-control", placeholder: "CPF" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :prato_preferido %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :prato_preferido, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :prato_preferido, class: "form-control", placeholder: "Prato preferido" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col">
-          <%= f.label :observacoes %>
-        </div>
-
-        <div class="col">
-          <%= f.text_area :observacoes, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_area :observacoes, class: "form-control", placeholder: "Observações" %>
         </div>
       </div>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="contato">
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :email %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :email, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :telefone %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :telefone, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :telefone, class: "celular form-control", placeholder: "Telefone" %>
         </div>
       </div>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="endereco">
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :cep %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :cep, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :cidade %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :cidade, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :estado %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :estado, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :estado, class: "uf form-control", placeholder: "Estado" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :bairro %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :bairro, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :rua %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :rua, class: "form-control" %>
+        <div class="col-12">
+          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
         </div>
       </div>
 
       <div class="row no-gutters">
-        <div class="col-sm-2 col-3">
-          <%= f.label :numero %>
-        </div>
-
-        <div class="col">
-          <%= f.text_field :numero, class: "form-control" %>
+        <div class="col-12">
+          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
         </div>
       </div>
     </div>
@@ -180,15 +120,15 @@
         <tbody>
           <tr class="row no-gutters" ng-repeat="parente in associado.parentes">
             <td class="col-sm-4 col-12">
-              <input class="form-control btn-sm" type="text" ng-model="parente.nome" placeholder="Nome do Parente">
+              <input class="form-control btn-sm" type="text" placeholder="Nome do Parente">
             </td>
 
             <td class="col-sm-4 col-12">
-              <input class="form-control btn-sm" type="text" ng-model="parente.parentesco" placeholder="Parentesco">
+              <input class="form-control btn-sm" type="text" placeholder="Parentesco">
             </td>
 
             <td class="col-sm-3 col-12">
-              <input class="form-control btn-sm date" type="text" ng-model="parente.nascimento" placeholder="Data de Nascimento">
+              <input class="form-control btn-sm date" type="text" placeholder="Data de Nascimento">
             </td>
 
             <td class="col-sm-1 col-12">
