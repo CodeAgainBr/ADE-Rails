@@ -9,109 +9,144 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %>  
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacoes">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :nome, class: "form-control", placeholder: "Nome do clube", required: "required" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :categoria, class: "form-control", placeholder: "Categoria" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cor_uniforme, class: "form-control", placeholder: "Cor do Uniforme" %>
+        </div>
+      </div>            
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :data_fundacao, class: "date form-control", placeholder: "Data de fundação" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.check_box(:campo, {checked: true, class: "campo form-control"}) %>
+          <%= f.label(:campo, "Possuí campo? ") %>  
+        </div>
+      </div>      
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="contato">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :telefone_contato, class: "telefone form-control", placeholder: "Telefone do contato" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :nome_contato, class: "form-control", placeholder: "Nome do contato" %>
+        </div>        
+      </div>
+     
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :telefone_clube, class: "telefone form-control", placeholder: "Telefone do clube" %>
+        </div>     
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="endereco_sede">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :estado, class: "form-control", placeholder: "Estado" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
+        </div>
+      </div>           
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
+        </div>
+      </div>      
+    </div> 
+  
+    <div role="tabpanel" class="tab-pane" id="endereco_campo">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cep_campo, class: "cep form-control", placeholder: "CEP" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :estado_campo, class: "form-control", placeholder: "Estado" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cidade_campo, class: "form-control", placeholder: "Cidade" %>
+        </div>
+      </div>           
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :bairro_campo, class: "form-control", placeholder: "Bairro" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rua_campo, class: "form-control", placeholder: "Rua" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.number_field :numero_campo, class: "form-control", placeholder: "Número" %>
+        </div>
+      </div>      
+    </div>
+      
   </div>
-
-  <div class="field">
-    <%= f.label :cep %>
-    <%= f.text_field :cep %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cep_campo %>
-    <%= f.text_field :cep_campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rua %>
-    <%= f.text_field :rua %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rua_campo %>
-    <%= f.text_field :rua_campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bairro %>
-    <%= f.text_field :bairro %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bairro_campo %>
-    <%= f.text_field :bairro_campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cidade %>
-    <%= f.text_field :cidade %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cidade_campo %>
-    <%= f.text_field :cidade_campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.text_field :estado %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado_campo %>
-    <%= f.text_field :estado_campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :numero %>
-    <%= f.number_field :numero %>
-  </div>
-
-  <div class="field">
-    <%= f.label :numero_campo %>
-    <%= f.number_field :numero_campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :categoria %>
-    <%= f.text_field :categoria %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cor_uniforme %>
-    <%= f.text_field :cor_uniforme %>
-  </div>
-
-  <div class="field">
-    <%= f.label :campo %>
-    <%= f.check_box :campo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telefone_clube %>
-    <%= f.text_field :telefone_clube %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telefone_contato %>
-    <%= f.text_field :telefone_contato %>
-  </div>
-
-  <div class="field">
-    <%= f.label :nome_contato %>
-    <%= f.text_field :nome_contato %>
-  </div>
-
-  <div class="field">
-    <%= f.label :data_fundacao %>
-    <%= f.date_select :data_fundacao %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', clubes_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>
