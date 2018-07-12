@@ -1,5 +1,22 @@
-<h1>New Clube</h1>
+<section>	
+	<div class="row">
+		<div class="col-12 form-associado">
+			<ul class="nav nav-tabs pagination" role="tablist">
+			  <li class="nav-item">
+			    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link btn btn-outline-success" href="#contato" role="tab" data-toggle="tab">Contato</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link btn btn-outline-success" href="#endereco_sede" role="tab" data-toggle="tab">Endereço</a>
+			  </li>
+				<li class="nav-item">
+				  <a class="endereco_clube_tab nav-link btn btn-outline-success" href="#endereco_campo" role="tab" data-toggle="tab">Endereço do campo</a>
+				</li>		     
+			</ul>
 
-<%= render 'form', clube: @clube %>
-
-<%= link_to 'Back', clubes_path %>
+			<%= render 'form', clube: @clube %>
+		</div>
+	</div>
+</section>
