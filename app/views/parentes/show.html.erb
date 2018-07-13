@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @parente.nome %>
+</p>
+
+<p>
+  <strong>Parentesco:</strong>
+  <%= @parente.parentesco %>
+</p>
+
+<p>
+  <strong>Data nascimento:</strong>
+  <%= @parente.data_nascimento %>
+</p>
+
+<%= link_to 'Edit', edit_parente_path(@parente, associado_id: params[:associado_id]) %> |
+<%= link_to 'Back', parentes_path(associado_id: params[:associado_id]) %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  parentesco: MyString
+  data_nascimento: 2018-07-11
+  associado: one
+
+two:
+  nome: MyString
+  parentesco: MyString
+  data_nascimento: 2018-07-11
+  associado: two

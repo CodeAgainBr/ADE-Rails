@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Parentes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Parentesco</th>
+      <th>Data nascimento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parentes.each do |parente| %>
+      <tr>
+        <td><%= parente.nome %></td>
+        <td><%= parente.parentesco %></td>
+        <td><%= parente.data_nascimento %></td>
+        <td><%= link_to 'Show', parente_path(parente, associado_id: params[:associado_id]) %></td>
+        <td><%= link_to 'Edit', edit_parente_path(parente, associado_id: params[:associado_id]) %></td>
+        <td><%= link_to 'Destroy', parente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parente', new_parente_path(:associado_id => params[:associado_id]) %>

@@ -1,0 +1,36 @@
+<%= form_for(parente) do |f| %>
+  <% if parente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parente.errors.count, "error") %> prohibited this parente from being saved:</h2>
+
+      <ul>
+      <% parente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parentesco %>
+    <%= f.text_field :parentesco %>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_nascimento %>
+    <%= f.date_field :data_nascimento, max: "2999-12-31" %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :associado_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
