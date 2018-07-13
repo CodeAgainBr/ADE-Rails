@@ -23,12 +23,11 @@
 
   <div class="field">
     <%= f.label :data_nascimento %>
-    <%= f.date_select :data_nascimento %>
+    <%= f.date_field :data_nascimento, max: "2999-12-31" %>
   </div>
 
   <div class="field">
-    <%= f.label :associado_id %>
-    <%= f.text_field :associado_id %>
+    <%= f.hidden_field :associado_id %>
   </div>
 
   <div class="actions">
