@@ -1,0 +1,171 @@
+<ul class="nav nav-tabs pagination" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success" href="#contato" role="tab" data-toggle="tab">Contato</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success" href="#endereco_sede" role="tab" data-toggle="tab">Endereço</a>
+  </li>
+  <li class="nav-item">
+    <a class="endereco_clube_tab nav-link btn btn-outline-success" href="#endereco_campo" role="tab" data-toggle="tab">Endereço do campo</a>
+  </li>        
+</ul>
+
+<%= form_for(clube) do |f| %>
+  <% if clube.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clube.errors.count, "error") %> prohibited this clube from being saved:</h2>
+
+      <ul>
+      <% clube.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>  
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacoes">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :nome, class: "form-control", placeholder: "Nome do clube", required: "required" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :categoria, class: "form-control", placeholder: "Categoria" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cor_uniforme, class: "form-control", placeholder: "Cor do Uniforme" %>
+        </div>
+      </div>            
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.date_field :data_fundacao, class: "form-control", placeholder: "Data de fundação", max: "2999-12-31" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <% if @clube.campo %>
+            <%= f.check_box :campo, checked: true, class: "campo form-control" %>
+          <% else %>
+            <%= f.check_box :campo, class: "campo form-control" %>
+          <% end %>
+          <%= f.label :campo, "Possuí campo? " %>  
+        </div>
+      </div>      
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="contato">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :telefone_contato, class: "telefone form-control", placeholder: "Telefone do contato" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :nome_contato, class: "form-control", placeholder: "Nome do contato" %>
+        </div>        
+      </div>
+     
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :telefone_clube, class: "telefone form-control", placeholder: "Telefone do clube" %>
+        </div>     
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="endereco_sede">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :estado, class: "form-control", placeholder: "Estado" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
+        </div>
+      </div>           
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
+        </div>
+      </div>      
+    </div> 
+  
+    <div role="tabpanel" class="tab-pane" id="endereco_campo">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cep_campo, class: "cep form-control", placeholder: "CEP" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :estado_campo, class: "form-control", placeholder: "Estado" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cidade_campo, class: "form-control", placeholder: "Cidade" %>
+        </div>
+      </div>           
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :bairro_campo, class: "form-control", placeholder: "Bairro" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rua_campo, class: "form-control", placeholder: "Rua" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.number_field :numero_campo, class: "form-control", placeholder: "Número" %>
+        </div>
+      </div>      
+    </div>
+      
+  </div>
+  
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', clubes_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

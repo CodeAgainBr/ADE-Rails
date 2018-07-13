@@ -19,6 +19,9 @@ class AssociadosController < ApplicationController
 
   # GET /associados/1/edit
   def edit
+    if (@associado.data_nascimento != nil)
+      @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
+    end
   end
 
   # POST /associados
@@ -28,7 +31,7 @@ class AssociadosController < ApplicationController
 
     respond_to do |format|
       if @associado.save
-        format.html { redirect_to @associado, notice: 'Associado foi criado com sucesso.' }
+        format.html { redirect_to associados_url }
         format.json { render :show, status: :created, location: @associado }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class AssociadosController < ApplicationController
   def update
     respond_to do |format|
       if @associado.update(associado_params)
-        format.html { redirect_to @associado, notice: 'Associado foi atualizado com sucesso.' }
+        format.html { redirect_to associados_url }
         format.json { render :show, status: :ok, location: @associado }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class AssociadosController < ApplicationController
   def destroy
     @associado.destroy
     respond_to do |format|
-      format.html { redirect_to associados_url, notice: 'Associado foi excluído com sucesso.' }
+      format.html { redirect_to associados_url }
       format.json { head :no_content }
     end
   end

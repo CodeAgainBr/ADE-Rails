@@ -1,7 +1,22 @@
+<ul class="nav nav-tabs pagination" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success" href="#contato" role="tab" data-toggle="tab">Contato</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success" href="#endereco" role="tab" data-toggle="tab">Endereço</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Parentes</a>
+  </li>    
+</ul>
+
 <%= form_for(associado) do |f| %>
   <% if associado.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(associado.errors.count, "error") %> prohibited this associado from being saved:</h2>
+      <h2><%= pluralize(associado.errors.count, "error") %> erros proibem este associado de ser salvo:</h2>
 
       <ul>
       <% associado.errors.full_messages.each do |message| %>
@@ -11,82 +26,140 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacoes">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :nome, class: "form-control", placeholder: "Nome", required: "required" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.date_field :data_nascimento, class: "form-control", placeholder: "Data de nascimento", max: "2999-12-31" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :local_nascimento, class: "form-control", placeholder: "Local de nascimento" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rg, class: "rg form-control", placeholder: "RG" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cpf, class: "cpf form-control", placeholder: "CPF" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :prato_preferido, class: "form-control", placeholder: "Prato preferido" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_area :observacoes, class: "form-control", placeholder: "Observações" %>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="contato">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :telefone, class: "celular form-control", placeholder: "Telefone" %>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="endereco">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :estado, class: "uf form-control", placeholder: "Estado" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="parentes">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <button class="btn btn-success btn-block btn-lg btn-table" ng-click="novoParente()">
+              <i class="fas fa-plus"></i> Adicionar Parente
+            </button>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row no-gutters" ng-repeat="parente in associado.parentes">
+            <td class="col-sm-4 col-12">
+              <input class="form-control btn-sm" type="text" placeholder="Nome do Parente">
+            </td>
+
+            <td class="col-sm-4 col-12">
+              <input class="form-control btn-sm" type="text" placeholder="Parentesco">
+            </td>
+
+            <td class="col-sm-3 col-12">
+              <input class="form-control btn-sm date" type="text" placeholder="Data de Nascimento">
+            </td>
+
+            <td class="col-sm-1 col-12">
+              <button type="button" class="btn btn-danger btn-sm btn-block">Apagar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :data_nascimento %>
-    <%= f.date_select :data_nascimento %>
-  </div>
-
-  <div class="field">
-    <%= f.label :local_nascimento %>
-    <%= f.text_field :local_nascimento %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rg %>
-    <%= f.text_field :rg %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cpf %>
-    <%= f.text_field :cpf %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cep %>
-    <%= f.text_field :cep %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cidade %>
-    <%= f.text_field :cidade %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.text_field :estado %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bairro %>
-    <%= f.text_field :bairro %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rua %>
-    <%= f.text_field :rua %>
-  </div>
-
-  <div class="field">
-    <%= f.label :numero %>
-    <%= f.text_field :numero %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telefone %>
-    <%= f.text_field :telefone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :prato_preferido %>
-    <%= f.text_field :prato_preferido %>
-  </div>
-
-  <div class="field">
-    <%= f.label :observacoes %>
-    <%= f.text_area :observacoes %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', associados_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>

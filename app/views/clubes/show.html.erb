@@ -1,0 +1,148 @@
+<section> 
+  <div class="row">
+    <div class="col-12 form-associado">
+      <ul class="nav nav-tabs pagination" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success" href="#contato" role="tab" data-toggle="tab">Contato</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success" href="#endereco_clube" role="tab" data-toggle="tab">Endereço do Clube</a>
+        </li>
+
+        <% if @clube.campo %>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-success" href="#endereco_campo" role="tab" data-toggle="tab">Endereço do Campo</a>
+          </li>
+        <% end %>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active in" id="informacoes">
+          <p>
+            <strong>Nome:</strong>
+            <%= @clube.nome %>
+          </p>
+
+          <p>
+            <strong>Categoria:</strong>
+            <%= @clube.categoria %>
+          </p>
+
+          <p>
+            <strong>Cor do uniforme:</strong>
+            <%= @clube.cor_uniforme %>
+          </p>
+
+          <p>
+            <strong>Data de fundação:</strong>
+            <% if @clube.data_fundacao != nil %>
+              <%= @clube.data_fundacao.strftime("%d/%m/%Y") %>
+            <% end %>
+          </p>
+
+          <p>
+            <strong>Campo:</strong>
+            <% if @clube.campo %>
+              Possui
+            <% else %>
+              Não possui
+            <% end %>
+          </p>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="contato">
+          <p>
+            <strong>Nome do contato:</strong>
+            <%= @clube.nome_contato %>
+          </p>
+
+          <p>
+            <strong>Telefone do contato:</strong>
+            <%= @clube.telefone_contato %>
+          </p>
+
+          <p>
+            <strong>Telefone do clube:</strong>
+            <%= @clube.telefone_clube %>
+          </p>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="endereco_clube">
+          <p>
+            <strong>CEP:</strong>
+            <%= @clube.cep %>
+          </p>
+
+          <p>
+            <strong>Estado:</strong>
+            <%= @clube.estado %>
+          </p>
+
+          <p>
+            <strong>Cidade:</strong>
+            <%= @clube.cidade %>
+          </p>
+
+          <p>
+            <strong>Bairro:</strong>
+            <%= @clube.bairro %>
+          </p>
+
+          <p>
+            <strong>Rua:</strong>
+            <%= @clube.rua %>
+          </p>
+
+          <p>
+            <strong>Número:</strong>
+            <%= @clube.numero %>
+          </p>
+        </div>
+
+        <% if @clube.campo %>
+          <div role="tabpanel" class="tab-pane fade" id="endereco_campo">
+            <p>
+              <strong>CEP:</strong>
+              <%= @clube.cep_campo %>
+            </p>
+
+            <p>
+              <strong>Estado:</strong>
+              <%= @clube.estado_campo %>
+            </p>
+
+            <p>
+              <strong>Cidade:</strong>
+              <%= @clube.cidade_campo %>
+            </p>
+
+            <p>
+              <strong>Bairro:</strong>
+              <%= @clube.bairro_campo %>
+            </p>
+
+            <p>
+              <strong>Rua:</strong>
+              <%= @clube.rua_campo %>
+            </p>
+
+            <p>
+              <strong>Número:</strong>
+              <%= @clube.numero_campo %>
+            </p>
+          </div>
+        <% end %>
+        
+      </div>
+      <div class="actions row">
+        <div class="ml-auto col-auto mr-auto">
+          <%= link_to 'Voltar', clubes_path, class: "btn btn-danger" %>
+          <%= link_to "Editar", edit_clube_path(@clube), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

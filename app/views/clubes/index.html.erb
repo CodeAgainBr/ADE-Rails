@@ -4,24 +4,24 @@
       <table class="table table-stripped">
         <thead>
           <tr>
-            <%= link_to new_associado_path, class: "btn btn-success btn-block btn-lg btn-table" do %>
-              <i class="fas fa-plus"></i> Incluir Novo Associado
+            <%= link_to new_clube_path, class: "btn btn-success btn-block btn-lg btn-table" do %>
+              <i class="fas fa-plus"></i> Incluir Novo Clube
             <% end %>
           </tr>
         </thead>
         <tbody>
-          <% @associados.each do |associado| %>
+          <% @clubes.each do |clube| %>
             <tr class="row no-gutters">
               <td class="col-xl-10 col-sm-8 col-5">
-                <%= link_to associado.nome, associado %>
+                <%= link_to clube.nome, clube %>
               </td>
 
               <td class="col-auto ml-auto">
-                <%= link_to 'Editar', edit_associado_path(associado), class: "btn btn-outline-success btn-sm" %>
+                <%= link_to 'Editar', edit_clube_path(clube), class: "btn btn-outline-success btn-sm" %>
               </td>
-
+              
               <td class="col-auto">
-                <%= link_to 'Apagar', associado, method: :delete, data: { confirm: 'Realmente deseja apagar?' }, class: "btn btn-danger btn-sm" %>
+                <%= link_to 'Apagar', clube, method: :delete, data: { confirm: 'Realmente deseja apagar?' }, class: "btn btn-danger btn-sm" %>
               </td>
             </tr>
           <% end %>

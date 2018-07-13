@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180626181346) do
+ActiveRecord::Schema.define(version: 20180712004046) do
 
   create_table "associados", force: :cascade do |t|
     t.string   "nome",             null: false
@@ -30,6 +30,41 @@ ActiveRecord::Schema.define(version: 20180626181346) do
     t.text     "observacoes"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "clubes", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cep"
+    t.string   "cep_campo"
+    t.string   "rua"
+    t.string   "rua_campo"
+    t.string   "bairro"
+    t.string   "bairro_campo"
+    t.string   "cidade"
+    t.string   "cidade_campo"
+    t.string   "estado"
+    t.string   "estado_campo"
+    t.integer  "numero"
+    t.integer  "numero_campo"
+    t.string   "categoria"
+    t.string   "cor_uniforme"
+    t.boolean  "campo"
+    t.string   "telefone_clube"
+    t.string   "telefone_contato"
+    t.string   "nome_contato"
+    t.date     "data_fundacao"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "parentes", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "parentesco"
+    t.date     "data_nascimento"
+    t.integer  "associado_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["associado_id"], name: "index_parentes_on_associado_id"
   end
 
   create_table "users", force: :cascade do |t|

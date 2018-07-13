@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" ng-class="navbarHidden">
-  <a class="navbar-brand" href="#!">
+  <a class="navbar-brand" href="/">
     <i class="fas fa-futbol bg-dark"></i>
     <b>Sistema ADE</b>
   </a>
@@ -7,27 +7,31 @@
   <div id="navbar-collapse" class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link text-light" href="#!associados"><i class="fas fa-user text-light"></i> Associados</a>
+        <%= link_to associados_path, class: "nav-link text-light" do %>
+          <i class="fas fa-user text-light"></i> Associados
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#!clubes"><i class="fas fa-users text-light"></i> Clubes</a>
+        <%= link_to clubes_path, class: "nav-link text-light" do %>
+          <i class="fas fa-users text-light"></i> Clubes
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#!jogos"><i class="far fa-futbol text-light"></i> Jogos</a>
+        <a class="nav-link text-light" href="/jogos"><i class="far fa-futbol text-light"></i> Jogos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#!agenda"><i class="fas fa-calendar-alt text-light"></i> Agenda</a>
+        <a class="nav-link text-light" href="/agenda"><i class="fas fa-calendar-alt text-light"></i> Agenda</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#!relatorios"><i class="fas fa-calendar-check text-light"></i> Relatórios</a>
+        <a class="nav-link text-light" href="/relatorios"><i class="fas fa-calendar-check text-light"></i> Relatórios</a>
       </li>
     </ul>
     <ul class="navbar-nav">
       <!-- <li class="nav-item">
-        <a class="nav-link text-light" href=""><i class="fas fa-bell text-light"></i> Notificações</a>
+        <a class="nav-link text-light" href="/"><i class="fas fa-bell text-light"></i> Notificações</a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link text-light" href="#!opcoes"><i class="fas fa-cog text-light"></i> Opções</a>
+        <a class="nav-link text-light" href="/opcoes"><i class="fas fa-cog text-light"></i> Opções</a>
       </li>
       <li class="nav-item">
       	
