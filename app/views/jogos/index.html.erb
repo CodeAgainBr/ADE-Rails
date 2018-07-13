@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jogos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Horario</th>
+      <th>Local</th>
+      <th>Relatorio</th>
+      <th>Clube</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jogos.each do |jogo| %>
+      <tr>
+        <td><%= jogo.data %></td>
+        <td><%= jogo.horario %></td>
+        <td><%= jogo.local %></td>
+        <td><%= jogo.relatorio %></td>
+        <td><%= jogo.clube %></td>
+        <td><%= link_to 'Show', jogo %></td>
+        <td><%= link_to 'Edit', edit_jogo_path(jogo) %></td>
+        <td><%= link_to 'Destroy', jogo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jogo', new_jogo_path %>

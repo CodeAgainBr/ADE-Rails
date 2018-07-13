@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712004046) do
+ActiveRecord::Schema.define(version: 20180713173446) do
 
   create_table "associados", force: :cascade do |t|
     t.string   "nome",             null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180712004046) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
-  
+
   create_table "clubes", force: :cascade do |t|
     t.string   "nome"
     t.string   "cep"
@@ -56,7 +56,18 @@ ActiveRecord::Schema.define(version: 20180712004046) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
-  
+
+  create_table "jogos", force: :cascade do |t|
+    t.date     "data"
+    t.string   "horario"
+    t.string   "local"
+    t.boolean  "relatorio"
+    t.integer  "clube_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clube_id"], name: "index_jogos_on_clube_id"
+  end
+
   create_table "parentes", force: :cascade do |t|
     t.string   "nome"
     t.string   "parentesco"
@@ -83,4 +94,5 @@ ActiveRecord::Schema.define(version: 20180712004046) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end

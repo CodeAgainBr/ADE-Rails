@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :jogos
   resources :parentes
   resources :clubes
   resources :associados

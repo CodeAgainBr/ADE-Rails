@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @jogo.data %>
+</p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @jogo.horario %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @jogo.local %>
+</p>
+
+<p>
+  <strong>Relatorio:</strong>
+  <%= @jogo.relatorio %>
+</p>
+
+<p>
+  <strong>Clube:</strong>
+  <%= @jogo.clube %>
+</p>
+
+<%= link_to 'Edit', edit_jogo_path(@jogo) %> |
+<%= link_to 'Back', jogos_path %>

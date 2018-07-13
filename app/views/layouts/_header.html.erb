@@ -17,7 +17,9 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="/jogos"><i class="far fa-futbol text-light"></i> Jogos</a>
+        <%= link_to jogos_path, class: "nav-link text-light" do %>
+          <i class="far fa-futbol text-light"></i> Jogos
+        <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/agenda"><i class="fas fa-calendar-alt text-light"></i> Agenda</a>
