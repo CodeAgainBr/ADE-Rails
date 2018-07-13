@@ -28,7 +28,9 @@
 
           <p>
             <strong>Data de nascimento:</strong>
-            <%= @associado.data_nascimento.strftime("%d/%m/%Y") %>
+            <% if (@associado.data_nascimento != nil) %>
+              <%= @associado.data_nascimento.strftime("%d/%m/%Y") %>
+            <% end %>
           </p>
 
           <p>
