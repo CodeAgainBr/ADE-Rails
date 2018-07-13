@@ -11,11 +11,12 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link btn btn-outline-success" href="#endereco_clube" role="tab" data-toggle="tab">Endereço Clube</a>
+          <a class="nav-link btn btn-outline-success" href="#endereco_clube" role="tab" data-toggle="tab">Endereço do Clube</a>
         </li>
+
         <% if @clube.campo %>
           <li class="nav-item">
-            <a class="nav-link btn btn-outline-success" href="#endereco_campo" role="tab" data-toggle="tab">Endereço Campo</a>
+            <a class="nav-link btn btn-outline-success" href="#endereco_campo" role="tab" data-toggle="tab">Endereço do Campo</a>
           </li>
         <% end %>
       </ul>
@@ -33,13 +34,15 @@
           </p>
 
           <p>
-            <strong>Cor uniforme:</strong>
+            <strong>Cor do uniforme:</strong>
             <%= @clube.cor_uniforme %>
           </p>
 
           <p>
-            <strong>Data fundacao:</strong>
-            <%= @clube.data_fundacao.strftime("%d/%m/%Y") %>
+            <strong>Data de fundação:</strong>
+            <% if @clube.data_fundacao != nil %>
+              <%= @clube.data_fundacao.strftime("%d/%m/%Y") %>
+            <% end %>
           </p>
 
           <p>
@@ -53,23 +56,23 @@
         </div>
         <div role="tabpanel" class="tab-pane fade" id="contato">
           <p>
-            <strong>Nome contato:</strong>
-            <% @clube.nome_contato %>
+            <strong>Nome do contato:</strong>
+            <%= @clube.nome_contato %>
           </p>
 
           <p>
-            <strong>Telefone contato:</strong>
+            <strong>Telefone do contato:</strong>
             <%= @clube.telefone_contato %>
           </p>
 
           <p>
-            <strong>Telefone clube:</strong>
+            <strong>Telefone do clube:</strong>
             <%= @clube.telefone_clube %>
           </p>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="endereco_clube">
           <p>
-            <strong>Cep:</strong>
+            <strong>CEP:</strong>
             <%= @clube.cep %>
           </p>
 
@@ -94,7 +97,7 @@
           </p>
 
           <p>
-            <strong>Numero:</strong>
+            <strong>Número:</strong>
             <%= @clube.numero %>
           </p>
         </div>
@@ -102,7 +105,7 @@
         <% if @clube.campo %>
           <div role="tabpanel" class="tab-pane fade" id="endereco_campo">
             <p>
-              <strong>Cep:</strong>
+              <strong>CEP:</strong>
               <%= @clube.cep_campo %>
             </p>
 
@@ -127,7 +130,7 @@
             </p>
 
             <p>
-              <strong>Numero:</strong>
+              <strong>Número:</strong>
               <%= @clube.numero_campo %>
             </p>
           </div>

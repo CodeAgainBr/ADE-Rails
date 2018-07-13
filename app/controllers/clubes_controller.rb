@@ -19,6 +19,9 @@ class ClubesController < ApplicationController
 
   # GET /clubes/1/edit
   def edit
+    if (@clube.data_fundacao != nil)
+      @clube.data_fundacao = @clube.data_fundacao.strftime("%d/%m/%Y")
+    end
   end
 
   # POST /clubes
@@ -42,7 +45,7 @@ class ClubesController < ApplicationController
   def update
     respond_to do |format|
       if @clube.update(clube_params)
-        format.html { redirect_to @clube, notice: 'Clube was successfully updated.' }
+        format.html { redirect_to clubes_url, notice: 'Clube was successfully updated.' }
         format.json { render :show, status: :ok, location: @clube }
       else
         format.html { render :edit }
