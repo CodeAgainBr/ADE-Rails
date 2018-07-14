@@ -1,6 +1,9 @@
-<h1>Editing Jogo</h1>
+<section>	
+	<div class="row">
+		<div class="col-12 form-associado py-2">
+			<h1 class="text-success">Registro de Jogos</h1>
+			<%= render 'form', jogo: @jogo %>
+		</div>
+	</div>
+</section>
 
-<%= render 'form', jogo: @jogo %>
-
-<%= link_to 'Show', @jogo %> |
-<%= link_to 'Back', jogos_path %>
