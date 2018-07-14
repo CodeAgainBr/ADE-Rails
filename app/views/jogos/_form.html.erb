@@ -11,32 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :data %>
-    <%= f.date_select :data %>
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.date_field :data, class: "form-control", max: "2999-12-31" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :horario %>
-    <%= f.text_field :horario %>
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.text_field :horario, class: "form-control", placeholder: "Horário" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :local %>
-    <%= f.text_field :local %>
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.text_field :local, class: "form-control", placeholder: "Local" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :relatorio %>
-    <%= f.check_box :relatorio %>
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.check_box :relatorio, class: "form-control", placeholder: "Relatório" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :clube_id %>
-    <%= f.text_field :clube_id %>
-  </div>
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.text_field :clube_id, class: "form-control", placeholder: "Clube" %>
+    </div>
+  </div>  
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', jogos_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>
