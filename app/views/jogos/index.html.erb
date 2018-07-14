@@ -1,35 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <%= link_to new_jogo_path, class: "btn btn-success btn-block btn-lg btn-table" do %>
+              <i class="fas fa-plus"></i> Incluir Novo Jogo
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jogos.each do |jogo| %>
+            <tr class="row no-gutters">
+              <td class="col-xl-10 col-sm-8 col-5">
+                <%= link_to jogo.clube, jogo %> Vs ADE <!-- Local de armazenamento -->
+              </td>
 
-<h1>Jogos</h1>
+              <td class="col-auto">
+                <%= link_to 'Editar', edit_jogo_path(jogo), class: "btn btn-outline-success btn-sm" %>
+              </td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Data</th>
-      <th>Horario</th>
-      <th>Local</th>
-      <th>Relatorio</th>
-      <th>Clube</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jogos.each do |jogo| %>
-      <tr>
-        <td><%= jogo.data %></td>
-        <td><%= jogo.horario %></td>
-        <td><%= jogo.local %></td>
-        <td><%= jogo.relatorio %></td>
-        <td><%= jogo.clube %></td>
-        <td><%= link_to 'Show', jogo %></td>
-        <td><%= link_to 'Edit', edit_jogo_path(jogo) %></td>
-        <td><%= link_to 'Destroy', jogo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Jogo', new_jogo_path %>
+              <td class="col-auto">
+                <%= link_to 'Apagar', jogo, method: :delete, data: { confirm: 'Realmente deseja apagar?' }, class: "btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
