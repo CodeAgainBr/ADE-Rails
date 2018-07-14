@@ -11,26 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
-  </div>
+    <div class="row no-gutters">
+      <div class="col-12">
+        <%= f.text_field :nome, class: "form-control", placeholder: "Nome", required: "required" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :parentesco %>
-    <%= f.text_field :parentesco %>
-  </div>
+    <div class="row no-gutters">
+      <div class="col-12">
+        <%= f.text_field :parentesco, class: "form-control", placeholder: "Parentesco" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :data_nascimento %>
-    <%= f.date_field :data_nascimento, max: "2999-12-31" %>
-  </div>
+    <div class="row no-gutters">
+      <div class="col-12">
+        <%= f.date_field :data_nascimento, max: "2999-12-31", class: "form-control" %>
+      </div>
+    </div>
 
   <div class="field">
     <%= f.hidden_field :associado_id %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', parentes_path(associado_id: params[:associado_id]), class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>

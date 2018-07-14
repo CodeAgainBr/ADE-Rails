@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-12 form-associado">
+  	<h1 class="text-success text-center" >Parentes de ...</h1>
+  	<hr>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @parente.nome %>
-</p>
+    <p>
+		  <strong>Nome:</strong>
+		  <%= @parente.nome %>
+		</p>
 
-<p>
-  <strong>Parentesco:</strong>
-  <%= @parente.parentesco %>
-</p>
+		<p>
+		  <strong>Parentesco:</strong>
+		  <%= @parente.parentesco %>
+		</p>
 
-<p>
-  <strong>Data nascimento:</strong>
-  <%= @parente.data_nascimento %>
-</p>
-
-<%= link_to 'Edit', edit_parente_path(@parente, associado_id: params[:associado_id]) %> |
-<%= link_to 'Back', parentes_path(associado_id: params[:associado_id]) %>
+		<p>
+		  <strong>Data nascimento:</strong>
+		  <%= @parente.data_nascimento %>
+		</p>
+    <div class="actions row">
+      <div class="ml-auto col-auto mr-auto">
+        <%= link_to 'Voltar', parentes_path(associado_id: params[:associado_id]), class: "btn btn-danger" %>
+        <%= link_to "Editar", edit_parente_path(@parente, associado_id: params[:associado_id]), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
