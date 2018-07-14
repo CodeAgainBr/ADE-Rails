@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-12 form-associado">
+    <h1 class="text-success text-center" >... vs ADE</h1> <!-- Preferencia do Cliente -->
+    <hr>
+
+    <p>
+      <strong>Data:</strong>
+      <%= @jogo.data %>
+    </p>
+
+    <p>
+      <strong>Horario:</strong>
+      <%= @jogo.horario %>
+    </p>
+
+    <p>
+      <strong>Local:</strong>
+      <%= @jogo.local %>
+    </p>
+
+    <p>
+      <strong>Relatorio:</strong>
+      <%= @jogo.relatorio %>
+    </p>
+
+    <p>
+      <strong>Clube:</strong>
+      <%= @jogo.clube %>
+    </p>
+
+    <div class="actions row">
+      <div class="ml-auto col-auto mr-auto">
+        <%= link_to 'Voltar', jogos_path, class: "btn btn-danger" %>
+        <%= link_to "Editar", edit_jogo_path(@jogo), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>

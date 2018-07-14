@@ -1,0 +1,50 @@
+<%= form_for(jogo) do |f| %>
+  <% if jogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jogo.errors.count, "error") %> prohibited this jogo from being saved:</h2>
+
+      <ul>
+      <% jogo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.date_field :data, class: "form-control", max: "2999-12-31" %>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.text_field :horario, class: "form-control", placeholder: "Horário" %>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.text_field :local, class: "form-control", placeholder: "Local" %>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.check_box :relatorio, class: "form-control", placeholder: "Relatório" %>
+    </div>
+  </div>
+
+  <div class="row no-gutters">
+    <div class="col-12">
+      <%= f.text_field :clube_id, class: "form-control", placeholder: "Clube" %>
+    </div>
+  </div>  
+
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', jogos_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712004046) do
+ActiveRecord::Schema.define(version: 20180713173446) do
 
   create_table "associados", force: :cascade do |t|
     t.string   "nome",             null: false
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(version: 20180712004046) do
     t.date     "data_fundacao"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "jogos", force: :cascade do |t|
+    t.date     "data"
+    t.string   "horario"
+    t.string   "local"
+    t.boolean  "relatorio"
+    t.integer  "clube_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clube_id"], name: "index_jogos_on_clube_id"
   end
 
   create_table "parentes", force: :cascade do |t|
