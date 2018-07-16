@@ -25,6 +25,7 @@ $(document).on('turbolinks:load', function() {
 	$('.cep').mask('00000-000');
 	$('.rg').mask('0.000.000');
 	$('.cpf').mask('000.000.000-00');
+	$('.horario').mask('00:00');
 });
 
 function limpa_formulario_cep(prefix, sufix) {

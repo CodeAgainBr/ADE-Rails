@@ -13,10 +13,6 @@
         <li class="nav-item">
           <a class="nav-link btn btn-outline-success" href="#endereco" role="tab" data-toggle="tab">Endereço</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Parentes</a>
-        </li>    
       </ul>
 
       <div class="tab-content">
@@ -100,27 +96,6 @@
             <strong>Número:</strong>
             <%= @associado.numero %>
           </p>
-        </div>
-
-        <div role="tabpanel" class="tab-pane" id="parentes">
-          <% #@parentes.each do |parente| %>
-          <!-- 
-            <p>
-              <strong>Nome:</strong>
-              <% #@parente.nome %>
-            </p>
-
-            <p>
-              <strong>Parentesco:</strong>
-              <% #@parente.parentesco %>
-            </p>
-
-            <p>
-              <strong>Data de nascimento:</strong>
-              <% #@parente.data_nascimento %>
-            </p>
-          -->
-          <% #end %>
         </div>
       </div>
 
