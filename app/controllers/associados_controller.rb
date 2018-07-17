@@ -10,6 +10,7 @@ class AssociadosController < ApplicationController
   # GET /associados/1
   # GET /associados/1.json
   def show
+    @parentes = Parente.where(associado_id: @associado.id)
   end
 
   # GET /associados/new

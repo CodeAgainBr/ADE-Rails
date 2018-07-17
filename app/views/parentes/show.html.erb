@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12 form-associado">
-  	<h1 class="text-success text-center" >Parentes de ...</h1>
+  	<h1 class="text-success text-center" >Parente de <%= (Associado.find(params[:associado_id])).nome %></h1>
   	<hr>
 
     <p>
@@ -15,7 +15,7 @@
 
 		<p>
 		  <strong>Data nascimento:</strong>
-		  <%= @parente.data_nascimento %>
+		  <%= @parente.data_nascimento.strftime("%d/%m/%Y") %>
 		</p>
     <div class="actions row">
       <div class="ml-auto col-auto mr-auto">

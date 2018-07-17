@@ -42,9 +42,21 @@
 
       <div class="row no-gutters">
         <div class="col-12">
-          <%= f.text_field :cor_uniforme, class: "form-control", placeholder: "Cor do Uniforme" %>
+          <%= f.text_field :cor_camisa_uniforme, class: "form-control", placeholder: "Cor da camisa de uniforme" %>
         </div>
-      </div>            
+      </div>          
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cor_bermuda_uniforme, class: "form-control", placeholder: "Cor da bermuda de uniforme" %>
+        </div>
+      </div>          
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cor_meias_uniforme, class: "form-control", placeholder: "Cor das meias de uniforme" %>
+        </div>
+      </div>          
 
       <div class="row no-gutters">
         <div class="col-12">
@@ -59,7 +71,7 @@
           <% else %>
             <%= f.check_box :campo, class: "campo form-control" %>
           <% end %>
-          <%= f.label :campo, "Possuí campo? " %>  
+          <%= f.label :campo, "Possui campo? " %>  
         </div>
       </div>      
     </div>
@@ -67,10 +79,10 @@
     <div role="tabpanel" class="tab-pane" id="contato">
       <div class="row no-gutters">
         <div class="col-12">
-          <%= f.text_field :telefone_contato, class: "telefone form-control", placeholder: "Telefone do contato" %>
-        </div>
+          <%= f.text_field :telefone_clube, class: "telefone form-control", placeholder: "Telefone do clube" %>
+        </div>     
       </div>
-
+      
       <div class="row no-gutters">
         <div class="col-12">
           <%= f.text_field :nome_contato, class: "form-control", placeholder: "Nome do contato" %>
@@ -79,8 +91,8 @@
      
       <div class="row no-gutters">
         <div class="col-12">
-          <%= f.text_field :telefone_clube, class: "telefone form-control", placeholder: "Telefone do clube" %>
-        </div>     
+          <%= f.text_field :telefone_contato, class: "telefone form-control", placeholder: "Telefone do contato" %>
+        </div>
       </div>
     </div>
 
@@ -157,9 +169,8 @@
         <div class="col-12">
           <%= f.number_field :numero_campo, class: "form-control", placeholder: "Número" %>
         </div>
-      </div>      
+      </div>
     </div>
-      
   </div>
   
   <div class="actions row">

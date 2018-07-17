@@ -13,6 +13,10 @@
         <li class="nav-item">
           <a class="nav-link btn btn-outline-success" href="#endereco" role="tab" data-toggle="tab">Endereço</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Parentes</a>
+        </li>
       </ul>
 
       <div class="tab-content">
@@ -54,6 +58,7 @@
             <%= @associado.observacoes %>
           </p>
         </div>
+
         <div role="tabpanel" class="tab-pane fade" id="contato">
           <p>
             <strong>Email:</strong>
@@ -96,6 +101,38 @@
             <strong>Número:</strong>
             <%= @associado.numero %>
           </p>
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="parentes">
+          <table class="table table-stripped">
+            <thead>
+              <tr class="row no-gutters mb-0">
+                <th class="col-5">Nome</th>  
+                <th class="col-4">Parentesco</th>  
+                <th class="col-3">Data de Nascimento</th>  
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @parentes.each do |parente| %>
+                <tr class="row no-gutters mb-0">
+                  <td class="col-5">
+                    <%= parente.nome %>
+                  </td>
+
+                  <td class="col-4">
+                    <%= parente.parentesco %>
+                  </td>
+
+                  <td class="col-3">
+                    <% if(parente.data_nascimento != nil) %>
+                      <%= parente.data_nascimento.strftime("%d/%m/%Y") %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
 

@@ -1,7 +1,7 @@
 class CreateClubes < ActiveRecord::Migration[5.0]
   def change
     create_table :clubes do |t|
-      t.string :nome
+      t.string :nome, null: false
       t.string :cep
       t.string :cep_campo
       t.string :rua
@@ -15,7 +15,9 @@ class CreateClubes < ActiveRecord::Migration[5.0]
       t.integer :numero
       t.integer :numero_campo
       t.string :categoria
-      t.string :cor_uniforme
+      t.string :cor_camisa_uniforme
+      t.string :cor_bermuda_uniforme
+      t.string :cor_meias_uniforme
       t.boolean :campo
       t.string :telefone_clube
       t.string :telefone_contato

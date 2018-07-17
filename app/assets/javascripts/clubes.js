@@ -8,6 +8,9 @@ $(document).on('turbolinks:load', function() {
 			$(".endereco_clube_tab").show();
 		} else {
 			$(".endereco_clube_tab").hide();
+			limpa_formulario_cep("clube", "campo")
+			$("#clube_cep_campo").val("");
+			$("#clube_numero_campo").val("");
 		}
 	});
 

@@ -4,7 +4,7 @@ class JogosController < ApplicationController
   # GET /jogos
   # GET /jogos.json
   def index
-    @jogos = Jogo.all
+    @jogos = Jogo.order(id: :desc)
   end
 
   # GET /jogos/1
@@ -15,10 +15,12 @@ class JogosController < ApplicationController
   # GET /jogos/new
   def new
     @jogo = Jogo.new
+    @clubes = Clube.all
   end
 
   # GET /jogos/1/edit
   def edit
+    @clubes = Clube.all
   end
 
   # POST /jogos
@@ -28,7 +30,7 @@ class JogosController < ApplicationController
 
     respond_to do |format|
       if @jogo.save
-        format.html { redirect_to @jogo, notice: 'Jogo was successfully created.' }
+        format.html { redirect_to jogos_url }
         format.json { render :show, status: :created, location: @jogo }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class JogosController < ApplicationController
   def update
     respond_to do |format|
       if @jogo.update(jogo_params)
-        format.html { redirect_to @jogo, notice: 'Jogo was successfully updated.' }
+        format.html { redirect_to jogos_url }
         format.json { render :show, status: :ok, location: @jogo }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class JogosController < ApplicationController
   def destroy
     @jogo.destroy
     respond_to do |format|
-      format.html { redirect_to jogos_url, notice: 'Jogo was successfully destroyed.' }
+      format.html { redirect_to jogos_url }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class JogosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jogo_params
-      params.require(:jogo).permit(:data, :horario, :local, :relatorio, :clube_id)
+      params.require(:jogo).permit(:data, :horario, :local, :relatorio, :campo_adversario, :cep, :rua, :bairro, :cidade, :estado, :numero, :clube_id)
     end
 end

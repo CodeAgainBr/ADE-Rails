@@ -12,11 +12,13 @@
         <tbody>
           <% @jogos.each do |jogo| %>
             <tr class="row no-gutters">
-              <td class="col-xl-10 col-sm-8 col-5">
-                <%= link_to jogo.clube, jogo %> Vs ADE <!-- Local de armazenamento -->
+              <td class="col-sm-8 col-5">
+                <%= link_to jogo do %><!--Local de armazenamento -->
+                  <%= (Clube.find(jogo.clube)).nome %> vs ADE
+                <% end %>
               </td>
 
-              <td class="col-auto">
+              <td class="col-auto ml-auto">
                 <%= link_to 'Editar', edit_jogo_path(jogo), class: "btn btn-outline-success btn-sm" %>
               </td>
 

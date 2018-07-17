@@ -1,33 +1,68 @@
-<div class="row">
-  <div class="col-12 form-associado">
-    <h1 class="text-success text-center" >... vs ADE</h1> <!-- Preferencia do Cliente -->
-    <hr>
+<section>
+  <div class="row">
+    <div class="col-12 form-associado">
+      <h1 class="text-success text-center" ><%= (Clube.find(@jogo.clube)).nome %> vs ADE</h1> <!-- Preferencia do Cliente -->
+      <hr>
 
-    <p>
-      <strong>Data:</strong>
-      <%= @jogo.data %>
-    </p>
+      <p>
+        <strong>Data:</strong>
+        <% if(@jogo.data != nil) %>
+          <%= @jogo.data.strftime("%d/%m/%Y") %>
+        <% end %>
+      </p>
 
-    <p>
-      <strong>Horario:</strong>
-      <%= @jogo.horario %>
-    </p>
+      <p>
+        <strong>Horário:</strong>
+        <%= @jogo.horario %>
+      </p>
 
-    <p>
-      <strong>Local:</strong>
-      <%= @jogo.local %>
-    </p>
+      <% if(@jogo.campo_adversario) %>
+        <p>
+          <strong>Local:</strong>
+          Campo do adversário
+        </p>
+      <% else %>
+        <p>
+          <h3>Local:</h3>
+        </p>
 
-    <p>
-      <strong>Clube:</strong>
-      <%= @jogo.clube %>
-    </p>
+        <p>
+          <strong>CEP:</strong>
+          <%= @jogo.cep %>
+        </p>
 
-    <div class="actions row">
-      <div class="ml-auto col-auto mr-auto">
-        <%= link_to 'Voltar', jogos_path, class: "btn btn-danger" %>
-        <%= link_to "Editar", edit_jogo_path(@jogo), class: "btn btn-success" %>
+        <p>
+          <strong>Estado:</strong>
+          <%= @jogo.estado %>
+        </p>
+
+        <p>
+          <strong>Cidade:</strong>
+          <%= @jogo.cidade %>
+        </p>
+
+        <p>
+          <strong>Bairro:</strong>
+          <%= @jogo.bairro %>
+        </p>
+
+        <p>
+          <strong>Rua:</strong>
+          <%= @jogo.rua %>
+        </p>
+
+        <p>
+          <strong>Número:</strong>
+          <%= @jogo.numero %>
+        </p>
+      <% end %>
+
+      <div class="actions row">
+        <div class="ml-auto col-auto mr-auto">
+          <%= link_to 'Voltar', jogos_path, class: "btn btn-danger" %>
+          <%= link_to "Editar", edit_jogo_path(@jogo), class: "btn btn-success" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>

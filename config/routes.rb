@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get "/agenda", to: "agenda#index"
+
   resources :jogos
   resources :parentes
   resources :clubes
   resources :associados
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   devise_for :users
 
 

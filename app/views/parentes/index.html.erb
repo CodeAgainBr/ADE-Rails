@@ -13,7 +13,7 @@
           <% @parentes.each do |parente| %>
             <tr class="row no-gutters">
               <td class="col-xl-10 col-sm-8 col-5">
-                <%= link_to parente.nome, parente %>
+                <%= link_to parente.nome, parente_path(parente, associado_id: params[:associado_id]) %>
               </td>
 
               <td class="col-auto ml-auto">
@@ -25,6 +25,11 @@
               </td>
             </tr>
           <% end %>
+          <tr class="row no-gutters">
+            <td class="col-auto ml-auto mr-auto">
+              <%= link_to "Voltar", associados_path, class: "btn btn-danger" %>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

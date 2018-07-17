@@ -254,3 +254,70 @@ h3.text-center {
 select.btn-sm {
 	height: 30px !important;
 }
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
+
+.b-success {
+	border-color: #28a745 !important;
+}
+
+.b-1 {
+	border: 1px solid black;
+}
+
+.b-2 {
+	border: 2px solid black;
+}
+
+.bb-1 {
+	border-bottom: 1px solid black;
+}
+
+.bg-gray {
+	background-color: #F0FFF0;
+}
+
+.br-0 {
+	border-radius: 0 !important;
+}
+
+.br-5 {
+	border-radius: 15px 15px 10px 10px;
+}
+
+.br-tlr-5 {
+	border-radius: 10px 10px 0 0;
+}
+
+.br-blr-4 {
+	border-radius: 0 0 8px 8px;
+}
+
+.br-blr-5 {
+	border-radius: 0 0 10px 10px;
+}
+
+
+.list-agenda {
+	.row:nth-child(odd) {
+		background-color: #E0EEE0;
+	}
+
+	.row:last-child {
+		border: 0;
+		border-radius: 0 0 10px 10px !important;
+	}
+}
+
+.list-agenda:last-child {
+	margin-bottom: 0 !important;
+}
