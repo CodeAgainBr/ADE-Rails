@@ -4,7 +4,7 @@ class ClubesController < ApplicationController
   # GET /clubes
   # GET /clubes.json
   def index
-    @clubes = Clube.all
+    @clubes = Clube.order(id: :desc)
   end
 
   # GET /clubes/1
@@ -31,7 +31,7 @@ class ClubesController < ApplicationController
 
     respond_to do |format|
       if @clube.save
-        format.html { redirect_to clubes_url, notice: 'Clube was successfully created.' }
+        format.html { redirect_to clubes_url }
         format.json { render :show, status: :created, location: @clube }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ClubesController < ApplicationController
   def update
     respond_to do |format|
       if @clube.update(clube_params)
-        format.html { redirect_to clubes_url, notice: 'Clube was successfully updated.' }
+        format.html { redirect_to clubes_url }
         format.json { render :show, status: :ok, location: @clube }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class ClubesController < ApplicationController
   def destroy
     @clube.destroy
     respond_to do |format|
-      format.html { redirect_to clubes_url, notice: 'Clube was successfully destroyed.' }
+      format.html { redirect_to clubes_url }
       format.json { head :no_content }
     end
   end
@@ -72,6 +72,6 @@ class ClubesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clube_params
-      params.require(:clube).permit(:nome, :cep, :cep_campo, :rua, :rua_campo, :bairro, :bairro_campo, :cidade, :cidade_campo, :estado, :estado_campo, :numero, :numero_campo, :categoria, :cor_uniforme, :campo, :telefone_clube, :telefone_contato, :nome_contato, :data_fundacao)
+      params.require(:clube).permit(:nome, :cep, :cep_campo, :rua, :rua_campo, :bairro, :bairro_campo, :cidade, :cidade_campo, :estado, :estado_campo, :numero, :numero_campo, :categoria, :cor_camisa_uniforme, :cor_bermuda_uniforme, :cor_meias_uniforme, :campo, :telefone_clube, :telefone_contato, :nome_contato, :data_fundacao)
     end
 end

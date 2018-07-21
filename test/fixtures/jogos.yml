@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2018-07-13
+  horario: MyString
+  local: MyString
+  relatorio: false
+  clube: one
+
+two:
+  data: 2018-07-13
+  horario: MyString
+  local: MyString
+  relatorio: false
+  clube: two

@@ -1,0 +1,42 @@
+<%= form_for(parente) do |f| %>
+  <% if parente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parente.errors.count, "error") %> prohibited this parente from being saved:</h2>
+
+      <ul>
+      <% parente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row no-gutters">
+      <div class="col-12">
+        <%= f.text_field :nome, class: "form-control", placeholder: "Nome", required: "required" %>
+      </div>
+    </div>
+
+    <div class="row no-gutters">
+      <div class="col-12">
+        <%= f.text_field :parentesco, class: "form-control", placeholder: "Parentesco" %>
+      </div>
+    </div>
+
+    <div class="row no-gutters">
+      <div class="col-12">
+        <%= f.date_field :data_nascimento, max: "2999-12-31", class: "form-control", placeholder: "Data de nascimento" %>
+      </div>
+    </div>
+
+  <div class="field">
+    <%= f.hidden_field :associado_id %>
+  </div>
+
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', parentes_path(associado_id: params[:associado_id]), class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

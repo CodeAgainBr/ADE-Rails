@@ -1,0 +1,37 @@
+<section>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <%= link_to new_parente_path(:associado_id => params[:associado_id]), class: "btn btn-success btn-block btn-lg btn-table" do %>
+              <i class="fas fa-plus"></i> Incluir Novo Parente
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @parentes.each do |parente| %>
+            <tr class="row no-gutters">
+              <td class="col-xl-10 col-sm-8 col-5">
+                <%= link_to parente.nome, parente_path(parente, associado_id: params[:associado_id]) %>
+              </td>
+
+              <td class="col-auto ml-auto">
+                <%= link_to 'Editar', edit_parente_path(parente, associado_id: params[:associado_id]), class: "btn btn-outline-success btn-sm" %>
+              </td>
+              
+              <td class="col-auto">
+                <%= link_to 'Apagar', parente, method: :delete, data: { confirm: 'Realmente deseja apagar?' }, class: "btn btn-danger btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+          <tr class="row no-gutters">
+            <td class="col-auto ml-auto mr-auto">
+              <%= link_to "Voltar", associados_path, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

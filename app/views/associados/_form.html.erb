@@ -8,9 +8,6 @@
   <li class="nav-item">
     <a class="nav-link btn btn-outline-success" href="#endereco" role="tab" data-toggle="tab">Endereço</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Parentes</a>
-  </li>    
 </ul>
 
 <%= form_for(associado) do |f| %>
@@ -122,38 +119,6 @@
         </div>
       </div>
     </div>
-
-    <div role="tabpanel" class="tab-pane" id="parentes">
-      <table class="table table-stripped">
-        <thead>
-          <tr>
-            <button class="btn btn-success btn-block btn-lg btn-table" ng-click="novoParente()">
-              <i class="fas fa-plus"></i> Adicionar Parente
-            </button>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="row no-gutters" ng-repeat="parente in associado.parentes">
-            <td class="col-sm-4 col-12">
-              <input class="form-control btn-sm" type="text" placeholder="Nome do Parente">
-            </td>
-
-            <td class="col-sm-4 col-12">
-              <input class="form-control btn-sm" type="text" placeholder="Parentesco">
-            </td>
-
-            <td class="col-sm-3 col-12">
-              <input class="form-control btn-sm date" type="text" placeholder="Data de Nascimento">
-            </td>
-
-            <td class="col-sm-1 col-12">
-              <button type="button" class="btn btn-danger btn-sm btn-block">Apagar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
   </div>
 
   <div class="actions row">
