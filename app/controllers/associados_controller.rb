@@ -10,6 +10,7 @@ class AssociadosController < ApplicationController
   # GET /associados/1
   # GET /associados/1.json
   def show
+    @parentes = Parente.where(associado_id: @associado.id)
   end
 
   # GET /associados/new
@@ -19,7 +20,9 @@ class AssociadosController < ApplicationController
 
   # GET /associados/1/edit
   def edit
-    @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
+    if (@associado.data_nascimento != nil)
+      @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
+    end
   end
 
   # POST /associados

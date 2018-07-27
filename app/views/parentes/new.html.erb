@@ -1,5 +1,10 @@
-<h1>New Parente</h1>
+<section>	
+	<div class="row">
+		<div class="col-12 form-associado py-2">
+			<h1 class="text-success">Parente de <%= (Associado.find(params[:associado_id])).nome %></h1>
+			<%= render 'form', parente: @parente %>
+		</div>
+	</div>
+</section>
 
-<%= render 'form', parente: @parente %>
 
-<%= link_to 'Back', parentes_path %>

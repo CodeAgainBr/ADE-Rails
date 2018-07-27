@@ -1,0 +1,48 @@
+<section> 
+  <div class="row">
+    <div class="col-12 form-associado px-5">
+      <h1 class="text-center text-success">
+        Agenda de jogos <%= @data.strftime("%Y") %>
+      </h1>
+      <hr>
+      <% @i = 0 %>
+      <% @jogos_ano.each do |jogos| %>
+        <% @i += 1 %>
+        <% if(jogos.count != 0) %>
+          <div class="row mb-5 bg-gray b-2 b-success br-5 list-agenda">
+            <h3 class="btn btn-block btn-success btn-table btn-lg mt-0 mb-0">
+              <%= @meses[@i-1] %>
+            </h3>
+            <% jogos.each do |jogo|  %>
+              <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
+                <div class="col-8">
+                  <h5>
+                    <%= link_to Clube.find(jogo.clube).nome, jogo %>
+                  </h5>
+                </div>
+
+                <div class="col-auto ml-auto">
+                  <h5>
+                    <%= jogo.horario %>
+                    <% if(jogo.data != nil) %>
+                       - <%= jogo.data.strftime("%d/%m/%Y") %>
+                    <% end %>
+                  </h5>
+                </div>
+
+                <div class="col-auto">
+                  <% if(!jogo.relatorio) %>
+                    <button class="btn btn-primary btn-sm mb-2 ml-2" disabled>Fazer relatório</button>
+                  <% else %>
+                    <button class="btn btn-info btn-sm mb-2 ml-2" disabled>Editar relatório</button>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,102 @@
+<ul class="nav nav-tabs pagination" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="endereco_tab nav-link btn btn-outline-success" href="#endereco" role="tab" data-toggle="tab">Endereço do jogo</a>
+  </li>        
+</ul>
+
+
+<%= form_for(jogo) do |f| %>
+  <% if jogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(jogo.errors.count, "error") %> prohibited this jogo from being saved:</h2>
+
+      <ul>
+      <% jogo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacoes">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.select :clube_id, @clubes.collect { |clube| [clube.nome, clube.id] }, {:include_blank => "Escolha um clube"}, class: "form-control", required: "required" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.date_field :data, class: "form-control", max: "2999-12-31", placeholder: "Data do jogo:" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :horario, class: "horario form-control", placeholder: "Horário" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <% if @jogo.campo_adversario %>
+            <%= f.check_box :campo_adversario, checked: true, class: "campo form-control" %>
+          <% else %>
+            <%= f.check_box :campo_adversario, checked: false, class: "campo form-control" %>
+          <% end %>
+          <%= f.label :campo_adversario, "Local: Campo do adversário? " %>  
+        </div>
+      </div>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="endereco">
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :estado, class: "form-control", placeholder: "Estado" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
+        </div>
+      </div>           
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
+        </div>
+      </div>
+
+      <div class="row no-gutters">
+        <div class="col-12">
+          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions row">
+    <div class="ml-auto col-auto mr-auto">
+      <%= link_to 'Voltar', jogos_path, class: "btn btn-danger" %>
+      <%= f.submit "Salvar", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

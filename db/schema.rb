@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712004046) do
+ActiveRecord::Schema.define(version: 20180713173446) do
 
   create_table "associados", force: :cascade do |t|
     t.string   "nome",             null: false
@@ -32,8 +32,53 @@ ActiveRecord::Schema.define(version: 20180712004046) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "clubes", force: :cascade do |t|
+    t.string   "nome",                 null: false
+    t.string   "cep"
+    t.string   "cep_campo"
+    t.string   "rua"
+    t.string   "rua_campo"
+    t.string   "bairro"
+    t.string   "bairro_campo"
+    t.string   "cidade"
+    t.string   "cidade_campo"
+    t.string   "estado"
+    t.string   "estado_campo"
+    t.integer  "numero"
+    t.integer  "numero_campo"
+    t.string   "categoria"
+    t.string   "cor_camisa_uniforme"
+    t.string   "cor_bermuda_uniforme"
+    t.string   "cor_meias_uniforme"
+    t.boolean  "campo"
+    t.string   "telefone_clube"
+    t.string   "telefone_contato"
+    t.string   "nome_contato"
+    t.date     "data_fundacao"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "jogos", force: :cascade do |t|
+    t.date     "data",             null: false
+    t.string   "horario"
+    t.string   "local"
+    t.boolean  "relatorio"
+    t.boolean  "campo_adversario"
+    t.string   "cep"
+    t.string   "rua"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "estado"
+    t.integer  "numero"
+    t.integer  "clube_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["clube_id"], name: "index_jogos_on_clube_id"
+  end
+
   create_table "parentes", force: :cascade do |t|
-    t.string   "nome"
+    t.string   "nome",            null: false
     t.string   "parentesco"
     t.date     "data_nascimento"
     t.integer  "associado_id"
