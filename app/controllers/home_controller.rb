@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	def index
-		@data = Date.current.strftime("%d/%m/%Y")
+		@data = Date.current
 
 		@jogo = Jogo.where("data >= ?", @data).order(:data).limit(1)[0]
 	end
