@@ -27,7 +27,9 @@
 				<div class="card-footer row no-gutters">
 					<div class="col-sm-6 col-12 text-left">
 						<% if(@jogo != nil) %>
-							<h5><%= @jogo.horario %></h5>
+							<h5>
+								<%= @jogo.data.strftime("%d/%m/%Y") %> - <%= @jogo.horario %>
+							</h5>
 						<% end %>
 					</div>
 
