@@ -9,8 +9,7 @@ class AgendaController < ApplicationController
     @jogos_ano = []
     @i = 1
     while @i <= 12
-      @data_atual = @i.to_s + @data.strftime("%Y")
-      @jogos = Jogo.where("cast(strftime('%m%Y', data) as int) = ?", @data_atual).order(:data)
+      @jogos = Jogo.where("extract(month from data)  = ? and extract(year from data) = ?", @i.to_s, @data.strftime("%Y")).order(:data)
       @jogos_ano.push(@jogos)
       @i += 1
     end
