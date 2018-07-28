@@ -1,7 +1,7 @@
 <section>
 	<div class="row">
 		<div class="col-sm-7 col-12 ml-auto mr-auto">
-			<div class="card t-10 p-2 py-3 bg-success text-white">
+			<div class="card t-10 p-2 pt-3 bg-success text-white">
 				<div class="card-head row no-gutters">
 					<div class="col">
 						<h1 class="text-center">Próximo Jogo</h1>
@@ -9,7 +9,9 @@
 				</div>
 				<div class="card-body row no-gutters bg-white text-dark">
 					<div class="col-sm-5 col-12 text-left align-self-center">
-						<!-- <h3>ADE</h3> -->
+						<% if(@jogo != nil) %>
+							<h3>ADE</h3>
+						<% end %>
 					</div>
 
 					<div class="offset-5 offset-sm-0 col-2 vs text-center align-self-center">
@@ -17,15 +19,26 @@
 					</div>
 
 					<div class="col-sm-5 col-12 text-right align-self-center">
+						<% if(@jogo != nil) %>
+							<h3><%= (Clube.find(@jogo.clube)).nome %></h3>
+						<% end %>
 					</div>
 				</div>
 				<div class="card-footer row no-gutters">
 					<div class="col-sm-6 col-12 text-left">
-						<!-- <h5>16:00</h5> -->
+						<% if(@jogo != nil) %>
+							<h5><%= @jogo.horario %></h5>
+						<% end %>
 					</div>
 
 					<div class="col-sm-6 col-12 text-right">
-						<!-- <h5>Local: Campo do Clube</h5> -->
+						<% if(@jogo != nil) %>
+							<% if(@jogo.campo_adversario) %>
+								<h5>Local: Campo do Clube</h5>
+							<% else %>
+								<h5>Local: Campo Alugado</h5>
+							<% end %>
+						<% end %>
 					</div>
 				</div>
 			</div>
