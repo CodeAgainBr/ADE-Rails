@@ -15,22 +15,28 @@
             </h3>
             <% jogos.each do |jogo|  %>
               <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
-                <div class="col-8">
+                <div class="col-3">
                   <h5>
-                    <%= link_to Clube.find(jogo.clube).nome + " vs ADE", jogo %>
+                    <% if(jogo.data != nil) %>
+                      <%= jogo.data.strftime("%d/%m/%Y") %> -
+                    <% end %>
+                    <%= jogo.horario %>
+                  </h5>
+                </div>  
+
+                <div class="col-4">
+                  <h5>
+                    <%= link_to Clube.find(jogo.clube).nome + " - vs - ADE", jogo %>
+                  </h5>
+                </div>
+
+                <div class="col-3">
+                  <h5>
+                    <%= Jogo.find(jogo.clube).bairro %>
                   </h5>
                 </div>
 
                 <div class="col-auto ml-auto">
-                  <h5>
-                    <%= jogo.horario %>
-                    <% if(jogo.data != nil) %>
-                       - <%= jogo.data.strftime("%d/%m/%Y") %>
-                    <% end %>
-                  </h5>
-                </div>
-
-                <div class="col-auto">
                   <% if(!jogo.relatorio) %>
                     <button class="btn btn-primary btn-sm mb-2 ml-2" disabled>Fazer relatório</button>
                   <% else %>
