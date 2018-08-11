@@ -55,6 +55,10 @@ gem 'devise'
 # Plugin jquery mask
 gem 'jquery_mask_rails', '~> 0.1.0'
 
+# Rails Admin is the best gem for manage database
+gem 'rails_admin', '~> 1.3'
+gem "rails_admin_import", "~> 2.1"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
