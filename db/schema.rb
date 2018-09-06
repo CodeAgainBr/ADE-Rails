@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180713173446) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "associados", force: :cascade do |t|
     t.string   "nome",             null: false
     t.date     "data_nascimento"
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20180713173446) do
     t.integer  "clube_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["clube_id"], name: "index_jogos_on_clube_id"
+    t.index ["clube_id"], name: "index_jogos_on_clube_id", using: :btree
   end
 
   create_table "parentes", force: :cascade do |t|
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20180713173446) do
     t.integer  "associado_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["associado_id"], name: "index_parentes_on_associado_id"
+    t.index ["associado_id"], name: "index_parentes_on_associado_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,8 +103,10 @@ ActiveRecord::Schema.define(version: 20180713173446) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "jogos", "clubes"
+  add_foreign_key "parentes", "associados"
 end
