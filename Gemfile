@@ -59,8 +59,9 @@ gem 'jquery_mask_rails', '~> 0.1.0'
 gem 'rails_admin', '~> 1.3'
 gem "rails_admin_import", "~> 2.1"
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Gems for PDF
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
