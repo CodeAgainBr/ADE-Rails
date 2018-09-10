@@ -27,4 +27,3 @@ test:
 
 production:
   <<: *default
-  database: dachn262cdoa34
