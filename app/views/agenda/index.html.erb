@@ -26,13 +26,27 @@
 
                 <div class="col-4">
                   <h5>
-                    <%= link_to Clube.find(jogo.clube).nome + " - vs - ADE", jogo %>
+                    <%= link_to jogo.clube.nome + " - vs - ADE", jogo %>
                   </h5>
                 </div>
 
                 <div class="col-3">
                   <h5>
-                    <%= Clube.find(jogo.clube).bairro %>
+                    <% if(jogo.campo_adversario) %>
+                      <% if(jogo.clube.bairro_campo != "" and jogo.clube.cidade_campo != "") %>
+                        <%= truncate(jogo.clube.bairro_campo, {length: 15}) + " - " + truncate(jogo.clube.cidade_campo, {length: 15}) %>
+                      <% else %>
+                        <%= jogo.clube.bairro_campo %>
+                        <%= jogo.clube.cidade_campo %>
+                      <% end %>
+                    <% else %>
+                      <% if(jogo.bairro != "" and jogo.cidade != "") %>
+                        <%= truncate(jogo.bairro, {length: 15}) + " - " + truncate(jogo.cidade, {length: 15}) %>
+                      <% else %>
+                        <%= truncate(jogo.bairro, {length: 30}) %>
+                        <%= truncate(jogo.cidade, {length: 30}) %>
+                      <% end %>
+                    <% end %>
                   </h5>
                 </div>
 

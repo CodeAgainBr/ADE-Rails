@@ -20,7 +20,7 @@
 
 					<div class="col-sm-5 col-12 text-right align-self-center">
 						<% if(@jogo != nil) %>
-							<h3><%= (Clube.find(@jogo.clube)).nome %></h3>
+							<h3><%= @jogo.clube.nome %></h3>
 						<% end %>
 					</div>
 				</div>
@@ -36,10 +36,20 @@
 					<div class="col-sm-6 col-12 text-right">
 						<% if(@jogo != nil) %>
 							<% if(@jogo.campo_adversario) %>
-								<h5>Local: Campo do Clube</h5>
-							<% else %>
-								<h5>Local: Campo Alugado</h5>
-							<% end %>
+                <% if(@jogo.clube.bairro_campo != "" and @jogo.clube.cidade_campo != "") %>
+                  <%= truncate(@jogo.clube.bairro_campo, {length: 10}) + " - " + truncate(@jogo.clube.cidade_campo, {length: 10}) %>
+                <% else %>
+                  <%= @jogo.clube.bairro_campo %>
+                  <%= @jogo.clube.cidade_campo %>
+                <% end %>
+              <% else %>
+              	<% if(@jogo.bairro != "" and @jogo.cidade != "") %>
+                  <%= truncate(@jogo.bairro, {length: 10}) + " - " + truncate(@jogo.cidade, {length: 10}) %>
+                <% else %>
+                  <%= truncate(@jogo.bairro, {length: 20}) %>
+                  <%= truncate(@jogo.cidade, {length: 20}) %>
+                <% end %>
+              <% end %>
 						<% end %>
 					</div>
 				</div>
