@@ -11,8 +11,8 @@
 WickedPdf.config = {
 	# exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
 	
-	exe_path: 'C:/Users/Senai/Documents/wkhtmltox/bin/wkhtmltopdf.exe'#if wkhtmltopdf is installed at this path
-	# :layout => 'pdf.html',
+	exe_path: 'C:/Users/Senai/Documents/wkhtmltox/bin/wkhtmltopdf.exe' #if wkhtmltopdf is installed at this path
+	# :layout => 'application.html.erb'
 	# :orientation => 'Landscape',
 	# :page_size => 'Letter',
 	# :footer => { :html => {:template => "layouts/footer.pdf.erb"} }

@@ -9,4 +9,8 @@ class RelatoriosController < ApplicationController
       end
     end
 	end
+
+  def relatorio1
+
+  end
 end
