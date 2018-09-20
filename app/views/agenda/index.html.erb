@@ -17,25 +17,19 @@
               <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
                 <div class="col-3">
                   <h5>
-                    <% if !jogo.data.nil? and jogo.horario != "" %>
-                      <% if !jogo.data.nil? %>
-                        <%= jogo.data.strftime("%d/%m/%Y") + " - " + jogo.horario %>
-                      <% end %>
-                    <% else %>
-                      <% if !jogo.data.nil? %>
-                        <%= jogo.data.strftime("%d/%m/%Y") %>
-                      <% end %> 
-                      <%= jogo.horario %>
+                    <% if(jogo.data != nil) %>
+                      <%= jogo.data.strftime("%d/%m/%Y") %> -
                     <% end %>
-                  </h5>
-                </div>  
-
-                <div class="col-4">
-                  <h5>
-                    <%= link_to jogo.clube.nome + " <i class="fas fa-times"></i> ADE", jogo %>
+                    <%= jogo.horario %>
                   </h5>
                 </div>
-
+                
+                <div class="col-4">
+                  <h5>
+                    <%= link_to jogo.clube.nome + " - vs - ADE", jogo %>
+                  </h5>
+                </div>
+                
                 <div class="col-3">
                   <h5>
                     <% if(jogo.campo_adversario) %>
