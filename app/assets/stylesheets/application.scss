@@ -321,3 +321,8 @@ input[type="date"]:valid:before {
 .list-agenda:last-child {
 	margin-bottom: 0 !important;
 }
+
+.text-outline-dark {
+	color: white;
+	text-shadow: 0px 0px 5px black;
+}

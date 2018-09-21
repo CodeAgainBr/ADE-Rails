@@ -1,7 +1,7 @@
 <div class="container py-5">
   <div class="row py-5">
     <div class="offset-sm-3 col-sm-6 col-12">
-      <div class="card text-white p-5 bg-dark">
+      <div class="card text-white p-5">
         <div class="card-body">
           <h1 class="text-center">Acesse sua conta</h1>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -11,7 +11,7 @@
               <%= f.check_box :remember_me %>
               <%= f.label :remember_me, "Permanecer ativo " %>
             <% end -%>
-            <%= f.submit "Entrar", class: "btn btn-outline-dark btn-block bg-white" %>
+            <%= f.submit "Entrar", class: "btn btn-light btn-block" %>
           <% end %>
         </div>
       </div>

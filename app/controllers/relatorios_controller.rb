@@ -3,6 +3,7 @@ class RelatoriosController < ApplicationController
 	# GET /relatorios
 	def index
     respond_to do |format|
+      format.html
       format.pdf do
         render template: "relatorios/relatorio",
         pdf: "relatorio"
@@ -10,7 +11,7 @@ class RelatoriosController < ApplicationController
     end
 	end
 
-  def relatorio1
+  def relatorio
 
   end
 end

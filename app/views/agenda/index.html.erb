@@ -4,11 +4,13 @@
       <h1 class="text-center text-success">
         Agenda de jogos <%= @data.strftime("%Y") %>
       </h1>
+
       <hr>
+      
       <% @i = 0 %>
       <% @jogos_ano.each do |jogos| %>
         <% @i += 1 %>
-        <% if(jogos.count != 0) %>
+        <% if jogos.count != 0 %>
           <div class="row mb-5 bg-gray b-2 b-success br-5 list-agenda">
             <h3 class="btn btn-block btn-success btn-table btn-lg mt-0 mb-0">
               <%= @meses[@i-1] %>
@@ -17,31 +19,36 @@
               <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
                 <div class="col-3">
                   <h5>
-                    <% if(jogo.data != nil) %>
-                      <%= jogo.data.strftime("%d/%m/%Y") %> -
+                    <% if !jogo.data.nil? and !jogo.horario.nil? %>
+                      <%= jogo.data.strftime("%d/%m/%Y") %> - <%= jogo.horario %>
+                    <% elsif !jogo.data.nil? %>
+                      <%= jogo.data.strftime("%d/%m/%Y") %>
+                    <% else %>
+                      <%= jogo.horario %>
                     <% end %>
-                    <%= jogo.horario %>
                   </h5>
                 </div>  
 
                 <div class="col-4">
                   <h5>
-                    <%= link_to jogo.clube.nome + " - vs - ADE", jogo %>
+                    <%= link_to jogo do %>
+                      <%= jogo.clube.nome %> <i class="fas fa-times text-dark"></i> ADE
+                    <% end %>
                   </h5>
                 </div>
 
                 <div class="col-3">
                   <h5>
-                    <% if(jogo.campo_adversario) %>
-                      <% if(jogo.clube.bairro_campo != "" and jogo.clube.cidade_campo != "") %>
-                        <%= truncate(jogo.clube.bairro_campo, {length: 15}) + " - " + truncate(jogo.clube.cidade_campo, {length: 15}) %>
+                    <% if jogo.campo_adversario %>
+                      <% if (jogo.clube.bairro_campo != "" and !jogo.clube.bairro_campo.nil?) and (jogo.clube.cidade_campo != "" and !jogo.clube.cidade_campo.nil?) %>
+                        <%= truncate(jogo.clube.bairro_campo, {length: 15}) %> - <%= truncate(jogo.clube.cidade_campo, {length: 15}) %>
                       <% else %>
                         <%= jogo.clube.bairro_campo %>
                         <%= jogo.clube.cidade_campo %>
                       <% end %>
                     <% else %>
-                      <% if(jogo.bairro != "" and jogo.cidade != "") %>
-                        <%= truncate(jogo.bairro, {length: 15}) + " - " + truncate(jogo.cidade, {length: 15}) %>
+                      <% if (jogo.bairro != "" and !jogo.bairro.nil?) and (jogo.cidade != "" and !jogo.cidade.nil?) %>
+                        <%= truncate(jogo.bairro, {length: 15}) %> - <%= truncate(jogo.cidade, {length: 15}) %> 
                       <% else %>
                         <%= truncate(jogo.bairro, {length: 30}) %>
                         <%= truncate(jogo.cidade, {length: 30}) %>
@@ -51,10 +58,10 @@
                 </div>
 
                 <div class="col-auto ml-auto">
-                  <% if(!jogo.relatorio) %>
-                    <button class="btn btn-primary btn-sm mb-2 ml-2" disabled>Fazer relatório</button>
-                  <% else %>
+                  <% if jogo.relatorio %>
                     <button class="btn btn-outline-primary btn-sm mb-2 ml-2">Editar relatório</button>
+                  <% else %>
+                    <button class="btn btn-primary btn-sm mb-2 ml-2">Fazer relatório</button>
                   <% end %>
                 </div>
               </div>
@@ -65,4 +72,3 @@
     </div>
   </div>
 </section>
-

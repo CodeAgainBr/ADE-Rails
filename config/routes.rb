@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   root to: 'home#index'
   
   resources :associados
-  resources :parentes
   resources :clubes
   resources :jogos
+  resources :parentes
 
-  get "/agenda", to: "agenda#index"
+  get "/agenda", to: "agenda#index", as: :agenda
+  get "/agenda/telefonica", to: "agenda#telefonica", as: :agenda_telefonica
+  get "/relatorios", to: "relatorios#index", as: :relatorios
   get "/relatorio_jogos", to: "relatorio_jogos#index"
   get "/relatorio_jogador", to: "relatorio_jogador#index"
   get "/relatorio_participacao_parentes", to: "relatorio_participacao_parentes#index"
-  get "/relatorios", to: "relatorios#index", as: :relatorios
 end
