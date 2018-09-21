@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parente: one
+  Relatorio_jogo: one
+
+two:
+  parente: two
+  Relatorio_jogo: two

@@ -1,0 +1,67 @@
+<%= form_for(relatorio_jogadore) do |f| %>
+  <% if relatorio_jogadore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relatorio_jogadore.errors.count, "error") %> prohibited this relatorio_jogadore from being saved:</h2>
+
+      <ul>
+      <% relatorio_jogadore.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :participante_confraternizacao %>
+    <%= f.check_box :participante_confraternizacao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cartao_amarelo %>
+    <%= f.number_field :cartao_amarelo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cartao_vermelho %>
+    <%= f.number_field :cartao_vermelho %>
+  </div>
+
+  <div class="field">
+    <%= f.label :goleiro %>
+    <%= f.check_box :goleiro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gol_pro %>
+    <%= f.number_field :gol_pro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gol_sofrido %>
+    <%= f.number_field :gol_sofrido %>
+  </div>
+
+  <div class="field">
+    <%= f.label :destaque %>
+    <%= f.check_box :destaque %>
+  </div>
+
+  <div class="field">
+    <%= f.label :associado_id %>
+    <%= f.text_field :associado_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :relatorio_id %>
+    <%= f.text_field :relatorio_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

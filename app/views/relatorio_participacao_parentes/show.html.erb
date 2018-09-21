@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parente:</strong>
+  <%= @relatorio_participacao_parente.parente %>
+</p>
+
+<p>
+  <strong>Relatorio jogo:</strong>
+  <%= @relatorio_participacao_parente.Relatorio_jogo %>
+</p>
+
+<%= link_to 'Edit', edit_relatorio_participacao_parente_path(@relatorio_participacao_parente) %> |
+<%= link_to 'Back', relatorio_participacao_parentes_path %>
