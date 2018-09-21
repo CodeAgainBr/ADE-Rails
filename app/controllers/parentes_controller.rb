@@ -10,17 +10,20 @@ class ParentesController < ApplicationController
   # GET /parentes/1
   # GET /parentes/1.json
   def show
+    @associado = Associado.find(params[:associado_id])
   end
 
   # GET /parentes/new
   def new
     @parente = Parente.new
     @parente.associado_id = params[:associado_id]
+    @associado = Associado.find(params[:associado_id])
   end
 
   # GET /parentes/1/edit
   def edit
     @parente.associado_id = params[:associado_id]
+    @associado = Associado.find(params[:associado_id])
   end
 
   # POST /parentes

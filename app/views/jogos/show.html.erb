@@ -1,12 +1,12 @@
 <section>
   <div class="row">
     <div class="col-12 form-associado">
-      <h1 class="text-success text-center" ><%= (Clube.find(@jogo.clube)).nome %> vs ADE</h1> <!-- Preferencia do Cliente -->
+      <h1 class="text-success text-center" ><%= link_to @jogo.clube.nome, @jogo.clube, class: "text-success" %> <i class="fas fa-times fa-xs text-dark"></i> ADE</h1>
       <hr>
 
       <p>
         <strong>Data:</strong>
-        <% if(@jogo.data != nil) %>
+        <% if !@jogo.data.nil? %>
           <%= @jogo.data.strftime("%d/%m/%Y") %>
         <% end %>
       </p>
@@ -16,14 +16,45 @@
         <%= @jogo.horario %>
       </p>
 
-      <% if(@jogo.campo_adversario) %>
+      <% if @jogo.campo_adversario %>
         <p>
           <strong>Local:</strong>
           Campo do adversário
         </p>
+
+        <p>
+          <strong>CEP:</strong>
+          <%= @jogo.clube.cep_campo %>
+        </p>
+
+        <p>
+          <strong>Estado:</strong>
+          <%= @jogo.clube.estado_campo %>
+        </p>
+
+        <p>
+          <strong>Cidade:</strong>
+          <%= @jogo.clube.cidade_campo %>
+        </p>
+
+        <p>
+          <strong>Bairro:</strong>
+          <%= @jogo.clube.bairro_campo %>
+        </p>
+
+        <p>
+          <strong>Rua:</strong>
+          <%= @jogo.clube.rua_campo %>
+        </p>
+
+        <p>
+          <strong>Número:</strong>
+          <%= @jogo.clube.numero_campo %>
+        </p>
       <% else %>
         <p>
-          <h3>Local:</h3>
+          <strong>Local:</strong>
+          Campo alugado
         </p>
 
         <p>
