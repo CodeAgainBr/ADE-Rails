@@ -10,7 +10,7 @@ class CreateRelatorioJogadores < ActiveRecord::Migration[5.0]
       t.integer :gol_sofrido
       t.boolean :destaque
       t.belongs_to :associado, foreign_key: true
-      t.belongs_to :relatorio, foreign_key: true
+      t.belongs_to :relatorio_jogo, foreign_key: true
 
       t.timestamps
     end

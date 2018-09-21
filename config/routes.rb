@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   get "/agenda", to: "agenda#index"
   get "/relatorio_jogos", to: "relatorio_jogos#index"
+  get "/relatorio_jogador", to: "relatorio_jogador#index"
+  get "/relatorio_participacao_parentes", to: "relatorio_participacao_parentes#index"
   get "/relatorios", to: "relatorios#index", as: :relatorios
 end
