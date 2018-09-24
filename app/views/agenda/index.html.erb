@@ -9,11 +9,11 @@
       
       <% @i = 0 %>
       <% @jogos_ano.each do |jogos| %>
-        <% @i++ %>
+        <% @i += 1 %>
         <% if jogos.count != 0 %>
           <div class="row mb-5 bg-gray b-2 b-success br-5 list-agenda">
             <h3 class="btn btn-block btn-success btn-table btn-lg mt-0 mb-0">
-              <%= @meses[@i-1] %>
+              <b><%= @meses[@i-1] %></b>
             </h3>
             <% jogos.each do |jogo|  %>
               <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
