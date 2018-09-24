@@ -19,9 +19,9 @@
               <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
                 <div class="col-3">
                   <h5>
-                    <% if !jogo.data.nil? and !jogo.horario.nil? %>
+                    <% if (jogo.data != "" and !jogo.data.nil?) and (jogo.horario != "" and !jogo.horario.nil?) %>
                       <%= jogo.data.strftime("%d/%m/%Y") %> - <%= jogo.horario %>
-                    <% elsif !jogo.data.nil? %>
+                    <% elsif (jogo.data != "" and !jogo.data.nil?) %>
                       <%= jogo.data.strftime("%d/%m/%Y") %>
                     <% else %>
                       <%= jogo.horario %>
@@ -41,17 +41,17 @@
                   <h5>
                     <% if jogo.campo_adversario %>
                       <% if (jogo.clube.bairro_campo != "" and !jogo.clube.bairro_campo.nil?) and (jogo.clube.cidade_campo != "" and !jogo.clube.cidade_campo.nil?) %>
-                        <%= truncate(jogo.clube.bairro_campo, {length: 15}) %> - <%= truncate(jogo.clube.cidade_campo, {length: 15}) %>
+                        <%= truncate(jogo.clube.bairro_campo, {length: 12}) %> - <%= truncate(jogo.clube.cidade_campo, {length: 12}) %>
                       <% else %>
-                        <%= jogo.clube.bairro_campo %>
-                        <%= jogo.clube.cidade_campo %>
+                        <%= truncate(jogo.clube.bairro_campo, {length: 25}) %>
+                        <%= truncate(jogo.clube.cidade_campo, {length: 25}) %>
                       <% end %>
                     <% else %>
                       <% if (jogo.bairro != "" and !jogo.bairro.nil?) and (jogo.cidade != "" and !jogo.cidade.nil?) %>
-                        <%= truncate(jogo.bairro, {length: 15}) %> - <%= truncate(jogo.cidade, {length: 15}) %> 
+                        <%= truncate(jogo.bairro, {length: 12}) %> - <%= truncate(jogo.cidade, {length: 12}) %> 
                       <% else %>
-                        <%= truncate(jogo.bairro, {length: 30}) %>
-                        <%= truncate(jogo.cidade, {length: 30}) %>
+                        <%= truncate(jogo.bairro, {length: 25}) %>
+                        <%= truncate(jogo.cidade, {length: 25}) %>
                       <% end %>
                     <% end %>
                   </h5>
@@ -59,9 +59,9 @@
 
                 <div class="col-auto ml-auto">
                   <% if jogo.relatorio %>
-                    <button class="btn btn-outline-primary btn-sm mb-2 ml-2">Editar relatório</button>
+                    <button class="btn btn-outline-primary btn-sm mb-2 ml-2" disabled="disabled">Editar relatório</button>
                   <% else %>
-                    <button class="btn btn-primary btn-sm mb-2 ml-2">Fazer relatório</button>
+                    <button class="btn btn-primary btn-sm mb-2 ml-2" disabled="disabled">Fazer relatório</button>
                   <% end %>
                 </div>
               </div>
