@@ -14,7 +14,7 @@
             <tr class="row no-gutters">
               <td class="col-sm-8 col-5">
                 <%= link_to jogo do %><!--Local de armazenamento -->
-                  <%= (Clube.find(jogo.clube)).nome %> vs ADE
+                  <%= jogo.clube.nome %> <i class="fas fa-times text-dark fa-sm"></i> ADE
                 <% end %>
               </td>
 

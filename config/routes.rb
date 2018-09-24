@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :clubes
   resources :jogos
 
-  get "/agenda", to: "agenda#index"
-  get "/relatorios", to: "relatorios#index", as: :relatorios
+  get "/agenda", to: "agenda#index", as: :agenda
+  # get "/agenda/telefonica", to: "agenda#telefonica", as: :agenda_telefonica
+  # get "/relatorios", to: "relatorios#index", as: :relatorios
 end

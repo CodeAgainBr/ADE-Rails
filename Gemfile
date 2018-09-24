@@ -22,15 +22,6 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use Friendly Id for beautiful ID's on URL's
-gem 'friendly_id', '~> 5.1.0'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -40,14 +31,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
 # Bootstrap for Rails
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.3'
 
 # Use Devise for Authentication
 gem 'devise'
@@ -60,16 +45,8 @@ gem 'rails_admin', '~> 1.3'
 gem "rails_admin_import", "~> 2.1"
 
 # Gems for PDF
-gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-
-  # Use Faker to generate fake data
-  gem 'ffaker'
-end
+gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

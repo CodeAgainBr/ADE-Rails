@@ -4,6 +4,8 @@ class HomeController < ApplicationController
 		@data = Date.current
 
 		@jogo = Jogo.where("data >= ?", @data).order(:data).limit(1)[0]
-		@jogo.clube = Clube.find(@jogo.clube)
+		if !@jogo.nil?
+			@jogo.clube = Clube.find(@jogo.clube)
+		end
 	end
 end

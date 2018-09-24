@@ -5,11 +5,15 @@ class JogosController < ApplicationController
   # GET /jogos.json
   def index
     @jogos = Jogo.order(id: :desc)
+    @jogos.each do |jogo|
+      jogo.clube = Clube.find(jogo.clube)
+    end
   end
 
   # GET /jogos/1
   # GET /jogos/1.json
   def show
+    @jogo.clube = Clube.find(@jogo.clube)
   end
 
   # GET /jogos/new
