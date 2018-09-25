@@ -19,7 +19,7 @@
 //= require jquery.mask
 
 $(document).on('turbolinks:load', function() {
-	$('.date').mask('00/00/0000');
+	$('.data').mask('00/00/0000');
 	$('.celular').mask('(00) 00000-0000');
 	$('.telefone').mask('(00) 0000-0000');
 	$('.cep').mask('00000-000');

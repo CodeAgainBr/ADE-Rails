@@ -37,6 +37,8 @@ gem 'bootstrap', '~> 4.1.3'
 # Use Devise for Authentication
 gem 'devise'
 
+gem 'simple_form'
+
 # Plugin jquery mask
 gem 'jquery_mask_rails', '~> 0.1.0'
 
