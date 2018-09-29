@@ -24,9 +24,9 @@
         <%= f.input :cor_meias_uniforme, label: "Cor das meias de uniforme: ", label_html: { class: "text-success" } %>
         <%= f.input :data_fundacao, label: "Data de fundação: ", label_html: { class: "text-success" } %>
         <% if @clube.campo %>
-          <%= f.input :campo, label: "Possui campo?", label_html: { class: "campo text-success" }, input_html: { checked: true } %>
+          <%= f.input :campo, label: "Possui campo?", label_html: { class: "text-success" }, input_html: { checked: true, class: "campo" } %>
         <% else %>
-          <%= f.input :campo, label: "Possui campo?", label_html: { class: "campo text-success" } %>
+          <%= f.input :campo, label: "Possui campo?", label_html: { class: "text-success" }, input_html: { class: "campo" } %>
         <% end %> 
       </div>
 

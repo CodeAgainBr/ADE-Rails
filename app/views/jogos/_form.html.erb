@@ -9,86 +9,27 @@
 </ul>
 
 
-<%= form_for(jogo) do |f| %>
-  <% if jogo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(jogo.errors.count, "error") %> prohibited this jogo from being saved:</h2>
-
-      <ul>
-      <% jogo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="informacoes">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.select :clube_id, @clubes.collect { |clube| [clube.nome, clube.id] }, {:include_blank => "Escolha um clube"}, class: "form-control", required: "required" %>
-        </div>
+<%= simple_form_for(jogo) do |f| %>
+  <div class="form-inputs">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="informacoes">
+        <%= f.input :clube_id, collection: @clubes.collect { |clube| [clube.nome, clube.id] }, label: "Escolha um clube", required: "required", autofocus: true, label_html: { class: "text-success" } %>
+        <%= f.input :data, label: "Data do jogo", required: "required", label_html: { class: "text-success" } %>
+        <%= f.input :horario, label: "Horário do jogo", label_html: { class: "text-success" }, input_html: { class: "horario" } %>
+        <% if @jogo.campo_adversario %>
+          <%= f.input :campo_adversario, label: "Local: campo do adversário? ", label_html: { class: "text-success" }, input_html: { checked: true, class: "campo" } %>
+        <% else %>
+          <%= f.input :campo_adversario, label: "Local: campo do adversário? ", label_html: { class: "text-success" }, input_html: { class: "campo" } %>
+        <% end %>
       </div>
 
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.date_field :data, class: "form-control", max: "2999-12-31", placeholder: "Data do jogo:", required: "required" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :horario, class: "horario form-control", placeholder: "Horário", pattern: "[0-9]{2}:[0-9]{2}", title: "Horário deve ter 4 caracteres numéricos!" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <% if @jogo.campo_adversario %>
-            <%= f.check_box :campo_adversario, checked: true, class: "campo form-control" %>
-          <% else %>
-            <%= f.check_box :campo_adversario, checked: false, class: "campo form-control" %>
-          <% end %>
-          <%= f.label :campo_adversario, "Local: Campo do adversário? " %>  
-        </div>
-      </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="endereco">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :estado, class: "form-control", placeholder: "Estado" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
-        </div>
-      </div>           
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
-        </div>
+      <div role="tabpanel" class="tab-pane" id="endereco">
+          <%= f.input :cep, label: "CEP: ", label_html: { class: "text-success" }, input_html: { class: "cep" } %>
+          <%= f.input :estado, label: "Estado: ", label_html: { class: "text-success" } %>
+          <%= f.input :cidade, label: "Cidade: ", label_html: { class: "text-success" } %>
+          <%= f.input :bairro, label: "Bairro: ", label_html: { class: "text-success" } %>
+          <%= f.input :rua, label: "Rua: ", label_html: { class: "text-success" } %>
+          <%= f.input :numero, label: "Número: ", label_html: { class: "text-success" } %>
       </div>
     </div>
   </div>
