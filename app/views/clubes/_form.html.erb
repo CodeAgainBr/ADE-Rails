@@ -13,162 +13,45 @@
   </li>        
 </ul>
 
-<%= form_for(clube) do |f| %>
-  <% if clube.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(clube.errors.count, "error") %> prohibited this clube from being saved:</h2>
-
-      <ul>
-      <% clube.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>  
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="informacoes">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :nome, class: "form-control", placeholder: "Nome do clube", required: "required" %>
-        </div>
+<%= simple_form_for(clube) do |f| %>
+  <div class="form-inputs">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="informacoes">
+        <%= f.input :nome, label: "Nome: ", required: "required", autofocus: true, label_html: { class: "text-success" } %>
+        <%= f.input :categoria, label: "Categoria: ", label_html: { class: "text-success" } %>
+        <%= f.input :cor_camisa_uniforme, label: "Cor da camisa de uniforme: ", label_html: { class: "text-success" } %>
+        <%= f.input :cor_bermuda_uniforme, label: "Cor da bermuda de uniforme: ", label_html: { class: "text-success" } %>
+        <%= f.input :cor_meias_uniforme, label: "Cor das meias de uniforme: ", label_html: { class: "text-success" } %>
+        <%= f.input :data_fundacao, label: "Data de fundação: ", label_html: { class: "text-success" } %>
+        <% if @clube.campo %>
+          <%= f.input :campo, label: "Possui campo?", label_html: { class: "campo text-success" }, input_html: { checked: true } %>
+        <% else %>
+          <%= f.input :campo, label: "Possui campo?", label_html: { class: "campo text-success" } %>
+        <% end %> 
       </div>
 
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :categoria, class: "form-control", placeholder: "Categoria" %>
-        </div>
+      <div role="tabpanel" class="tab-pane" id="contato">
+        <%= f.input :telefone_clube, label: "Telefone do clube: ", label_html: { class: "text-success" }, input_html: { class: "telefone" } %>
+        <%= f.input :nome_contato, label: "Nome do contato: ", label_html: { class: "text-success" } %>
+        <%= f.input :telefone_contato, label: "Telefone do contato: ", label_html: { class: "text-success" }, input_html: { class: "celular" } %>
       </div>
 
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cor_camisa_uniforme, class: "form-control", placeholder: "Cor da camisa de uniforme" %>
-        </div>
-      </div>          
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cor_bermuda_uniforme, class: "form-control", placeholder: "Cor da bermuda de uniforme" %>
-        </div>
-      </div>          
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cor_meias_uniforme, class: "form-control", placeholder: "Cor das meias de uniforme" %>
-        </div>
-      </div>          
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.date_field :data_fundacao, class: "form-control", placeholder: "Data de fundação", max: "2999-12-31" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <% if @clube.campo %>
-            <%= f.check_box :campo, checked: true, class: "campo form-control" %>
-          <% else %>
-            <%= f.check_box :campo, class: "campo form-control" %>
-          <% end %>
-          <%= f.label :campo, "Possui campo? " %>  
-        </div>
-      </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="contato">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :telefone_clube, class: "telefone form-control", placeholder: "Telefone do clube" %>
-        </div>     
-      </div>
-      
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :nome_contato, class: "form-control", placeholder: "Nome do contato" %>
-        </div>        
-      </div>
-     
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :telefone_contato, class: "celular form-control", placeholder: "Telefone do contato" %>
-        </div>
-      </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="endereco_sede">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :estado, class: "form-control", placeholder: "Estado" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
-        </div>
-      </div>           
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
-        </div>
-      </div>      
-    </div> 
-  
-    <div role="tabpanel" class="tab-pane" id="endereco_campo">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cep_campo, class: "cep form-control", placeholder: "CEP" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :estado_campo, class: "form-control", placeholder: "Estado" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cidade_campo, class: "form-control", placeholder: "Cidade" %>
-        </div>
-      </div>           
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :bairro_campo, class: "form-control", placeholder: "Bairro" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :rua_campo, class: "form-control", placeholder: "Rua" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.number_field :numero_campo, class: "form-control", placeholder: "Número" %>
-        </div>
+      <div role="tabpanel" class="tab-pane" id="endereco_sede">
+        <%= f.input :cep, label: "CEP: ", label_html: { class: "text-success" }, input_html: { class: "cep" } %>
+        <%= f.input :estado, label: "Estado: ", label_html: { class: "text-success" } %>
+        <%= f.input :cidade, label: "Cidade: ", label_html: { class: "text-success" } %>
+        <%= f.input :bairro, label: "Bairro: ", label_html: { class: "text-success" } %>
+        <%= f.input :rua, label: "Rua: ", label_html: { class: "text-success" } %>
+        <%= f.input :numero, label: "Número: ", label_html: { class: "text-success" } %>     
+      </div> 
+    
+      <div role="tabpanel" class="tab-pane" id="endereco_campo">
+        <%= f.input :cep_campo, label: "CEP: ", label_html: { class: "text-success" }, input_html: { class: "cep" } %>
+        <%= f.input :estado_campo, label: "Estado: ", label_html: { class: "text-success" } %>
+        <%= f.input :cidade_campo, label: "Cidade: ", label_html: { class: "text-success" } %>
+        <%= f.input :bairro_campo, label: "Bairro: ", label_html: { class: "text-success" } %>
+        <%= f.input :rua_campo, label: "Rua: ", label_html: { class: "text-success" } %>
+        <%= f.input :numero_campo, label: "Número: ", label_html: { class: "text-success" } %>
       </div>
     </div>
   </div>
