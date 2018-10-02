@@ -2,5 +2,4 @@
 
 <%= render 'form', relatorio_jogo: @relatorio_jogo %>
 
-<%= link_to 'Show', @relatorio_jogo %> |
-<%= link_to 'Back', relatorio_jogos_path %>
+<%= link_to 'Ver', relatorio_jogo_path(id: @relatorio_jogo.jogo) %>

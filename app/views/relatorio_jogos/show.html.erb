@@ -25,10 +25,5 @@
   <%= @relatorio_jogo.responsavel_uniforme %>
 </p>
 
-<p>
-  <strong>Jogo:</strong>
-  <%= @relatorio_jogo.jogo %>
-</p>
-
-<%= link_to 'Edit', edit_relatorio_jogo_path(@relatorio_jogo) %> |
-<%= link_to 'Back', relatorio_jogos_path %>
+<%= link_to 'Editar', edit_relatorio_jogo_path(@relatorio_jogo.jogo) %> |
+<%= link_to 'Voltar', agenda_path %>

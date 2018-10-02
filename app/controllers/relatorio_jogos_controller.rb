@@ -1,20 +1,16 @@
 class RelatorioJogosController < ApplicationController
   before_action :set_relatorio_jogo, only: [:show, :edit, :update, :destroy]
 
-  # GET /relatorio_jogos
-  # GET /relatorio_jogos.json
-  def index
-    @relatorio_jogos = RelatorioJogo.all
-  end
-
   # GET /relatorio_jogos/1
   # GET /relatorio_jogos/1.json
   def show
+    
   end
 
   # GET /relatorio_jogos/new
   def new
     @relatorio_jogo = RelatorioJogo.new
+    @relatorio_jogo.jogo_id = params[:jogo_id]
   end
 
   # GET /relatorio_jogos/1/edit
@@ -28,7 +24,9 @@ class RelatorioJogosController < ApplicationController
 
     respond_to do |format|
       if @relatorio_jogo.save
-        format.html { redirect_to @relatorio_jogo, notice: 'Relatorio jogo was successfully created.' }
+        @jogo = Jogo.find(@relatorio_jogo.jogo_id)
+        @jogo.update(relatorio: true)
+        format.html { redirect_to agenda_path, notice: 'Relatorio de jogo cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @relatorio_jogo }
       else
         format.html { render :new }
@@ -40,9 +38,11 @@ class RelatorioJogosController < ApplicationController
   # PATCH/PUT /relatorio_jogos/1
   # PATCH/PUT /relatorio_jogos/1.json
   def update
+    @relatorio_jogo.jogo_id = params[:jogo_id]
+
     respond_to do |format|
       if @relatorio_jogo.update(relatorio_jogo_params)
-        format.html { redirect_to @relatorio_jogo, notice: 'Relatorio jogo was successfully updated.' }
+        format.html { redirect_to agenda_path, notice: 'Relatorio de jogo Atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @relatorio_jogo }
       else
         format.html { render :edit }
@@ -51,20 +51,10 @@ class RelatorioJogosController < ApplicationController
     end
   end
 
-  # DELETE /relatorio_jogos/1
-  # DELETE /relatorio_jogos/1.json
-  def destroy
-    @relatorio_jogo.destroy
-    respond_to do |format|
-      format.html { redirect_to relatorio_jogos_url, notice: 'Relatorio jogo was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_relatorio_jogo
-      @relatorio_jogo = RelatorioJogo.find(params[:id])
+      @relatorio_jogo = RelatorioJogo.where(jogo_id: params[:id])[0]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

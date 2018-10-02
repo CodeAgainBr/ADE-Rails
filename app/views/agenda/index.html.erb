@@ -59,9 +59,10 @@
 
                 <div class="col-auto ml-auto">
                   <% if jogo.relatorio %>
-                    <button class="btn btn-outline-primary btn-sm mb-2 ml-2">Editar relatório</button>
+                    <%= link_to 'Ver relatório', relatorio_jogo_path(jogo), class: "btn btn-primary btn-sm mb-2 ml-2" %>
                   <% else %>
-                    <button class="btn btn-primary btn-sm mb-2 ml-2">Fazer relatório</button>
+                    <%= link_to 'Fazer relatório', new_relatorio_jogo_path(jogo_id: jogo), class: "btn btn-primary btn-sm mb-2 ml-2" %>
+                    <!-- <button class="btn btn-primary btn-sm mb-2 ml-2">Fazer relatório</button> -->
                   <% end %>
                 </div>
               </div>

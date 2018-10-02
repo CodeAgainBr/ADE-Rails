@@ -1,4 +1,4 @@
-<%= form_for(relatorio_jogo) do |f| %>
+ <%= form_for(relatorio_jogo) do |f| %>
   <% if relatorio_jogo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(relatorio_jogo.errors.count, "error") %> prohibited this relatorio_jogo from being saved:</h2>
@@ -37,8 +37,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :jogo_id %>
-    <%= f.text_field :jogo_id %>
+    <%= f.hidden_field :jogo_id %>
   </div>
 
   <div class="actions">
