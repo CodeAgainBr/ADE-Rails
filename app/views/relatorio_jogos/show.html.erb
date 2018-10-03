@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gols pro:</strong>
+  <%= @relatorio_jogo.gols_pro %>
+</p>
+
+<p>
+  <strong>Gols contra:</strong>
+  <%= @relatorio_jogo.gols_contra %>
+</p>
+
+<p>
+  <strong>Observacao:</strong>
+  <%= @relatorio_jogo.observacao %>
+</p>
+
+<p>
+  <strong>Uniforme:</strong>
+  <%= @relatorio_jogo.uniforme %>
+</p>
+
+<p>
+  <strong>Responsavel uniforme:</strong>
+  <%= @relatorio_jogo.responsavel_uniforme %>
+</p>
+
+<p>
+  <strong>Jogo:</strong>
+  <%= @relatorio_jogo.jogo %>
+</p>
+
+<%= link_to 'Edit', edit_relatorio_jogo_path(@relatorio_jogo) %> |
+<%= link_to 'Back', relatorio_jogos_path %>

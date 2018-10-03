@@ -1,0 +1,47 @@
+<%= form_for(relatorio_jogo) do |f| %>
+  <% if relatorio_jogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relatorio_jogo.errors.count, "error") %> prohibited this relatorio_jogo from being saved:</h2>
+
+      <ul>
+      <% relatorio_jogo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gols_pro %>
+    <%= f.number_field :gols_pro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gols_contra %>
+    <%= f.number_field :gols_contra %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observacao %>
+    <%= f.text_field :observacao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :uniforme %>
+    <%= f.text_field :uniforme %>
+  </div>
+
+  <div class="field">
+    <%= f.label :responsavel_uniforme %>
+    <%= f.text_field :responsavel_uniforme %>
+  </div>
+
+  <div class="field">
+    <%= f.label :jogo_id %>
+    <%= f.text_field :jogo_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

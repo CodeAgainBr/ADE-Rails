@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Relatorio Participacao Parentes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parente</th>
+      <th>Relatorio jogo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relatorio_participacao_parentes.each do |relatorio_participacao_parente| %>
+      <tr>
+        <td><%= relatorio_participacao_parente.parente %></td>
+        <td><%= relatorio_participacao_parente.Relatorio_jogo %></td>
+        <td><%= link_to 'Show', relatorio_participacao_parente %></td>
+        <td><%= link_to 'Edit', edit_relatorio_participacao_parente_path(relatorio_participacao_parente) %></td>
+        <td><%= link_to 'Destroy', relatorio_participacao_parente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relatorio Participacao Parente', new_relatorio_participacao_parente_path %>

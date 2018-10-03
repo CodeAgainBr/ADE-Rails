@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gols_pro: 1
+  gols_contra: 1
+  observacao: MyString
+  uniforme: MyString
+  responsavel_uniforme: MyString
+  jogo: one
+
+two:
+  gols_pro: 1
+  gols_contra: 1
+  observacao: MyString
+  uniforme: MyString
+  responsavel_uniforme: MyString
+  jogo: two

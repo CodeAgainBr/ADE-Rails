@@ -19,13 +19,15 @@
 //= require jquery.mask
 
 $(document).on('turbolinks:load', function() {
-	$('.date').mask('00/00/0000');
+	$('.data').mask('00/00/0000');
 	$('.celular').mask('(00) 00000-0000');
 	$('.telefone').mask('(00) 0000-0000');
 	$('.cep').mask('00000-000');
 	$('.rg').mask('0.000.000');
 	$('.cpf').mask('000.000.000-00');
 	$('.horario').mask('00:00');
+	$('.mes').mask('00');
+	$('.diames').mask('00/00');
 });
 
 function limpa_formulario_cep(prefix, sufix) {
@@ -83,5 +85,13 @@ function cep(prefix, sufix) {
 			//cep sem valor, limpa formulário.
 			limpa_formulario_cep(prefix, sufix);
 		}
+	}
+}
+
+function relatoriosAniversario(referente, tipo, valor) {
+	if((tipo == "" || tipo == undefined) && (valor == "" || valor == undefined)) {
+		window.open("/relatorios/aniversario.pdf?referente=" + referente + "&tipo=anual", "_blank");
+	} else {
+		window.open("/relatorios/aniversario.pdf?referente=" + referente + "&tipo=" + tipo + "&data=" + valor, "_blank");
 	}
 }

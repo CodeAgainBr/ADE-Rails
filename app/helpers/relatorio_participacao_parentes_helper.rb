@@ -1,0 +1,2 @@
+module RelatorioParticipacaoParentesHelper
+end
