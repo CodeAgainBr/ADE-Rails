@@ -1,0 +1,591 @@
+pt-BR:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+
+    abbr_month_names:
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+
+    day_names:
+    - Domingo
+    - Segunda-feira
+    - Terça-feira
+    - Quarta-feira
+    - Quinta-feira
+    - Sexta-feira
+    - Sábado
+
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+
+    order:
+    - :day
+    - :month
+    - :year
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+
+      half_a_minute: meio minuto
+
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+
+      x_days:
+        one: 1 dia
+        other: "%{count} dias"
+
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+
+      x_months:
+        one: 1 mês
+        other: "%{count} meses"
+
+      x_years:
+        one: 1 ano
+        other: "%{count} anos"
+
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      present: deve ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      required: é obrigatório(a)
+      taken: já está em uso
+      too_long:
+        one: 'é muito longo (máximo: 1 caracter)'
+        other: 'é muito longo (máximo: %{count} caracteres)'
+
+      too_short:
+        one: 'é muito curto (mínimo: 1 caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
+
+      wrong_length:
+        one: não possui o tamanho esperado (1 caracter)
+        other: não possui o tamanho esperado (%{count} caracteres)
+
+      other_than: deve ser diferente de %{count}
+
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: 1 erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros'
+
+  helpers:
+    select:
+      prompt: Por favor selecione
+
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+
+          million:
+            one: milhão
+            other: milhões
+
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+
+          unit: ''
+
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+          pb: PB
+          eb: EB
+
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+
+    precision:
+      format:
+        delimiter: "."
+
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+
+  time:
+    am: "am"
+    pm: "pm"
+
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+
+  admin:
+    js:
+      true: Sim
+      false: Não
+      is_present: Está presente
+      is_blank: Está em branco
+      date: Data …
+      between_and_: Entre … e …
+      today: Hoje
+      yesterday: Ontem
+      this_week: Esta semana
+      last_week: Semana passada
+      number: Número …
+      contains: Contém
+      is_exactly: É exatamente
+      starts_with: Começa com
+      ends_with: Termina com
+      too_many_objects: "Muitos objetos. Use a busca acima."
+      no_objects: "Nenhum objeto encontrado"
+
+    loading: "Carregando …"
+    toggle_navigation: Alternar navegação
+    home:
+      name: Página inicial
+
+    pagination:
+      previous: "&laquo; Anterior"
+      next: Próximo &raquo;
+      truncate: …
+
+    misc:
+      filter_date_format: mm/dd/yy
+      search: Buscar
+      filter: Filtro
+      refresh: Atualizar
+      show_all: Mostrar todos
+      add_filter: Adicionar filtro
+      bulk_menu_title: Itens selecionados
+      remove: Remover
+      add_new: Adicionar novo
+      chosen: "%{name} escolhido"
+      chose_all: Escolher todos
+      clear_all: Limpar todos
+      up: Para cima
+      down: Para baixo
+      navigation: Navegação
+      navigation_static_label: "Links"
+      log_out: Sair
+      ago: Atrás
+      more: "Mais %{count} %{models_name}"
+
+    flash:
+      successful: "%{name} foi %{action} com sucesso"
+      error: "%{name} falhou ao ser %{action}"
+      noaction: Nenhuma ação foi tomada
+      model_not_found: Modelo '%{model}' não foi encontrado"
+      object_not_found: "%{model} com id '%{id}' não foi encontrado"
+
+    table_headers:
+      model_name: Nome do modelo
+      last_created: Última entrada
+      last_used: Último acesso
+      records: Entradas
+      username: Usuário
+      changes: Mudanças
+      created_at: Data/Hora
+      item: Item
+      message: Mensagem
+
+    actions:
+      dashboard:
+        title: Administração do site
+        menu: Painel de controle
+        breadcrumb: Painel de controle
+
+      index:
+        title: Lista de %{model_label_plural}
+        menu: Listar
+        breadcrumb: Lista de %{model_label_plural}
+
+      show:
+        title: Mostra
+        menu: Mostrar
+        breadcrumb: Mostrar "%{object_label}"
+
+      show_in_app:
+        menu: Mostrar no app
+
+      new:
+        title: Novo %{model_label}
+        menu: Adicionar novo
+        breadcrumb: Novo
+        link: Adicionar novo %{model_label}
+        done: Adicionado
+
+      edit:
+        title: Editar %{model_label} '%{object_label}'
+        menu: Editar
+        breadcrumb: Editar
+        link: Editar este %{model_label}
+        done: Atualizado
+
+      delete:
+        title: Deletar %{model_label} '%{object_label}'
+        menu: Deletar
+        breadcrumb: Deletar
+        link: Deletar '%{object_label}'
+        done: Deletado
+
+      bulk_delete:
+        title: Deletar %{model_label_plural}
+        menu: Deletar vários
+        breadcrumb: Deletar vários
+        bulk_link: Deletar %{model_label_plural} selecionado
+
+      export:
+        title: Exportar %{model_label_plural}
+        menu: Exportar
+        breadcrumb: Exportar
+        link: Exportar %{model_label_plural}
+        bulk_link: Exportar %{model_label_plural} selecionados
+        done: Exportado
+
+      import:
+        title: "Importar"
+        menu: "Importar"
+        breadcrumb: "Importar"
+        link: "Importar"
+        bulk_link: "Importar"
+        done: "Importado"
+
+      history_index:
+        title: Histórico para %{model_label_plural}
+        menu: Histórico
+        breadcrumb: Histórico
+
+      history_show:
+        title: Histórico para %{model_label} '%{object_label}'
+        menu: Histórico
+        breadcrumb: Histórico
+
+    form:
+      cancel: Cancelar
+      basic_info: Informações básicas
+      required: Necessário
+      optional: Opcional
+      one_char: caractere
+      char_length_up_to: Comprimento até
+      char_length_of: Comprimento
+      save: Salvar
+      save_and_add_another: Salvar e adicionar outro
+      save_and_edit: Salvar e editar
+      all_of_the_following_related_items_will_be_deleted: Todos os arquivos selecionados serão excluídos
+      are_you_sure_you_want_to_delete_the_object: Você tem certeza que deseja excluir
+      confirmation: Sim, tenho certeza
+      bulk_delete: "Os seguintes objetos serão excluídos podendo também excluir objetos relacionados ou deixar relacionamentos órfãos"
+      new_model: "%{name} (novo)"
+
+    export:
+      confirmation: Exportar para %{name}
+      select: Selecione os campos para exportar
+      select_all_fields: Selecionar todos os campos
+      fields_from: Campos de %{name}
+      fields_from_associated: Campos associados a %{name}
+      display: 'Mostrar %{name}: %{type}'
+      options_for: Opções para %{name}
+      empty_value_for_associated_objects: "<vazio>"
+      click_to_reverse_selection: Clique para reverter a seleção
+      csv:
+        header_for_root_methods: "%{name}" # 'model' is available
+        header_for_association_methods: "%{name} [%{association}]"
+        encoding_to: Converter para
+        encoding_to_help: "Escolha o formato de saída. Deixe em branco para não mudar o formato atual: (%{name})"
+        skip_header: Sem cabeçalho
+        skip_header_help: Não incluir o cabeçalho
+        default_col_sep: ","
+        col_sep: Separador de coluna
+        col_sep_help: Deixe em branco para utilizar o padrão ('%{value}') # value is default_col_sep
+
+    import:
+      model_fields: "Campos modelo"
+      association_fields: "Campos associados"
+      file: "Arquivo de dados"
+      missing_file: "Você deve selecionar um arquivo"
+      format: "Formado do arquivo"
+      invalid_format: "Formato de importação inválido."
+      missing_update_lookup: "Seu arquivo deve conter uma coluna para poder 'Atualizar a pesquisa por campo' que você selecionar."
+      invalid_json: "Os dados JSON devem estar em formato de array ou um objeto com uma chave '%{root_key}' atribuída a um conjunto de arrays"
+      update_if_exists: "Atualizar se existir"
+      update_lookup: "Atualizar a pesquisa por campo(s)"
+      mapping: "mapeando"
+      encoding: "Codificação"
+      legend:
+        fields: "Campos a serem importados"
+        upload: "Enviar arquivo"
+        mapping: "Mapeando campos relacionados"
+
+      import_success:
+        create: "Criado %{name}"
+        update: "Atualizado %{name}"
+
+      import_error:
+        create: "Falha ao criar %{name}: %{error}"
+        update: "Falha ao atualizar %{name}: %{error}"
+        general: "Erro durante a importação: %{error}"
+        line_item_limit: "Por favor, limite a quantidade de itens por linha em %{limit} itens."
+        old_import_hook: >
+          O método de importação %{model}.%{method} deve ter apenas 1 argumento.
+          Os dados não foram corretamente importados.
+          Veja a sessão de atualização no 'readme' do 'Rails Admin Import'.
+
+      association_not_found: "Associação não encontrada. %{error}"
+      help:
+        model_fields: "Os seguintes campos devem ser incluídos no arquivo de importação."
+        association_fields: >
+          O mapeamento desses campos, para outras tabelas da base de dados, serão pesquisados através dos atributos selecionados abaixo.
+          Para múltiplas associações, você deve incluir múltiplas colunas com o mesmo cabeçalho no arquivo CSV.
+
+        update_if_exists: "Atualizar campos registrados com o campo pesquisado abaixo, ao invés de criar novos registros"
+        file_limit: "Por favor, limite a quantidade de itens por linha em %{limit} itens."
+        encoding: "Escolha a codificação do arquivo. Deixe vázio para auto-detectar. Ignore para arquivos JSON."
+
+  simple_form:
+    "yes": 'Sim'
+    "no": 'Não'
+    
+    # Required
+    required:
+      text: 'Obrigatório'
+      mark: '*'
+    
+    # Errors      
+    error_notification:
+      default_message: "Alguns erros foram encontrados, por favor verifique:"
+
+    # Labels
+    labels:
+      password: 'Senha:'
+      password_confirmation: 'Confirmar senha:'
+      current_password: 'Senha atual:'
+      nome: 'Nome:'
+      login: 'Login:'
+      email: 'E-mail:'
+      data_nascimento: 'Data de nascimento:'
+
+    # Hints
+    hints:
+      user:
+        edit:
+          password: 'Deixe em branco caso não queira alterar.'
+          password_confirmation: 'Deixe em branco caso não queira alterar.'
+          current_password: 'Precisamos de sua senha atual para confirmar as alterações.'
+
+  devise:
+    confirmations:
+      confirmed: "Sua conta foi confirmada com sucesso."
+      send_instructions: "Você receberá um email com instruções para confirmar sua conta em alguns minutos."
+      send_paranoid_instructions: "Se seu endereço de email existir em nosso banco de dados, você receberá um email com instruções para confirmar sua conta em alguns minutos."
+
+    failure:
+      already_authenticated: "Você já está logado."
+      inactive: "Sua conta ainda não foi ativada."
+      invalid: "%{authentication_keys} ou senha inválida."
+      locked: "Sua conta está bloqueada."
+      last_attempt: "Você tem mais uma tentativa antes de sua conta ser bloqueada."
+      not_found_in_database: "%{authentication_keys} ou senha inválida."
+      timeout: "Sua sessão expirou. Por favor, faça login novamente para continuar."
+      unauthenticated: "Você precisa entrar ou registrar-se antes de continuar."
+      unconfirmed: "Você precisa confirmar seu endereço de email antes de continuar."
+
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de confirmação"
+
+      reset_password_instructions:
+        subject: "Instruções de redefinição de senha"
+
+      unlock_instructions:
+        subject: "Instruções de desbloqueio"
+
+      email_changed:
+        subject: "Email alterado"
+
+      password_change:
+        subject: "Senha alterada"
+
+    omniauth_callbacks:
+      failure: "Não foi possível autenticá-lo em %{kind} porque \"%{reason}\"."
+      success: "Autenticado com sucesso em %{kind}."
+
+    passwords:
+      no_token: "Você não pode acessar esta página para redefinição, por favor tenha certeza de que usou a URL completa recebida."
+      send_instructions: "Você receberá, em breve, um email com instruções de como redefinir sua senha."
+      send_paranoid_instructions: "Se seu endereço de email existir em nosso banco de dados, você receberá um link de redefinição de senha em alguns minutos."
+      updated: "Sua senha foi atualizada com sucesso. Você agora está logado."
+      updated_not_active: "Sua senha foi atualizada com sucesso."
+
+    registrations:
+      destroyed: "Tchau! Sua conta foi cancelada com êxito. Esperamos ver você de novo em breve!"
+      signed_up: "Bem-vindo! Você se registrou com êxito."
+      signed_up_but_inactive: "Você se registrou com êxito. Entretanto, precisa confirmar sua conta antes de fazer login."
+      signed_up_but_locked: "Você se registrou com sucesso. Entretando, sua conta está bloqueada, e não foi possível fazer login."
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para seu endereço de email. Por favor, siga o link para ativar sua conta."
+      update_needs_confirmation: "Você atualizou sua conta com sucesso, mas nós precisamos verificar seu endereço de email. Por favor, cheque sua caixa de entrada e siga o link recebido."
+      updated: "Sua conta foi atualizada com sucesso."
+
+    sessions:
+      signed_in: "Logado com sucesso."
+      signed_out: "Saiu com sucesso."
+      already_signed_out: "Saiu com sucesso."
+
+    unlocks:
+      send_instructions: "Você receberá um email com instruções para desbloquear sua conta em alguns minutos."
+      send_paranoid_instructions: "Se sua conta existir, você receberá um email com instruções para desbloqueá-la em alguns minutos."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Por favor, faça login para continuar."
+
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado, por favor faça login"
+      confirmation_period_expired: "precisava ser confirmada em %{period}, por favor solicite um novo link"
+      expired: "expirou, por favor solicite uma nova"
+      not_found: "não encontrado"
+      not_locked: "não está bloqueada"
+      not_saved:
+        one: "1 erro impediu que %{resource} fosse salvo(a):"
+        other: "%{count} erros impediram que %{resource} fosse salvo(a):"
