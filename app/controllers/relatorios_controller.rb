@@ -81,9 +81,23 @@ class RelatoriosController < ApplicationController
     end
   end
 
-  # private
-  #   # Never trust parameters from the scary internet, only allow the white list through.
-  #   def aniversario_params
-  #     params.require(:aniversario)
-  #   end
+  def prato
+    @pratos = Associado.select(:prato_preferido).group(:prato_preferido).order(count: :desc, prato_preferido: :asc).count
+    respond_to do |format|
+      format.pdf do
+        render template: "relatorios/prato",
+        pdf: "prato-preferido"
+      end
+    end
+  end
+
+  def familiar
+    @familiar = Parente.all.sort {|a, b| a.associado.nome <=> b.associado.nome}
+    respond_to do |format|
+      format.pdf do
+        render template: "relatorios/familiar",
+        pdf: "familiar"
+      end
+    end
+  end
 end
