@@ -69,6 +69,6 @@ class RelatorioParticipacaoParentesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relatorio_participacao_parente_params
-      params.require(:relatorio_participacao_parente).permit(:parente_id, :Relatorio_jogo_id)
+      params.require(:relatorio_participacao_parente).permit(:parente_id, :relatorio_jogo_id)
     end
 end

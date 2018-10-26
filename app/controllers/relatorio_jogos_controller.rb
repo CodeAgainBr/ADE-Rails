@@ -26,7 +26,7 @@ class RelatorioJogosController < ApplicationController
       if @relatorio_jogo.save
         @jogo = Jogo.find(@relatorio_jogo.jogo_id)
         @jogo.update(relatorio: true)
-        format.html { redirect_to agenda_path, notice: 'Relatorio de jogo cadastrado com sucesso.' }
+        format.html { redirect_to relatorio_jogadores_path(relatorio_jogo_id: @relatorio_jogo.id), notice: 'Relatorio de jogo cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @relatorio_jogo }
       else
         format.html { render :new }
@@ -42,12 +42,22 @@ class RelatorioJogosController < ApplicationController
 
     respond_to do |format|
       if @relatorio_jogo.update(relatorio_jogo_params)
-        format.html { redirect_to agenda_path, notice: 'Relatorio de jogo Atualizado com sucesso.' }
+        format.html { redirect_to relatorio_jogadores_path(relatorio_jogo_id: relatorio_jogo.id), notice: 'Relatorio de jogo Atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @relatorio_jogo }
       else
         format.html { render :edit }
         format.json { render json: @relatorio_jogo.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # DELETE /relatorio_jogos/1
+  # DELETE /relatorio_jogos/1.json
+  def destroy
+    @relatorio_jogo.destroy
+    respond_to do |format|
+      format.html { redirect_to relatorio_jogos_url, notice: 'Relatorio jogo was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
