@@ -1,48 +1,37 @@
 class RelatorioJogosController < ApplicationController
   before_action :set_relatorio_jogo, only: [:show, :edit, :update, :destroy]
 
-  # GET /relatorio_jogos
-  # GET /relatorio_jogos.json
-  def index
-    @relatorio_jogos = RelatorioJogo.all
-  end
-
   # GET /relatorio_jogos/1
   # GET /relatorio_jogos/1.json
   def show
+    
   end
 
   # GET /relatorio_jogos/new
   def new
     @relatorio_jogo = RelatorioJogo.new
+    @relatorio_jogo.jogo_id = params[:jogo_id]
+
+    if @relatorio_jogo.save
+      @jogo = Jogo.find(@relatorio_jogo.jogo_id)
+      @jogo.update(relatorio: true)
+      redirect_to edit_relatorio_jogo_path(@relatorio_jogo)
+    end
   end
 
   # GET /relatorio_jogos/1/edit
   def edit
-  end
-
-  # POST /relatorio_jogos
-  # POST /relatorio_jogos.json
-  def create
-    @relatorio_jogo = RelatorioJogo.new(relatorio_jogo_params)
-
-    respond_to do |format|
-      if @relatorio_jogo.save
-        format.html { redirect_to @relatorio_jogo, notice: 'Relatorio jogo was successfully created.' }
-        format.json { render :show, status: :created, location: @relatorio_jogo }
-      else
-        format.html { render :new }
-        format.json { render json: @relatorio_jogo.errors, status: :unprocessable_entity }
-      end
-    end
+    
   end
 
   # PATCH/PUT /relatorio_jogos/1
   # PATCH/PUT /relatorio_jogos/1.json
   def update
+    @relatorio_jogo.jogo_id = params[:jogo_id]
+
     respond_to do |format|
       if @relatorio_jogo.update(relatorio_jogo_params)
-        format.html { redirect_to @relatorio_jogo, notice: 'Relatorio jogo was successfully updated.' }
+        format.html { redirect_to agenda_path, notice: 'Relatório de jogo atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @relatorio_jogo }
       else
         format.html { render :edit }
@@ -56,7 +45,7 @@ class RelatorioJogosController < ApplicationController
   def destroy
     @relatorio_jogo.destroy
     respond_to do |format|
-      format.html { redirect_to relatorio_jogos_url, notice: 'Relatorio jogo was successfully destroyed.' }
+      format.html { redirect_to relatorio_jogos_url, notice: 'Relatório jogo deletado com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :relatorio_jogos
-  resources :relatorio_participacao_parentes
-  resources :relatorio_jogadores
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
@@ -12,6 +9,12 @@ Rails.application.routes.draw do
   resources :clubes
   resources :jogos
   resources :parentes
+
+  resources :relatorio_jogos
+  get "/relatorio_jogos/new/:jogo_id", to: "relatorio_jogos#new", as: :novo_relatorio_jogo
+
+  resources :relatorio_participacao_parentes
+  resources :relatorio_jogadores
 
   get "/agenda", to: "agenda#index", as: :agenda
   get "/agenda/telefonica", to: "agenda#telefonica", as: :agenda_telefonica

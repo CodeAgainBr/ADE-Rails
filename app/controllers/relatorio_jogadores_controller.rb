@@ -14,7 +14,7 @@ class RelatorioJogadoresController < ApplicationController
 
   # GET /relatorio_jogadores/new
   def new
-    @relatorio_jogadore = RelatorioJogadores.new
+    @relatorio_jogador = RelatorioJogadores.new
   end
 
   # GET /relatorio_jogadores/1/edit
@@ -69,6 +69,6 @@ class RelatorioJogadoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def relatorio_jogadore_params
-      params.require(:relatorio_jogadore).permit(:status, :participante_confraternizacao, :cartao_amarelo, :cartao_vermelho, :goleiro, :gol_pro, :gol_sofrido, :destaque, :associado_id, :relatorio_id)
+      params.require(:relatorio_jogadore).permit(:status, :participante_confraternizacao, :cartao_amarelo, :cartao_vermelho, :goleiro, :gol_pro, :gol_sofrido, :destaque, :associado_id, :relatorio_jogo_id)
     end
 end

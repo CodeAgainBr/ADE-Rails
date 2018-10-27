@@ -1,3 +1,13 @@
+<ul class="nav nav-tabs pagination" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="endereco_tab nav-link btn btn-outline-success" href="#jogadores" role="tab" data-toggle="tab">Relatório de jogadores</a>
+  </li>        
+</ul>
+
 <%= form_for(relatorio_jogo) do |f| %>
   <% if relatorio_jogo.errors.any? %>
     <div id="error_explanation">
@@ -11,37 +21,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :gols_pro %>
-    <%= f.number_field :gols_pro %>
-  </div>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="informacoes">
+      <div class="field">
+        <%= f.label :gols_pro %>
+        <%= f.number_field :gols_pro %>
+      </div>
 
-  <div class="field">
-    <%= f.label :gols_contra %>
-    <%= f.number_field :gols_contra %>
-  </div>
+      <div class="field">
+        <%= f.label :gols_contra %>
+        <%= f.number_field :gols_contra %>
+      </div>
 
-  <div class="field">
-    <%= f.label :observacao %>
-    <%= f.text_field :observacao %>
-  </div>
+      <div class="field">
+        <%= f.label :responsavel_uniforme %>
+        <%= f.text_field :responsavel_uniforme %>
+      </div>
 
-  <div class="field">
-    <%= f.label :uniforme %>
-    <%= f.text_field :uniforme %>
-  </div>
+      <div class="field">
+        <%= f.label :uniforme %>
+        <%= f.text_field :uniforme %>
+      </div>
 
-  <div class="field">
-    <%= f.label :responsavel_uniforme %>
-    <%= f.text_field :responsavel_uniforme %>
-  </div>
+      <div class="field">
+        <%= f.label :observacao %>
+        <%= f.text_field :observacao %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :jogo_id %>
-    <%= f.text_field :jogo_id %>
+    <div role="tabpanel" class="tab-pane" id="jogadores">
+      
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar", class: "btn btn-success" %>
   </div>
 <% end %>
