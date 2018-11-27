@@ -37,6 +37,9 @@ gem 'bootstrap', '~> 4.1.3'
 # Use Devise for Authentication
 gem 'devise'
 
+# Simple Form
+gem 'simple_form'
+
 # Plugin jquery mask
 gem 'jquery_mask_rails', '~> 0.1.0'
 
@@ -48,14 +51,8 @@ gem "rails_admin_import", "~> 2.1"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '~> 0.12.3'
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-end
-
-group :production do
-
-end
+# Rails Console
+gem 'web-console', '>= 3.3.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

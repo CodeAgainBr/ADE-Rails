@@ -183,6 +183,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simple_xlsx_reader (1.0.4)
       nokogiri
       rubyzip
@@ -234,6 +237,7 @@ DEPENDENCIES
   rails_admin (~> 1.3)
   rails_admin_import (~> 2.1)
   sass-rails (~> 5.0)
+  simple_form
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

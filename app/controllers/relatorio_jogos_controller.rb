@@ -21,7 +21,7 @@ class RelatorioJogosController < ApplicationController
 
   # GET /relatorio_jogos/1/edit
   def edit
-    
+    @associados = Associado.all.order(:nome)
   end
 
   # PATCH/PUT /relatorio_jogos/1

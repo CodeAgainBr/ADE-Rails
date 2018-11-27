@@ -1,6 +1,10 @@
 /* Importing Bootstrap CSS */
 @import "bootstrap";
 
+.scroll-y {
+	overflow-y: auto;
+}
+
 body {
 	height: 100vh;
 	background-color: #D3D3D3;

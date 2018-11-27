@@ -5,56 +5,43 @@
 
   <li class="nav-item">
     <a class="endereco_tab nav-link btn btn-outline-success" href="#jogadores" role="tab" data-toggle="tab">Relatório de jogadores</a>
-  </li>        
+  </li>
+
+  <li class="nav-item ml-auto">
+    <button onclick="$('form').submit();" class="btn btn-success nav-link">Enviar</button>
+  </li>       
 </ul>
 
-<%= form_for(relatorio_jogo) do |f| %>
-  <% if relatorio_jogo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(relatorio_jogo.errors.count, "error") %> prohibited this relatorio_jogo from being saved:</h2>
-
-      <ul>
-      <% relatorio_jogo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="tab-content">
+<%= simple_form_for(relatorio_jogo) do |f| %>
+  <div class="tab-content scroll-y" style="height: 60vh;">
     <div role="tabpanel" class="tab-pane active" id="informacoes">
-      <div class="field">
-        <%= f.label :gols_pro %>
-        <%= f.number_field :gols_pro %>
-      </div>
-
-      <div class="field">
-        <%= f.label :gols_contra %>
-        <%= f.number_field :gols_contra %>
-      </div>
-
-      <div class="field">
-        <%= f.label :responsavel_uniforme %>
-        <%= f.text_field :responsavel_uniforme %>
-      </div>
-
-      <div class="field">
-        <%= f.label :uniforme %>
-        <%= f.text_field :uniforme %>
-      </div>
-
-      <div class="field">
-        <%= f.label :observacao %>
-        <%= f.text_field :observacao %>
-      </div>
+      <%= f.input :gols_pro %>
+      <%= f.input :gols_contra %>
+      <%= f.input :responsavel_uniforme %>
+      <%= f.input :uniforme %>
+      <%= f.input :observacao %>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="jogadores">
-      
-    </div>
+    <div id="jogadores" role="tabpanel" class="tab-pane">
+      <table class="table table-stripped">
+        <tbody>
+          <% @associados.each do |associado| %>
+            <tr class="row no-gutters mb-0">
+              <td class="col">
+                <%= link_to associado.nome, associado %>
+              </td>
+
+              <td class="col-auto ml-auto">
+                <%= link_to 'Relatório individual', parentes_path(associado_id: associado.id), class: "btn btn-primary btn-sm" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>  
   </div>
 
-  <div class="actions">
-    <%= f.submit "Enviar", class: "btn btn-success" %>
+  <div class="actions mb-2">
+    <%= link_to "Voltar", agenda_path, class: "btn btn-danger" %>
   </div>
 <% end %>
