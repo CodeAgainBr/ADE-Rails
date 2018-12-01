@@ -163,11 +163,11 @@ label[for] {
 	cursor: pointer;
 }
 
-input[type=checkbox]{
+input[type=checkbox] {
   display:none; /* Esconde os inputs */
 }
 
-input[type="checkbox"] + label:after {
+input[type="checkbox"] + label:not(.form-control):after {
   border: 1px solid #5D5C5C;
   content: "\00a0";
   display: inline-block;
@@ -180,15 +180,28 @@ input[type="checkbox"] + label:after {
   border-radius:4px;
 }
  
-input[type="checkbox"]:checked + label:after {
+input[type="checkbox"]:checked + label:not(.form-control):after {
   background-color: #28a745;
   color: #FFF;
   content: "\2713";
   text-align: center;
-}
- 
-input[type="checkbox"]:checked + label:after {
   font-weight: bold;
+}
+
+input[type="checkbox"] + label.form-control {
+	border: 0;
+	text-align: center;
+  color: white !important;
+}
+
+input[type="checkbox"]:checked + label.form-control {
+  background-color: #28a745;
+  color: white !important;
+}
+
+input[type="checkbox"]:not(:checked) + label.form-control {
+  background-color: #dc3545;
+  color: white !important;
 }
 
 textarea.form-control {
