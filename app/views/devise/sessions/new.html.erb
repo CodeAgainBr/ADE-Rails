@@ -1,17 +1,20 @@
-<div class="container py-5">
+<div class="container py-5 px-0">
+  <div class="text-center">
+    <img id="logo-green" src="../../../assets/logo-verde.png" width="150" class="shadow mt-2">
+  </div>
   <div class="row py-5">
-    <div class="offset-sm-3 col-sm-6 col-12">
-      <div class="card text-white p-5">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+      <div class="card text-white p-2">
         <div class="card-body">
-          <h1 class="text-center">Acesse sua conta</h1>
+          <h3 class="title text-center pb-3">Acesse sua conta</h3>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Senha" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2 col-11 mx-auto", placeholder: "Email" %>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control col-11 mx-auto", placeholder: "Senha" %>
             <% if devise_mapping.rememberable? -%>
               <%= f.check_box :remember_me %>
-              <%= f.label :remember_me, "Permanecer ativo " %>
+              <%= f.label :remember_me, "Permanecer ativo ", class: "ml-3" %>
             <% end -%>
-            <%= f.submit "Entrar", class: "btn btn-light btn-block" %>
+            <%= f.submit "Entrar", class: "btn btn-success col-11 ml-3 mt-2 py-2 text-uppercase text-white weight-500" %>
           <% end %>
         </div>
       </div>
