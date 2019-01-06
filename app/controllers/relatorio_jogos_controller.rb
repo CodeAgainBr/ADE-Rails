@@ -10,29 +10,28 @@ class RelatorioJogosController < ApplicationController
   # GET /relatorio_jogos/new
   def new
     @relatorio_jogo = RelatorioJogo.new
-    @relatorio_jogo.jogo_id = params[:jogo_id]
+    @relatorio_jogo.jogo_id = params[:id]
 
     if @relatorio_jogo.save
       @jogo = Jogo.find(@relatorio_jogo.jogo_id)
       @jogo.update(relatorio: true)
-      redirect_to edit_relatorio_jogo_path(@relatorio_jogo)
+      redirect_to edit_relatorio_jogo_path(@relatorio_jogo.jogo_id)
     end
   end
 
   # GET /relatorio_jogos/1/edit
   def edit
-    @associados = Associado.all.order(:nome)
   end
 
   # PATCH/PUT /relatorio_jogos/1
   # PATCH/PUT /relatorio_jogos/1.json
   def update
-    @relatorio_jogo.jogo_id = params[:jogo_id]
-
+    @relatorio_jogo = RelatorioJogo.find(params[:id])
+    
     respond_to do |format|
       if @relatorio_jogo.update(relatorio_jogo_params)
-        format.html { redirect_to agenda_path, notice: 'Relatório de jogo atualizado com sucesso.' }
-        format.json { render :show, status: :ok, location: @relatorio_jogo }
+        format.html { render :edit, notice: 'Relatório de jogo atualizado com sucesso.' }
+        format.json { render :show, status: :ok, location: @relatorio_jogo.jogo_id }
       else
         format.html { render :edit }
         format.json { render json: @relatorio_jogo.errors, status: :unprocessable_entity }
@@ -45,7 +44,7 @@ class RelatorioJogosController < ApplicationController
   def destroy
     @relatorio_jogo.destroy
     respond_to do |format|
-      format.html { redirect_to relatorio_jogos_url, notice: 'Relatório jogo deletado com sucesso.' }
+      format.html { redirect_to agenda_path, notice: 'Relatório jogo deletado com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -53,7 +52,8 @@ class RelatorioJogosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_relatorio_jogo
-      @relatorio_jogo = RelatorioJogo.find(params[:id])
+      @relatorio_jogo = RelatorioJogo.where(jogo_id: params[:id])[0]
+      @associados = Associado.all.order(:nome)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

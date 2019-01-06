@@ -236,6 +236,7 @@ DEPENDENCIES
   rails (~> 5.0.7)
   rails_admin (~> 1.3)
   rails_admin_import (~> 2.1)
+  responders (~> 2.0)
   sass-rails (~> 5.0)
   simple_form
   turbolinks (~> 5)
@@ -249,4 +250,4 @@ RUBY VERSION
    ruby 2.2.5p319
 
 BUNDLED WITH
-   1.16.4
+   1.17.3

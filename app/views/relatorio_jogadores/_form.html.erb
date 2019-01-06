@@ -1,10 +1,10 @@
-<%= form_for(relatorio_jogadore) do |f| %>
-  <% if relatorio_jogadore.errors.any? %>
+<%= simple_form_for(relatorio_jogador, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+  <% if relatorio_jogador.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(relatorio_jogadore.errors.count, "error") %> prohibited this relatorio_jogadore from being saved:</h2>
+      <h2><%= pluralize(relatorio_jogador.errors.count, "error") %> prohibited this relatorio_jogador from being saved:</h2>
 
       <ul>
-      <% relatorio_jogadore.errors.full_messages.each do |message| %>
+      <% relatorio_jogador.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

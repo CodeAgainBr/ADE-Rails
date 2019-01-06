@@ -54,5 +54,8 @@ gem 'wkhtmltopdf-binary', '~> 0.12.3'
 # Rails Console
 gem 'web-console', '>= 3.3.0'
 
+# Internal Requests for Modals
+gem 'responders', '~> 2.0'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
