@@ -20,21 +20,21 @@
   </thead>
 
   <tbody>
-    <% @relatorio_jogadores.each do |relatorio_jogadore| %>
+    <% @relatorio_jogadores.each do |relatorio_jogador| %>
       <tr>
-        <td><%= relatorio_jogadore.status %></td>
-        <td><%= relatorio_jogadore.participante_confraternizacao %></td>
-        <td><%= relatorio_jogadore.cartao_amarelo %></td>
-        <td><%= relatorio_jogadore.cartao_vermelho %></td>
-        <td><%= relatorio_jogadore.goleiro %></td>
-        <td><%= relatorio_jogadore.gol_pro %></td>
-        <td><%= relatorio_jogadore.gol_sofrido %></td>
-        <td><%= relatorio_jogadore.destaque %></td>
-        <td><%= relatorio_jogadore.associado %></td>
-        <td><%= relatorio_jogadore.relatorio_jogo %></td>
-        <td><%= link_to 'Show', relatorio_jogadore %></td>
-        <td><%= link_to 'Edit', edit_relatorio_jogadore_path(relatorio_jogadore) %></td>
-        <td><%= link_to 'Destroy', relatorio_jogadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= relatorio_jogador.status %></td>
+        <td><%= relatorio_jogador.participante_confraternizacao %></td>
+        <td><%= relatorio_jogador.cartao_amarelo %></td>
+        <td><%= relatorio_jogador.cartao_vermelho %></td>
+        <td><%= relatorio_jogador.goleiro %></td>
+        <td><%= relatorio_jogador.gol_pro %></td>
+        <td><%= relatorio_jogador.gol_sofrido %></td>
+        <td><%= relatorio_jogador.destaque %></td>
+        <td><%= relatorio_jogador.associado %></td>
+        <td><%= relatorio_jogador.relatorio_jogo %></td>
+        <td><%= link_to 'Show', relatorio_jogador %></td>
+        <td><%= link_to 'Edit', edit_relatorio_jogador_path(relatorio_jogador) %></td>
+        <td><%= link_to 'Destroy', relatorio_jogador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Relatorio Jogadore', new_relatorio_jogadore_path %>
+<%= link_to 'New Relatorio Jogador', new_relatorio_jogador_path %>

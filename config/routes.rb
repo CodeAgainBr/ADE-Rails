@@ -11,10 +11,8 @@ Rails.application.routes.draw do
   resources :parentes
 
   resources :relatorio_jogos
-  get "/relatorio_jogos/new/:jogo_id", to: "relatorio_jogos#new", as: :novo_relatorio_jogo
-
-  resources :relatorio_participacao_parentes
   resources :relatorio_jogadores
+  resources :relatorio_participacao_parentes
 
   get "/agenda", to: "agenda#index", as: :agenda
   get "/agenda/telefonica", to: "agenda#telefonica", as: :agenda_telefonica
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
   get "/relatorios/prato.pdf", to: "relatorios#prato", as: :relatorios_prato
   get "/relatorios/familiar.pdf", to: "relatorios#familiar", as: :relatorios_familiar
   
-  get "/relatorio_jogos", to: "relatorio_jogos#index"
-  get "/relatorio_jogador", to: "relatorio_jogador#index"
-  get "/relatorio_participacao_parentes", to: "relatorio_participacao_parentes#index"
+  # get "/relatorio_jogos", to: "relatorio_jogos#index"
+  # get "/relatorio_jogador", to: "relatorio_jogador#index"
+  # get "/relatorio_participacao_parentes", to: "relatorio_participacao_parentes#index"
 end
