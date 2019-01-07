@@ -1,8 +1,6 @@
 $(document).on('turbolinks:load', function() {
 	$("#associado_cep").blur(function(){cep("associado", "")});
-});
-
-$(document).ready(function(){
+	
 	if(window.innerWidth <= 426) {
 		$('.col-assoc-name').removeClass('col-5');
 		$('.col-assoc-name').addClass('col-12 text-center');
@@ -22,5 +20,6 @@ $(document).ready(function(){
 			$('.col-assoc-actions').removeClass('col-12 text-center');				
 			$('.col-assoc-actions').addClass('col-auto ml-auto');
 		}	
-	})
-})
+	})	
+});
+

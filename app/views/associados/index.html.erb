@@ -1,6 +1,6 @@
 <section>
-  <div class="row mt-3">
-    <div class="col-12">
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-11 mx-auto">
       <table class="table table-stripped">
         <thead>
           <tr>
@@ -10,6 +10,14 @@
           </tr>
         </thead>
         <tbody>
+          <% if @associados == [] %>
+            <tr class="row no-gutters">
+              <td class="col-12 text-center">
+                <span class="weight-500">Não há associados cadastrados!</span>
+              </td>
+            </tr>          
+          <% end %>
+
           <% @associados.each do |associado| %>
             <tr class="row no-gutters">
               <td class="col-assoc-name col-5">

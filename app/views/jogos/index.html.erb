@@ -1,6 +1,6 @@
 <section>
   <div class="row mt-3">
-    <div class="col-12">
+    <div class="col-sm-12 col-md-11 mx-auto">
       <table class="table table-stripped">
         <thead>
           <tr>
@@ -10,6 +10,14 @@
           </tr>
         </thead>
         <tbody>
+          <% if @jogos == [] %>
+            <tr class="row no-gutters">
+              <td class="col-12 text-center">
+                <span class="weight-500">Não há jogos cadastrados!</span>
+              </td>
+            </tr>          
+          <% end %>
+
           <% @jogos.each do |jogo| %>
             <tr class="row no-gutters">
               <td class="col-sm-8 col-5">
