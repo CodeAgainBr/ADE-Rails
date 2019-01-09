@@ -10,7 +10,7 @@ class RelatorioJogosController < ApplicationController
   # GET /relatorio_jogos/new
   def new
     @relatorio_jogo = RelatorioJogo.new
-    @relatorio_jogo.jogo_id = params[:id]
+    @relatorio_jogo.jogo_id = params[:jogo_id]
 
     if @relatorio_jogo.save
       @jogo = Jogo.find(@relatorio_jogo.jogo_id)

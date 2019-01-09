@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  participante_confraternizacao: false
+  cartao_amarelo: 1
+  cartao_vermelho: 1
+  goleiro: false
+  gol_pro: 1
+  gol_sofrido: 1
+  destaque: false
+  associado: one
+  relatorio_jogo: one
+
+two:
+  status: MyString
+  participante_confraternizacao: false
+  cartao_amarelo: 1
+  cartao_vermelho: 1
+  goleiro: false
+  gol_pro: 1
+  gol_sofrido: 1
+  destaque: false
+  associado: two
+  relatorio_jogo: two

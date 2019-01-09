@@ -1,0 +1,33 @@
+
+<%= simple_form_for(@avaliacao_jogador) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+    <%= f.input :status %>
+
+    <%= f.input :participante_confraternizacao %>
+
+    <%= f.input :cartao_amarelo %>
+
+    <%= f.input :cartao_vermelho %>
+
+    <%= f.input :goleiro %>
+
+    <%= f.input :gol_pro %>
+
+    <%= f.input :gol_sofrido %>
+
+    <%= f.input :destaque %>
+
+    <%= f.association :associado %>
+
+    <%= f.association :relatorio_jogo %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180921005203) do
+ActiveRecord::Schema.define(version: 20190108233613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,23 @@ ActiveRecord::Schema.define(version: 20180921005203) do
     t.text     "observacoes"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "avaliacao_jogadores", force: :cascade do |t|
+    t.string   "status"
+    t.boolean  "participante_confraternizacao"
+    t.integer  "cartao_amarelo"
+    t.integer  "cartao_vermelho"
+    t.boolean  "goleiro"
+    t.integer  "gol_pro"
+    t.integer  "gol_sofrido"
+    t.boolean  "destaque"
+    t.integer  "associado_id"
+    t.integer  "relatorio_jogo_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["associado_id"], name: "index_avaliacao_jogadores_on_associado_id", using: :btree
+    t.index ["relatorio_jogo_id"], name: "index_avaliacao_jogadores_on_relatorio_jogo_id", using: :btree
   end
 
   create_table "clubes", force: :cascade do |t|
@@ -145,6 +162,8 @@ ActiveRecord::Schema.define(version: 20180921005203) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "avaliacao_jogadores", "associados"
+  add_foreign_key "avaliacao_jogadores", "relatorio_jogos"
   add_foreign_key "jogos", "clubes"
   add_foreign_key "parentes", "associados"
   add_foreign_key "relatorio_jogadores", "associados"
