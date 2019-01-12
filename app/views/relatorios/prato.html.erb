@@ -1,0 +1,19 @@
+<p class="text-center mb-0">
+	<b class="h3">Pratos preferidos</b>
+</p>
+
+<table class="table table-striped table-bordered">
+	<tr>
+		<th>Nome</th>
+		<th>Quantidade</th>
+	</tr>
+
+	<% @pratos.each do |a| %>
+		<% if a[1] != 0 and a[1] != "" %>
+			<tr>
+				<td><%= a[0] %></td>
+				<td><%= a[1] %></td>
+			</tr>
+			<% end %>
+	<% end %>
+</table>

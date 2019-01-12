@@ -2,18 +2,14 @@ class RelatoriosController < ApplicationController
 
 	# GET /relatorios
 	def index
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render template: "relatorios/relatorio",
-        pdf: "relatorio"
-      end
-    end
 	end
 
   #GET /relatorios/aniversario
-  #GET /relatorios/aniversario.pdf
   def aniversario
+  end
+
+  #GET /relatorios/aniversario/pdf
+  def aniversario_pdf
     if params[:referente] == "geral"
       if params[:tipo] == "anual"
         @associados = Associado.all.order(:nome)
@@ -71,33 +67,13 @@ class RelatoriosController < ApplicationController
         @clubes = Clube.where("extract(day from data_fundacao)  = ? and extract(month from data_fundacao)  = ?", params[:data].split("/")[0], params[:data].split("/")[1])
       end
     end
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render template: "relatorios/aniversario",
-        pdf: "aniversario"
-      end
-    end
   end
 
   def prato
     @pratos = Associado.select(:prato_preferido).group(:prato_preferido).order(count: :desc, prato_preferido: :asc).count
-    respond_to do |format|
-      format.pdf do
-        render template: "relatorios/prato",
-        pdf: "prato-preferido"
-      end
-    end
   end
 
   def familiar
     @familiar = Parente.all.sort {|a, b| a.associado.nome <=> b.associado.nome}
-    respond_to do |format|
-      format.pdf do
-        render template: "relatorios/familiar",
-        pdf: "familiar"
-      end
-    end
   end
 end
