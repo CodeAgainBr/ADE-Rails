@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :avaliacao_jogadores
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users
@@ -15,6 +14,11 @@ Rails.application.routes.draw do
   get "/relatorio_jogos/new/:jogo_id", to: "relatorio_jogos#new", as: :novo_relatorio_jogo
 
   resources :relatorio_jogadores
+
+  resources :avaliacao_jogadores
+  get "/avaliacao/jogador/new/:associado_id/:relatorio_jogo_id", to: "avaliacao_jogadores#new", as: :nova_avaliacao_jogador
+  get "/avaliacao/jogador/edit/:associado_id", to: "avaliacao_jogadores#new", as: :editar_avaliacao_jogador
+
   resources :relatorio_participacao_parentes
 
   get "/agenda", to: "agenda#index", as: :agenda
@@ -24,8 +28,4 @@ Rails.application.routes.draw do
   get "/relatorios/aniversario", to: "relatorios#aniversario", as: :relatorios_aniversario
   get "/relatorios/prato.pdf", to: "relatorios#prato", as: :relatorios_prato
   get "/relatorios/familiar.pdf", to: "relatorios#familiar", as: :relatorios_familiar
-  
-  # get "/relatorio_jogos", to: "relatorio_jogos#index"
-  # get "/relatorio_jogador", to: "relatorio_jogador#index"
-  # get "/relatorio_participacao_parentes", to: "relatorio_participacao_parentes#index"
 end

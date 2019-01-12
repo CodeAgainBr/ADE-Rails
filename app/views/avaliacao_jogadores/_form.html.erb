@@ -1,5 +1,4 @@
-
-<%= simple_form_for(@avaliacao_jogador) do |f| %>
+<%= simple_form_for(@avaliacao_jogador, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -21,13 +20,11 @@
 
     <%= f.input :destaque %>
 
-    <%= f.association :associado %>
-
     <%= f.association :relatorio_jogo %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Enviar", class: "btn btn-success float-right", input_html: { onclick: "window.location = window.location" } %>
   </div>
 <% end %>

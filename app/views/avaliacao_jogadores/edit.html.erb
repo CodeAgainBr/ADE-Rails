@@ -1,6 +1,6 @@
-<h1>Editing Avaliacao Jogador</h1>
-
-<%= render 'form', avaliacao_jogador: @avaliacao_jogador %>
-
-<%= link_to 'Show', @avaliacao_jogador %> |
-<%= link_to 'Back', avaliacao_jogadores_path %>
+<div class="row">
+	<div class="col-12 px-4">
+		<%= content_for(:title, "Avaliação de " + @avaliacao_jogador.associado.nome) %>
+		<%= render 'form', avaliacao_jogador: @avaliacao_jogador %>
+	</div>
+</div>
