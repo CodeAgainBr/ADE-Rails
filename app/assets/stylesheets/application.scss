@@ -347,3 +347,16 @@ input[type="date"]:valid:before {
 .fa-90d {
 	transform: rotate(90deg);
 }
+
+.imprimir {
+	display:none;
+}
+
+@media print {
+	.tabela-padrao {
+		display: none;
+	}
+	.imprimir {
+		display: block;
+	}
+}

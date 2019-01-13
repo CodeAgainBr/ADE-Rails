@@ -1,0 +1,82 @@
+<p class="text-center mb-0">
+	<b class="h3">Relatório familiar</b>
+</p>
+<div class="tabela-padrao">
+	<button onclick="imprimir()">Imprimir</button>
+	<table class="table table-striped table-bordered text-center">
+		<tr>
+			<th>Nome</th>
+			<th>Parente</th>
+			<th>Parentesco</th>
+		</tr>
+
+		<% @temp = "" %>
+		<% @familiar.each do |a| %>
+			<% if @temp != a.associado.nome %>
+				<% @temp = a.associado.nome %>
+
+				<tr>
+					<td><b><%= a.associado.nome %></b></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td>
+						<i class="fas fa-level-up-alt fa-90d"></i>
+					</td>
+					<td><%= a.nome %></td>
+					<td><%= a.parentesco %></td>
+				</tr>
+				<%  %>
+			<% else %>
+				<tr>
+					<td class="text-center">
+						<i class="fas fa-level-up-alt fa-90d"></i>
+					</td>
+					<td><%= a.nome %></td>
+					<td><%= a.parentesco %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>
+<div class="imprimir">
+	<table class="table table-striped table-bordered text-center">
+		<tr>
+			<th>Nome</th>
+			<th>Parente</th>
+			<th>Parentesco</th>
+		</tr>
+
+		<% @temp = "" %>
+		<% @familiar.each do |a| %>
+			<% if @temp != a.associado.nome %>
+				<% @temp = a.associado.nome %>
+
+				<tr>
+					<td><b><%= a.associado.nome %></b></td>
+					<td></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td>
+						<i class="fas fa-level-up-alt fa-90d"></i>
+					</td>
+					<td><%= a.nome %></td>
+					<td><%= a.parentesco %></td>
+				</tr>
+				<%  %>
+			<% else %>
+				<tr>
+					<td class="text-center">
+						<i class="fas fa-level-up-alt fa-90d"></i>
+					</td>
+					<td><%= a.nome %></td>
+					<td><%= a.parentesco %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>
