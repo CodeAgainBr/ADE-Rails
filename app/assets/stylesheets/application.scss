@@ -188,6 +188,10 @@ input[type="checkbox"]:checked + label:not(.form-control):after {
   font-weight: bold;
 }
 
+.weight-500 {
+	font-weight: 500 !important;
+}
+
 input[type="checkbox"] + label.form-control {
 	border: 0;
 	text-align: center;
