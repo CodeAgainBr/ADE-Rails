@@ -4,27 +4,28 @@
 
   <div class="form-inputs">
 
-    <%= f.input :status %>
+    <%= f.input :status, as: :select %>
 
-    <%= f.input :participante_confraternizacao %>
+    <%= f.input :participante_confraternizacao, label: "Participou da confraternização: " %>
 
-    <%= f.input :cartao_amarelo %>
+    <%= f.input :cartao_amarelo, as: :radio_buttons, label: "Cartão amarelo: ", collection: [0, 1, 2] %>
 
-    <%= f.input :cartao_vermelho %>
+    <%= f.input :cartao_vermelho, as: :boolean, label: "Cartão vermelho: ", checked_value: 1, unchecked_value: 0 %>
 
-    <%= f.input :goleiro %>
+    <%= f.input :goleiro, label: "Goleiro: " %>
 
-    <%= f.input :gol_pro %>
+    <%= f.input :gol_pro, label: "Gol(s) pró: " %>
 
-    <%= f.input :gol_sofrido %>
+    <%= f.input :gol_sofrido, label: "Gol(s) sofridos: " %>
 
-    <%= f.input :destaque %>
+    <%= f.input :destaque, label: "Jogador destaque: " %>
 
-    <%= f.association :relatorio_jogo %>
+    <%= f.input :associado_id, as: :hidden %>
+    <%= f.input :relatorio_jogo_id, as: :hidden %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.submit "Enviar", class: "btn btn-success float-right", input_html: { onclick: "window.location = window.location" } %>
+    <%= f.submit "Salvar", class: "btn btn-success float-right", onclick: "$('.modal').modal('toggle');" %>
   </div>
 <% end %>

@@ -55,11 +55,7 @@
             </td>
 
             <td class="col-auto ml-auto">
-              <% if AvaliacaoJogador.where(associado_id: associado.id).count == 0 %>
-                <%= link_to 'Relatório individual', nova_avaliacao_jogador_path(associado.id, , relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
-              <% else %>
-                <%= link_to 'Relatório individual', editar_avaliacao_jogador_path(associado.id, relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
-              <% end %>
+              <%= link_to 'Relatório individual', nova_avaliacao_jogador_path(associado.id, relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
             </td>
           </tr>
         <% end %>
@@ -68,62 +64,33 @@
   </div>  
 
   <div id="parentes" role="tabpanel" class="tab-pane">
-    <form>
-      <div class="form-group">
-        <label class="form-control-label mb-0" for="individual_status">Status:</label>
-        <input class="form-control" type="text" name="individual_status" id="individual_status">
-      </div>
+    <table class="table table-stripped">
+      <thead>
+        <tr class="row no-gutters mb-0">
+          <th class="col-5">Parente</th>
+          <th class="col-5">Associado</th>
+          <th class="col-2"> </th>
+        </tr>
+      </thead>
 
-      <div class="form-group">
-        <label class="form-control-label mb-0" for="individual_gol_pro">Gols feitos:</label>
-        <input class="form-control" type="number" name="individual_gol_pro" id="individual_gol_pro">
-      </div>
-      
-      <div class="form-group">
-        <label class="form-control-label mb-0" for="individual_gol_sofrido">Gols sofridos:</label>
-        <input class="form-control" type="number" name="individual_gol_sofrido" id="individual_gol_sofrido">
-      </div>
+      <tbody>
+        <% @parentes.each do |parente| %>
+          <tr class="row no-gutters mb-0">
+            <td class="col">
+              <%= link_to parente.nome, parente %>
+            </td>
 
-      <div class="form-group">
-        <label class="form-control-label mb-0" for="individual_cartao_amarelo">Cartões amarelos:</label>
-        <input class="form-control" type="number" name="individual_cartao_amarelo" id="individual_cartao_amarelo">
-      </div>
-      
-      <div class="row no-gutters">
-        <div class="col-6 pr-2">
-          <div class="form-group">
-            <input class="form-control" type="checkbox" name="individual_cartao_vermelho" id="individual_cartao_vermelho">
-            <label class="form-control-label form-control" for="individual_cartao_vermelho">Cartão vermelho</label>
-          </div>
-        </div>
-        
-        <div class="col-6 pl-2">
-          <div class="form-group">
-            <input class="form-control" type="checkbox" name="individual_goleiro" id="individual_goleiro">
-            <label class="form-control-label form-control" for="individual_goleiro">Goleiro</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row no-gutters">
-        <div class="col-6 pr-2">
-          <div class="form-group">
-            <input class="form-control" type="checkbox" name="individual_participante_confraternizacao" id="individual_participante_confraternizacao">
-            <label class="form-control-label form-control" for="individual_participante_confraternizacao">Participou da confraternização</label>
-          </div>
-        </div>
-        
-        <div class="col-6 pl-2">
-          <div class="form-group">
-            <input class="form-control" type="checkbox" name="individual_destaque" id="individual_destaque">
-            <label class="form-control-label form-control" for="individual_destaque">Destaque</label>
-          </div>
-        </div>
-      </div>
+            <td class="col">
+              <%= link_to parente.associado.nome, parente.associado %>
+            </td>
 
-      <input type="hidden" name="individual_associado">
-      <input type="hidden" name="individual_jogo">
-    </form>
+            <td class="col-auto ml-auto">
+              <%= link_to 'Relatório de parente', nova_avaliacao_parente_path(parente.id, relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 

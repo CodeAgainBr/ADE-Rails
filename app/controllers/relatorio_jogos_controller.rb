@@ -54,6 +54,7 @@ class RelatorioJogosController < ApplicationController
     def set_relatorio_jogo
       @relatorio_jogo = RelatorioJogo.where(jogo_id: params[:id])[0]
       @associados = Associado.all.order(:nome)
+      @parentes = Parente.all.order(:nome)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

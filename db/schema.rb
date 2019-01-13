@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190108233613) do
+ActiveRecord::Schema.define(version: 20190113225713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20190108233613) do
     t.integer  "relatorio_jogo_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.boolean  "participou"
     t.index ["parente_id"], name: "index_relatorio_participacao_parentes_on_parente_id", using: :btree
     t.index ["relatorio_jogo_id"], name: "index_relatorio_participacao_parentes_on_relatorio_jogo_id", using: :btree
   end

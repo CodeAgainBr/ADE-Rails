@@ -1,16 +1,16 @@
 <%= simple_form_for(relatorio_jogador, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
-  <% if relatorio_jogador.errors.any? %>
+  <% if relatorio_participacao_parente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(relatorio_jogador.errors.count, "error") %> prohibited this relatorio_jogador from being saved:</h2>
+      <h2><%= pluralize(relatorio_participacao_parente.errors.count, "error") %> prohibited this relatorio_participacao_parente from being saved:</h2>
 
       <ul>
-      <% relatorio_jogador.errors.full_messages.each do |message| %>
+      <% relatorio_participacao_parente.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= f.label :status %>
     <%= f.text_field :status %>

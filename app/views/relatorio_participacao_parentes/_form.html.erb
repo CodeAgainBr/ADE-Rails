@@ -1,27 +1,15 @@
-<%= form_for(relatorio_participacao_parente) do |f| %>
-  <% if relatorio_participacao_parente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(relatorio_participacao_parente.errors.count, "error") %> prohibited this relatorio_participacao_parente from being saved:</h2>
+<%= simple_form_for(relatorio_participacao_parente, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <ul>
-      <% relatorio_participacao_parente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="form-inputs">
+    <%= f.input :participou, as: :boolean , label: "Foi ao jogo: ", checked_value: true, unchecked_value: false %>
 
-  <div class="field">
-    <%= f.label :parente_id %>
-    <%= f.text_field :parente_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :Relatorio_jogo_id %>
-    <%= f.text_field :Relatorio_jogo_id %>
+    <%= f.input :parente_id, as: :hidden %>
+    <%= f.input :relatorio_jogo_id, as: :hidden %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Salvar", class: "btn btn-success float-right", onclick: "$('.modal').modal('toggle');" %>
   </div>
 <% end %>

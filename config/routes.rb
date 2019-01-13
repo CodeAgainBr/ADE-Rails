@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   resources :avaliacao_jogadores
   get "/avaliacao/jogador/new/:associado_id/:relatorio_jogo_id", to: "avaliacao_jogadores#new", as: :nova_avaliacao_jogador
-  get "/avaliacao/jogador/edit/:associado_id", to: "avaliacao_jogadores#new", as: :editar_avaliacao_jogador
 
   resources :relatorio_participacao_parentes
+  get "/avaliacao/parente/new/:parente_id/:relatorio_jogo_id", to: "relatorio_participacao_parentes#new", as: :nova_avaliacao_parente
 
   get "/agenda", to: "agenda#index", as: :agenda
   get "/agenda/telefonica", to: "agenda#telefonica", as: :agenda_telefonica

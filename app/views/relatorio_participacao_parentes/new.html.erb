@@ -1,5 +1,6 @@
-<h1>New Relatorio Participacao Parente</h1>
-
-<%= render 'form', relatorio_participacao_parente: @relatorio_participacao_parente %>
-
-<%= link_to 'Back', relatorio_participacao_parentes_path %>
+<div class="row">
+	<div class="col-12 px-4">
+		<%= content_for(:title, "Participação de " + @relatorio_participacao_parente.parente.nome) %>
+		<%= render 'form', relatorio_participacao_parente: @relatorio_participacao_parente %>
+	</div>
+</div>

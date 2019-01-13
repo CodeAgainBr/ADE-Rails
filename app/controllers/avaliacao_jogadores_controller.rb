@@ -13,9 +13,13 @@ class AvaliacaoJogadoresController < ApplicationController
   end
 
   def new
-    @avaliacao_jogador = AvaliacaoJogador.new
-    @avaliacao_jogador.associado_id = params[:associado_id]
-    @avaliacao_jogador.relatorio_jogo_id = params[:relatorio_jogo_id]
+    @avaliacao_jogador = AvaliacaoJogador.where(associado_id: params[:associado_id], relatorio_jogo_id: params[:relatorio_jogo_id])[0]
+    if @avaliacao_jogador == nil
+      @avaliacao_jogador = AvaliacaoJogador.new
+      @avaliacao_jogador.associado_id = params[:associado_id]
+      @avaliacao_jogador.relatorio_jogo_id = params[:relatorio_jogo_id]
+    end
+
     respond_modal_with(@avaliacao_jogador)
   end
 
