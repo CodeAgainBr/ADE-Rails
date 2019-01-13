@@ -24,10 +24,6 @@ Rails.application.routes.draw do
   get "/relatorios/aniversario/pdf", to: "relatorios#aniversario_pdf", as: :relatorios_aniversario_pdf
   get "/relatorios/prato", to: "relatorios#prato", as: :relatorios_prato
   get "/relatorios/familiar", to: "relatorios#familiar", as: :relatorios_familiar
-  
-  get "/impressao/aniversario", to: "impressao#aniversario", as: :impressao_aniversario
-  get "/impressao/familiar", to: "impressao#familiar", as: :impressao_familiar
-  get "/impressao/prato", to: "impressao#prato", as: :impressao_prato
 
   get "/relatorio_jogos", to: "relatorio_jogos#index"
   get "/relatorio_jogador", to: "relatorio_jogador#index"
