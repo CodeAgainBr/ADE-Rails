@@ -47,10 +47,6 @@ gem 'jquery_mask_rails', '~> 0.1.0'
 gem 'rails_admin', '~> 1.3'
 gem "rails_admin_import", "~> 2.1"
 
-# Gems for PDF
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary', '~> 0.12.3'
-
 # Rails Console
 gem 'web-console', '>= 3.3.0'
 

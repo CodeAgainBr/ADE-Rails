@@ -78,9 +78,9 @@ function cep(prefix, sufix) {
 
 function relatoriosAniversario(referente, tipo, valor) {
 	if((tipo == "" || tipo == undefined) && (valor == "" || valor == undefined)) {
-		window.open("/relatorios/aniversario.pdf?referente=" + referente + "&tipo=anual", "_blank");
+		window.open("/relatorios/aniversario/pdf?referente=" + referente + "&tipo=anual", "_blank");
 	} else {
-		window.open("/relatorios/aniversario.pdf?referente=" + referente + "&tipo=" + tipo + "&data=" + valor, "_blank");
+		window.open("/relatorios/aniversario/pdf?referente=" + referente + "&tipo=" + tipo + "&data=" + valor, "_blank");
 	}
 }
 
