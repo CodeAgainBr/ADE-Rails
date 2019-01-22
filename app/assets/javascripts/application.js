@@ -98,3 +98,8 @@ function teste() {
 		}
 	});
 }
+
+//Botão de imprimir das telas de relatorios
+function imprimir(){
+	window.print();
+}
