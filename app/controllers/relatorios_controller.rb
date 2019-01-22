@@ -81,6 +81,40 @@ class RelatoriosController < ApplicationController
     end
   end
 
+  def campanha
+    @jogadores = AvaliacaoJogador.relatorio
+
+    @jogos = RelatorioJogo.all.count
+
+    @relatorio_jogos = RelatorioJogo.all
+
+    @vitorias = 0
+    @empates = 0
+    @derrotas = 0
+
+    @relatorio_jogos.each do |rj|
+      if rj.gols_pro.nil?
+        rj.gols_pro = 0
+      end
+
+      if rj.gols_contra.nil?
+        rj.gols_contra = 0
+      end
+
+      if rj.gols_pro > rj.gols_contra
+        @vitorias += 1
+      elsif rj.gols_pro == rj.gols_contra
+        @empates += 1
+      else
+        @derrotas += 1
+      end
+    end
+
+    @gols_pro = RelatorioJogo.all.count(:gols_pro)
+    @gols_contra = RelatorioJogo.all.count(:gols_contra)
+    @gols_saldo = @gols_pro - @gols_contra
+  end
+
   def prato
     @pratos = Associado.select(:prato_preferido).group(:prato_preferido).order(count: :desc, prato_preferido: :asc).count
     respond_to do |format|

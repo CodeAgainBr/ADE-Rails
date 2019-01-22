@@ -1,0 +1,102 @@
+<p class="text-center mt-3 mb-2">
+	<b class="h3">Campanha</b>
+</p>
+
+<div class="tabela-padrao text-center">
+	<button class="btn btn-success weight-500 text-uppercase mb-2" onclick="imprimir()">Imprimir</button>
+	
+	<table class="table table-striped"><!-- nav de campanha -->
+		<tr>
+			<th>Nº de Jogos</th>
+			<th>Vitórias</th>
+			<th>Empates</th>
+			<th>Derrotas</th>
+			<th>Gols Pró</th>
+			<th>Gols Contra</th>
+			<th>Saldo de Gols</th>
+		</tr>
+
+		<tr>
+			<td><%= @jogos %></td>
+			<td><%= @vitorias %></td>
+			<td><%= @derrotas %></td>
+			<td><%= @empates %></td>
+			<td><%= @gols_pro %></td>
+			<td><%= @gols_contra %></td>
+			<td><%= @gols_saldo %></td>
+		</tr>
+	</table>
+	<br>
+
+	<center><h1>Goleadores</h1></center>
+	<table class="table table-striped"><!-- Goleadores -->
+		<tr>
+			<th class="col-auto">#</th>
+			<th class="col">Nome</th>
+			<th class="col-auto">Gols</th>
+		</tr>
+		<% @posicao = 1 %>
+		<% @jogadores.sort_by{|e| -e.gols}.each do |jogador| %>
+			<tr>
+				<td><%= @posicao %>º</td>
+				<td><%= jogador.nome %></td>
+				<td><%= jogador.gols %></td>
+			</tr>
+			<% @posicao += 1 %>
+		<% end %>
+	</table>
+
+	<center><h1>Participações</h1></center>
+	<table class="table table-striped"><!-- participação -->
+		<tr>
+			<th class="col-auto">#</th>
+			<th class="col">Nome</th>
+			<th class="col-auto">Nº Jogos</th>
+		</tr>
+		<% @posicao = 1 %>
+		<% @jogadores.sort_by{|e| -e.total_de_jogos}.each do |jogador| %>
+			<tr>
+				<td><%= @posicao %>º</td>
+				<td><%= jogador.nome %></td>
+				<td><%= jogador.total_de_jogos %></td>
+			</tr>
+			<% @posicao += 1 %>
+		<% end %>
+	</table>
+
+	<center><h1>Cartões amarelos</h1></center>
+	<table class="table table-striped"><!-- Cartões amarelos -->
+		<tr>
+			<th class="col-auto">#</th>
+			<th class="col">Nome</th>
+			<th class="col-auto">Quantidade</th>
+		</tr>
+		<% @posicao = 1 %>
+		<% @jogadores.sort_by{|e| -e.amarelo}.each do |jogador| %>
+			<tr>
+				<td><%= @posicao %>º</td>
+				<td><%= jogador.nome %></td>
+				<td><%= jogador.amarelo %></td>
+			</tr>
+			<% @posicao += 1 %>
+		<% end %>
+	</table>
+
+	<center><h1>Cartões Vermelhos</h1></center>
+	<table class="table table-striped"><!-- Cartões vermelhos -->
+		<tr>
+			<th class="col-auto">#</th>
+			<th class="col">Nome</th>
+			<th class="col-auto">Quantidade</th>
+		</tr>
+		<% @posicao = 1 %>
+		<% @jogadores.sort_by{|e| -e.vermelho}.each do |jogador| %>
+			<tr>
+				<td><%= @posicao %>º</td>
+				<td><%= jogador.nome %></td>
+				<td><%= jogador.vermelho %></td>
+			</tr>
+			<% @posicao += 1 %>
+		<% end %>
+	</table>
+</div>
