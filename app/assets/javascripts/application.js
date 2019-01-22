@@ -84,21 +84,6 @@ function relatoriosAniversario(referente, tipo, valor) {
 	}
 }
 
-function teste() {
-	$.ajax({
-		url: "http://192.168.1.5/rfid=1234&nome!Alex*",
-		crossDomain: true,
-		method: "get",
-		success: function(data, status, xhr) {
-			console.log(xhr);
-			alert("Dados: " + data + "\nStatus: " + status + "\nXHR: " + xhr);
-		},
-		error: function(request, status, erro) {
-			alert(erro);
-		}
-	});
-}
-
 //Botão de imprimir das telas de relatorios
 function imprimir(){
 	window.print();

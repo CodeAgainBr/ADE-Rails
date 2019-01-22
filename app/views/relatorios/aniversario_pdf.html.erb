@@ -1,159 +1,166 @@
-<div class="tabela-padrao">
-  <button onclick="imprimir()">Imprimir</button>
-  <% if !@associados[0].nil? %>
-    <p class="text-center mb-0">
-      <b class="h3">Associados</b>
-    </p>
+<section>
+  <div class="row">
+    <button class="btn btn-success weight-500 text-uppercase mb-2 tabela-padrao" onclick="imprimir()">Imprimir</button>
 
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Nome</th>
-        <th>Aniversário</th>
-        <th>E-mail</th>
-        <th>Telefone</th>
-      </tr>
+    <div class="col-12 form-associado shadow-lg px-4 pt-3">
+      <div>
+        <% unless @associados.nil? %>
+          <p class="text-center mt-3 mb-2">
+            <b class="h3">Associados</b>
+          </p>
 
-      <% @associados.each do |a| %>
-        <% if !a.data_nascimento.nil? and a.data_nascimento != "" %>
-          <tr>
-            <td><%= a.nome %></td>
-            <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
-            <td><%= a.email %></td>
-            <td><%= a.telefone %></td>
-          </tr>
+          <table class="table table-striped bg-secondary b-0">
+            <tr>
+              <th class="b-l-0">Nome</th>
+              <th>Aniversário</th>
+              <th>E-mail</th>
+              <th class="b-r-0">Telefone</th>
+            </tr>
+
+            <% @associados.each do |a| %>
+              <% unless a.data_nascimento.nil? and a.data_nascimento != "" %>
+                <tr>
+                  <td class="b-l-0"><%= a.nome %></td>
+                  <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
+                  <td><%= a.email %></td>
+                  <td class="b-r-0"><%= a.telefone %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
         <% end %>
-      <% end %>
-    </table>
-  <% end %>
 
-  <% if !@parentes[0].nil? %>
-    <p class="text-center mb-0">
-      <b class="h3">Parentes</b>
-    </p>
+        <% unless @parentes.nil? %>
+          <p class="text-center mt-3 mb-2">
+            <b class="h3">Parentes</b>
+          </p>
 
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Nome</th>
-        <th>Aniversário</th>
-        <th>Parentesco</th>
-        <th>Parente</th>
-      </tr>
-      
-      <% @parentes.each do |a| %>
-        <% if !a.data_nascimento.nil? and a.data_nascimento != "" %>
-          <tr>
-            <td><%= a.nome %></td>
-            <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
-            <td><%= a.parentesco %></td>
-            <td><%= a.associado.nome %></td>
-          </tr>
+          <table class="table table-striped bg-secondary">
+            <tr>
+              <th class="b-l-0">Nome</th>
+              <th>Aniversário</th>
+              <th>Parentesco</th>
+              <th class="b-r-0">Parente</th>
+            </tr>
+            
+            <% @parentes.each do |a| %>
+              <% unless a.data_nascimento.nil? and a.data_nascimento != "" %>
+                <tr>
+                  <td class="b-l-0"><%= a.nome %></td>
+                  <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
+                  <td><%= a.parentesco %></td>
+                  <td class="b-r-0"><%= a.associado.nome %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
         <% end %>
-      <% end %>
-    </table>
-  <% end %>
 
-  <% if !@clubes[0].nil? %>
-    <p class="text-center mb-0">
-      <b class="h3">Clubes</b>
-    </p>
+        <% unless @clubes.nil? %>
+          <p class="text-center mt-3 mb-2">
+            <b class="h3">Clubes</b>
+          </p>
 
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Nome</th>
-        <th>Aniversário</th>
-        <th>Telefone</th>
-        <th>Contato</th>
-      </tr>
-      
-      <% @clubes.each do |a| %>
-        <% if !a.data_fundacao.nil? and a.data_fundacao != "" %>
-          <tr>
-            <td><%= a.nome %></td>
-            <td><%= a.data_fundacao.strftime("%d/%m/%Y") %></td>
-            <td><%= a.telefone_clube %></td>
-            <td><%= a.telefone_contato %></td>
-          </tr>
+          <table class="table table-striped bg-secondary">
+            <tr>
+              <th class="b-l-0">Nome</th>
+              <th>Aniversário</th>
+              <th>Telefone</th>
+              <th class="b-r-0">Contato</th>
+            </tr>
+            
+            <% @clubes.each do |a| %>
+              <% unless a.data_fundacao.nil? and a.data_fundacao != "" %>
+                <tr>
+                  <td class="b-l-0"><%= a.nome %></td>
+                  <td><%= a.data_fundacao.strftime("%d/%m/%Y") %></td>
+                  <td><%= a.telefone_clube %></td>
+                  <td class="b-r-0"><%= a.telefone_contato %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
         <% end %>
-      <% end %>
-    </table>
-  <% end %>
-</div>
-<div class="imprimir">
-  <% if !@associados[0].nil? %>
-    <p class="text-center mb-0">
-      <b class="h3">Associados</b>
-    </p>
+      </div>
+      <div class="imprimir">
+        <% unless @associados.nil? %>
+          <p class="text-center mt-3 mb-2">
+            <b class="h3">Associados</b>
+          </p>
 
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Nome</th>
-        <th>Aniversário</th>
-        <th>E-mail</th>
-        <th>Telefone</th>
-      </tr>
+          <table class="table table-striped bg-secondary">
+            <tr>
+              <th class="b-l-0">Nome</th>
+              <th>Aniversário</th>
+              <th>E-mail</th>
+              <th class="b-r-0">Telefone</th>
+            </tr>
 
-      <% @associados.each do |a| %>
-        <% if !a.data_nascimento.nil? and a.data_nascimento != "" %>
-          <tr>
-            <td><%= a.nome %></td>
-            <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
-            <td><%= a.email %></td>
-            <td><%= a.telefone %></td>
-          </tr>
+            <% @associados.each do |a| %>
+              <% unless a.data_nascimento.nil? and a.data_nascimento != "" %>
+                <tr>
+                  <td class="b-l-0"><%= a.nome %></td>
+                  <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
+                  <td><%= a.email %></td>
+                  <td class="b-r-0"><%= a.telefone %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
         <% end %>
-      <% end %>
-    </table>
-  <% end %>
 
-  <% if !@parentes[0].nil? %>
-    <p class="text-center mb-0">
-      <b class="h3">Parentes</b>
-    </p>
+        <% unless @parentes.nil? %>
+          <p class="text-center mt-3 mb-2">
+            <b class="h3">Parentes</b>
+          </p>
 
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Nome</th>
-        <th>Aniversário</th>
-        <th>Parentesco</th>
-        <th>Parente</th>
-      </tr>
-      
-      <% @parentes.each do |a| %>
-        <% if !a.data_nascimento.nil? and a.data_nascimento != "" %>
-          <tr>
-            <td><%= a.nome %></td>
-            <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
-            <td><%= a.parentesco %></td>
-            <td><%= a.associado.nome %></td>
-          </tr>
+          <table class="table table-striped bg-secondary">
+            <tr>
+              <th class="b-l-0">Nome</th>
+              <th>Aniversário</th>
+              <th>Parentesco</th>
+              <th class="b-r-0">Parente</th>
+            </tr>
+            
+            <% @parentes.each do |a| %>
+              <% unless a.data_nascimento.nil? and a.data_nascimento != "" %>
+                <tr>
+                  <td class="b-l-0"><%= a.nome %></td>
+                  <td><%= a.data_nascimento.strftime("%d/%m/%Y") %></td>
+                  <td><%= a.parentesco %></td>
+                  <td class="b-r-0"><%= a.associado.nome %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
         <% end %>
-      <% end %>
-    </table>
-  <% end %>
 
-  <% if !@clubes[0].nil? %>
-    <p class="text-center mb-0">
-      <b class="h3">Clubes</b>
-    </p>
+        <% unless @clubes.nil? %>
+          <p class="text-center mt-3 mb-2">
+            <b class="h3">Clubes</b>
+          </p>
 
-    <table class="table table-striped table-bordered">
-      <tr>
-        <th>Nome</th>
-        <th>Aniversário</th>
-        <th>Telefone</th>
-        <th>Contato</th>
-      </tr>
-      
-      <% @clubes.each do |a| %>
-        <% if !a.data_fundacao.nil? and a.data_fundacao != "" %>
-          <tr>
-            <td><%= a.nome %></td>
-            <td><%= a.data_fundacao.strftime("%d/%m/%Y") %></td>
-            <td><%= a.telefone_clube %></td>
-            <td><%= a.telefone_contato %></td>
-          </tr>
+          <table class="table table-striped bg-secondary">
+            <tr>
+              <th class="b-l-0">Nome</th>
+              <th>Aniversário</th>
+              <th>Telefone</th>
+              <th class="b-r-0">Contato</th>
+            </tr>
+            
+            <% @clubes.each do |a| %>
+              <% unless a.data_fundacao.nil? and a.data_fundacao != "" %>
+                <tr>
+                  <td class="b-l-0"><%= a.nome %></td>
+                  <td><%= a.data_fundacao.strftime("%d/%m/%Y") %></td>
+                  <td><%= a.telefone_clube %></td>
+                  <td class="b-r-0"><%= a.telefone_contato %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
         <% end %>
-      <% end %>
-    </table>
-  <% end %>
-</div>
+      </div>
+    </div>
+  </div>
+</section>

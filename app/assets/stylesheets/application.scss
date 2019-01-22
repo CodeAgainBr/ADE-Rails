@@ -324,6 +324,18 @@ input[type="date"]:valid:before {
 	border-color: #28a745 !important;
 }
 
+.b-0 {
+	border: none;
+}
+
+.b-l-0 {
+	border-left: none;
+}
+
+.b-r-0 {
+	border-right: none;
+}
+
 .b-1 {
 	border: 1px solid black;
 }

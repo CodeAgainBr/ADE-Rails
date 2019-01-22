@@ -5,8 +5,12 @@ class RelatoriosController < ApplicationController
 	end
 
   #GET /relatorios/aniversario
-  #GET /relatorios/aniversario.pdf
+  #GET /relatorios/aniversario/pdf
   def aniversario
+
+  end
+
+  def aniversario_pdf
     if params[:referente] == "geral"
       if params[:tipo] == "anual"
         @associados = Associado.all.order(:nome)
