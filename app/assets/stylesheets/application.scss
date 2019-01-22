@@ -7,7 +7,9 @@
 
 body {
 	height: 100vh;
-	background-color: #D3D3D3;
+	background: url('fundo.png');
+	background-size: cover;
+	/* background-color: #D3D3D3; */
 }
 
 section {
@@ -212,9 +214,27 @@ h3.text-center {
 	width: 100%;
 }
 
+.weight-500 {
+	font-weight: 500 !important;
+}
+
+label::after {
+	border-color: #28a745 !important;
+	margin-left: 3px !important;
+}
+
+#logo-green {
+	background-color: white;
+	padding: 8px;
+	border: 1px solid #28a745;
+	border-radius: 50%;
+}
+
 .card {
-	border-radius: 10px;
-	background: radial-gradient(#28a745 60%, darkgreen);
+
+	.title {
+		text-shadow: 1px 1px #28a745;
+	}
 
 	.card-head, .card-footer {
 		text-shadow: 2px 2px black;
@@ -222,7 +242,6 @@ h3.text-center {
 
 	.card-body {
 		border-radius: 10px;
-		text-shadow: 1px 1px #28a745;
 
 		.vs {
 			border-radius: 5px;
@@ -232,6 +251,16 @@ h3.text-center {
 			}
 		}
 	}
+}
+
+.card-auth {
+	@media (max-width: 527px) {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* background: radial-gradient(#28a745 60%, darkgreen); */
 }
 
 .card.with-border {
@@ -346,6 +375,21 @@ input[type="date"]:valid:before {
 
 .fa-90d {
 	transform: rotate(90deg);
+}
+
+.row-auth {
+	margin-top: 30px;
+}
+
+@media (max-width: 890px) {
+	#logo-green {
+		width: 110px !important;
+		margin-top: 5px !important;
+	}
+
+	.row-auth {
+		margin-top: 20px;
+	}
 }
 
 .modal .form-check {
