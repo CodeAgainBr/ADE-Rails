@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @avaliacao_jogador.status %>
+</p>
+
+<p>
+  <strong>Participante confraternizacao:</strong>
+  <%= @avaliacao_jogador.participante_confraternizacao %>
+</p>
+
+<p>
+  <strong>Cartao amarelo:</strong>
+  <%= @avaliacao_jogador.cartao_amarelo %>
+</p>
+
+<p>
+  <strong>Cartao vermelho:</strong>
+  <%= @avaliacao_jogador.cartao_vermelho %>
+</p>
+
+<p>
+  <strong>Goleiro:</strong>
+  <%= @avaliacao_jogador.goleiro %>
+</p>
+
+<p>
+  <strong>Gol pro:</strong>
+  <%= @avaliacao_jogador.gol_pro %>
+</p>
+
+<p>
+  <strong>Gol sofrido:</strong>
+  <%= @avaliacao_jogador.gol_sofrido %>
+</p>
+
+<p>
+  <strong>Destaque:</strong>
+  <%= @avaliacao_jogador.destaque %>
+</p>
+
+<p>
+  <strong>Associado:</strong>
+  <%= @avaliacao_jogador.associado %>
+</p>
+
+<p>
+  <strong>Relatorio jogo:</strong>
+  <%= @avaliacao_jogador.relatorio_jogo %>
+</p>
+
+<%= link_to 'Edit', edit_avaliacao_jogador_path(@avaliacao_jogador) %> |
+<%= link_to 'Back', avaliacao_jogadores_path %>

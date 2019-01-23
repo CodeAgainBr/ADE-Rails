@@ -1,0 +1,29 @@
+<section>
+  <div class="row">
+    <button class="btn btn-success weight-500 text-uppercase mb-2 tabela-padrao" onclick="imprimir()">Imprimir</button>
+
+    <div class="col-12 form-associado shadow-lg px-4 pt-3">
+			<p class="text-center mt-3 mb-2">
+				<b class="h3">Pratos preferidos</b>
+			</p>
+
+			<div class="text-center">
+				<table class="table table-striped bg-secondary b-0">
+					<tr>
+						<th class="b-l-0">Nome</th>
+						<th class="b-r-0">Quantidade</th>
+					</tr>
+
+					<% @pratos.each do |a| %>
+						<% if a[1] != 0 and a[1] != "" %>
+							<tr>
+								<td class="b-l-0"><%= a[0] %></td>
+								<td class="b-r-0"><%= a[1] %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

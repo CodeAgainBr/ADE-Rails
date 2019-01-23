@@ -1,0 +1,6 @@
+<div class="row">
+	<div class="col-12 px-4">
+		<%= content_for(:title, "Participação de " + @relatorio_participacao_parente.parente.nome) %>
+		<%= render 'form', relatorio_participacao_parente: @relatorio_participacao_parente %>
+	</div>
+</div>

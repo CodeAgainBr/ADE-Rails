@@ -1,0 +1,15 @@
+<%= simple_form_for(relatorio_participacao_parente, remote: request.xhr?, html: { data: { modal: true } }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :participou, as: :boolean , label: "Foi ao jogo: ", checked_value: true, unchecked_value: false %>
+
+    <%= f.input :parente_id, as: :hidden %>
+    <%= f.input :relatorio_jogo_id, as: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar", class: "btn btn-success float-right", onclick: "$('.modal').modal('toggle');" %>
+  </div>
+<% end %>

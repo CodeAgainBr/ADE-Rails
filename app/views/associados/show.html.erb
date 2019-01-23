@@ -1,6 +1,6 @@
 <section> 
-  <div class="row">
-    <div class="col-12 form-associado">
+  <div class="row my-3">
+    <div class="col-11 mx-auto form-associado">
       <ul class="nav nav-tabs pagination" role="tablist">
         <li class="nav-item">
           <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
@@ -104,35 +104,36 @@
         </div>
         
         <div role="tabpanel" class="tab-pane" id="parentes">
-          <table class="table table-stripped">
-            <thead>
-              <tr class="row no-gutters mb-0">
-                <th class="col-5">Nome</th>  
-                <th class="col-4">Parentesco</th>  
-                <th class="col-3">Data de Nascimento</th>  
-              </tr>
-            </thead>
-
-            <tbody>
-              <% @parentes.each do |parente| %>
-                <tr class="row no-gutters mb-0">
-                  <td class="col-5">
-                    <%= parente.nome %>
-                  </td>
-
-                  <td class="col-4">
-                    <%= parente.parentesco %>
-                  </td>
-
-                  <td class="col-3">
-                    <% if(parente.data_nascimento != nil) %>
-                      <%= parente.data_nascimento.strftime("%d/%m/%Y") %>
-                    <% end %>
-                  </td>
+          <div class="container">
+            <table class="table table-stripped table-responsive text-center">
+              <thead>
+                <tr>
+                  <th>Nome</th>  
+                  <th>Parentesco</th>  
+                  <th>Data de Nascimento</th>  
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <% @parentes.each do |parente| %>
+                  <tr>
+                    <td>
+                      <%= parente.nome %>
+                    </td>
+
+                    <td>
+                      <%= parente.parentesco %>
+                    </td>
+
+                    <td>
+                      <% if(parente.data_nascimento != nil) %>
+                        <%= parente.data_nascimento.strftime("%d/%m/%Y") %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

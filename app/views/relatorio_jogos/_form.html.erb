@@ -1,0 +1,99 @@
+<ul class="nav nav-tabs pagination" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="endereco_tab nav-link btn btn-outline-success" href="#jogadores" role="tab" data-toggle="tab">Relatório de jogadores</a>
+  </li>
+
+  <li class="nav-item hiden">
+    <a class="endereco_tab nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Relatório de parentes</a>
+  </li>
+</ul>
+
+<div class="tab-content scroll-y" style="height: 60vh;">
+  <%= link_to jogo_path(@relatorio_jogo.jogo), class: "row no-gutters bg-transparent h3 text-primary" do %>
+    <div class="col-6 text-right pr-4"><%= @relatorio_jogo.jogo.clube.nome %></div> <div class="col-6"><i class="fas fa-times text-dark mr-4"></i>ADE</div>
+  <% end %>
+
+  <div id="informacoes" role="tabpanel" class="tab-pane active">
+    <%= simple_form_for(relatorio_jogo) do |f| %>
+      <div class="row no-gutters">
+        <div class="col-6 pr-2">
+          <div class="row">
+            <div class="col-6">
+              <%= f.input :gols_pro, label: "Gols pró:", input_html: { min: 0 } %>
+            </div>
+
+            <div class="col-6">
+              <%= f.input :gols_contra, label: "Gols contra:", input_html: { min: 0 } %>
+            </div>
+          </div>
+
+          <%= f.input :responsavel_uniforme, label: "Responsável pelo uniforme:" %>
+          <%= f.input :uniforme, label: "Uniforme:" %>
+        </div>
+
+        <div class="col-6 pl-2">
+          <%= f.input :observacao, as: :text, label: "Observações:", input_html: { style: "min_height: 215px; height: 215px; resize: vertical" } %>
+            
+            <%= f.submit "Salvar", class: "btn btn-success float-right" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+
+  <div id="jogadores" role="tabpanel" class="tab-pane">
+    <table class="table table-stripped">
+      <tbody>
+        <% @associados.each do |associado| %>
+          <tr class="row no-gutters mb-0">
+            <td class="col">
+              <%= link_to associado.nome, associado %>
+            </td>
+
+            <td class="col-auto ml-auto">
+              <%= link_to 'Relatório individual', nova_avaliacao_jogador_path(associado.id, relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+
+  <div id="parentes" role="tabpanel" class="tab-pane">
+    <table class="table table-stripped">
+      <thead>
+        <tr class="row no-gutters mb-0">
+          <th class="col-5">Parente</th>
+          <th class="col-5">Associado</th>
+          <th class="col-2"> </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @parentes.each do |parente| %>
+          <tr class="row no-gutters mb-0">
+            <td class="col">
+              <%= link_to parente.nome, parente %>
+            </td>
+
+            <td class="col">
+              <%= link_to parente.associado.nome, parente.associado %>
+            </td>
+
+            <td class="col-auto ml-auto">
+              <%= link_to 'Relatório de parente', nova_avaliacao_parente_path(parente.id, relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="actions mb-2">
+  <%= link_to "Voltar", agenda_path, class: "btn btn-danger" %>
+</div>

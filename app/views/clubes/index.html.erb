@@ -1,5 +1,5 @@
 <section>
-  <div class="row">
+  <div class="row my-3">
     <div class="col-12">
       <table class="table table-stripped">
         <thead>
@@ -10,6 +10,14 @@
           </tr>
         </thead>
         <tbody>
+          <% if @clubes == [] %>
+            <tr class="row no-gutters">
+              <td class="col-12 text-center">
+                <span class="weight-500">Não há clubes cadastrados!</span>
+              </td>
+            </tr>          
+          <% end %>
+
           <% @clubes.each do |clube| %>
             <tr class="row no-gutters">
               <td class="col-xl-10 col-sm-8 col-5">

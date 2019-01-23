@@ -1,9 +1,15 @@
 /* Importing Bootstrap CSS */
 @import "bootstrap";
 
+.scroll-y {
+	overflow-y: auto;
+}
+
 body {
 	height: 100vh;
-	background-color: #D3D3D3;
+	background: url('fundo.png');
+	background-size: cover;
+	/* background-color: #D3D3D3; */
 }
 
 section {
@@ -112,6 +118,10 @@ table {
 	}
 }
 
+.pagination {
+	border-bottom: none !important;
+}
+
 table.table-stripped {
 	box-shadow: none !important;
 
@@ -159,32 +169,49 @@ label[for] {
 	cursor: pointer;
 }
 
-input[type=checkbox]{
+input[type=checkbox] {
   display:none; /* Esconde os inputs */
 }
 
-input[type="checkbox"] + label:after {
+input[type="checkbox"] + label:not(.form-control):after {
   border: 1px solid #5D5C5C;
   content: "\00a0";
   display: inline-block;
   font: 16px/1em sans-serif;
   height: 20px;
   width: 20px;
-  margin: 0 .25em 0 0;
+  margin: 0 .25em 0 .25em;
   padding: 2px;
   vertical-align: middle;
   border-radius:4px;
 }
  
-input[type="checkbox"]:checked + label:after {
+input[type="checkbox"]:checked + label:not(.form-control):after {
   background-color: #28a745;
   color: #FFF;
   content: "\2713";
   text-align: center;
-}
- 
-input[type="checkbox"]:checked + label:after {
   font-weight: bold;
+}
+
+.weight-500 {
+	font-weight: 500 !important;
+}
+
+input[type="checkbox"] + label.form-control {
+	border: 0;
+	text-align: center;
+  color: white !important;
+}
+
+input[type="checkbox"]:checked + label.form-control {
+  background-color: #28a745;
+  color: white !important;
+}
+
+input[type="checkbox"]:not(:checked) + label.form-control {
+  background-color: #dc3545;
+  color: white !important;
 }
 
 textarea.form-control {
@@ -195,9 +222,27 @@ h3.text-center {
 	width: 100%;
 }
 
+.weight-500 {
+	font-weight: 500 !important;
+}
+
+label::after {
+	border-color: #28a745 !important;
+	margin-left: 3px !important;
+}
+
+#logo-green {
+	background-color: white;
+	padding: 8px;
+	border: 1px solid #28a745;
+	border-radius: 50%;
+}
+
 .card {
-	border-radius: 10px;
-	background: radial-gradient(#28a745 60%, darkgreen);
+
+	.title {
+		text-shadow: 1px 1px #28a745;
+	}
 
 	.card-head, .card-footer {
 		text-shadow: 2px 2px black;
@@ -205,7 +250,6 @@ h3.text-center {
 
 	.card-body {
 		border-radius: 10px;
-		text-shadow: 1px 1px #28a745;
 
 		.vs {
 			border-radius: 5px;
@@ -215,6 +259,16 @@ h3.text-center {
 			}
 		}
 	}
+}
+
+.card-auth {
+	@media (max-width: 527px) {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* background: radial-gradient(#28a745 60%, darkgreen); */
 }
 
 .card.with-border {
@@ -268,6 +322,18 @@ input[type="date"]:valid:before {
 
 .b-success {
 	border-color: #28a745 !important;
+}
+
+.b-0 {
+	border: none;
+}
+
+.b-l-0 {
+	border-left: none;
+}
+
+.b-r-0 {
+	border-right: none;
 }
 
 .b-1 {
@@ -325,4 +391,45 @@ input[type="date"]:valid:before {
 .text-outline-dark {
 	color: white;
 	text-shadow: 0px 0px 5px black;
+}
+
+.fa-90d {
+	transform: rotate(90deg);
+}
+
+.row-auth {
+	margin-top: 30px;
+}
+
+@media (max-width: 890px) {
+	#logo-green {
+		width: 110px !important;
+		margin-top: 5px !important;
+	}
+
+	.row-auth {
+		margin-top: 20px;
+	}
+}
+
+.imprimir {
+	display:none;
+}
+
+@media print {
+	.tabela-padrao {
+		display: none;
+	}
+	
+	.imprimir {
+		display: block;
+	}
+}
+
+.modal .form-check {
+	padding-left: 0;
+
+	.radio_buttons {
+		margin-left: 2.5em;
+	}
 }
