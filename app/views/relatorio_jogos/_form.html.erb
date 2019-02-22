@@ -55,7 +55,7 @@
             </td>
 
             <td class="col-auto ml-auto">
-              <%= link_to 'Relatório individual', nova_avaliacao_jogador_path(associado.id, relatorio_jogo.id), class: 'btn btn-primary btn-sm', data: { modal: true } %>
+              <button class='btn btn-primary btn-sm' id='<%= associado.id %>' onclick='limpar_modal_jogador(); modal_jogador("<%= associado.id %>", "<%= relatorio_jogo.id %>")' type="button" data-toggle="modal" data-target="#Relatorio_jogador">Relatório individual</button>
             </td>
           </tr>
         <% end %>
@@ -97,3 +97,103 @@
 <div class="actions mb-2">
   <%= link_to "Voltar", agenda_path, class: "btn btn-danger" %>
 </div>
+
+<!-- Modal -->
+<div class="modal fade right" id="Relatorio_jogador" tabindex="-1"  aria-hidden="false">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalPreviewLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <select id="status">
+          <option value="0">Selecione o status: </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        
+        <br>
+
+        <input type="checkbox" id="confraternizacao" name="test">Participou da confraternização:
+        
+        <br>
+        
+        Cartões amarelos <br>
+        <input type="radio" name="cartao_amarelo" value="0" id="cartao_amarelo_default" checked="true"> 0 <br>
+        <input type="radio" name="cartao_amarelo" value="1"> 1 <br>
+        <input type="radio" name="cartao_amarelo" value="2"> 2 <br>
+
+        <br>
+        <input type="checkbox" id="cartao_vermelho">Cartões Vermelhos
+        <br>
+        <input type="checkbox" id="goleiro">Goleiro:
+        <br>
+        <input type="number" value=0 id="gol_pro">Gols pró:
+        <br>
+        <input type="number" value=0 id="gol_sofrido">Gols sofridos:
+        <br>
+        <input type="checkbox" id="destaque">Jogador destaque
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="save_jogador()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<script>
+  jogador_id = 0;
+  relatorio_jogo_id = 0;
+
+  function modal_jogador(jogador, relatorio_jogo){
+    jogador_id = jogador;
+    relatorio_jogo_id = relatorio_jogo;
+  }
+
+  function save_jogador(){
+    status = $("#status").val();
+    gol_pro = $("#gol_pro").val();
+    gol_sofrido = $("#gol_sofrido").val();
+    goleiro = $("#goleiro").is(":checked");
+    destaque = $("#destaque").is(":checked");
+    confraternizacao = $("#confraternizacao").is(":checked");
+    cartao_vermelho = $("#cartao_vermelho").is(":checked") ? 1 : 0;
+    cartao_amarelo = $("input[name='cartao_amarelo']:checked").val();
+    
+    $.ajax({
+      url: "/avaliacao/jogador/new/"+jogador_id+"/"+relatorio_jogo_id,
+      data:{
+        avaliacao_jogador:{
+          status: status,
+          participante_confraternizacao: confraternizacao,
+          cartao_amarelo: cartao_amarelo,
+          cartao_vermelho: cartao_vermelho,
+          goleiro: goleiro,
+          gol_pro: gol_pro,
+          gol_sofrido: gol_sofrido,
+          destaque: destaque
+        }
+      },
+      success: function(result){
+        $('#Relatorio_jogador').modal('toggle');
+        alert("Cadastro concluido com sucesso!");
+      }
+    });
+  }
+
+  function limpar_modal_jogador(){
+    $("#status").val(0);
+    $("#gol_pro").val(0);
+    $("#gol_sofrido").val(0);
+    $("#goleiro").prop("checked", false);
+    $("#destaque").prop("checked", false);
+    $("#confraternizacao").prop("checked", false);
+    $("#cartao_vermelho").prop("checked", false);
+    $("#cartao_amarelo_default").prop("checked", true);
+  }
+</script>

@@ -1,26 +1,31 @@
 class AvaliacaoJogadoresController < ApplicationController
   before_action :set_avaliacao_jogador, only: [:show, :update, :destroy]
 
-  respond_to :html
+  #respond_to :html
 
   def index
     @avaliacao_jogadores = AvaliacaoJogador.all
-    respond_modal_with(@relatorio_jogador)
+    #respond_modal_with(@relatorio_jogador)
   end
 
   def show
-    respond_modal_with(@avaliacao_jogador)
+    #respond_modal_with(@avaliacao_jogador)
   end
 
   def new
     @avaliacao_jogador = AvaliacaoJogador.where(associado_id: params[:associado_id], relatorio_jogo_id: params[:relatorio_jogo_id])[0]
-    if @avaliacao_jogador == nil
+    
+    if @avaliacao_jogador.nil?
       @avaliacao_jogador = AvaliacaoJogador.new
       @avaliacao_jogador.associado_id = params[:associado_id]
       @avaliacao_jogador.relatorio_jogo_id = params[:relatorio_jogo_id]
+      @avaliacao_jogador.save
     end
 
-    respond_modal_with(@avaliacao_jogador)
+    @avaliacao_jogador.update(avaliacao_jogador_params)
+    respond_to do |format|
+      format.json { render :show, status: :created }
+    end
   end
 
   def edit
