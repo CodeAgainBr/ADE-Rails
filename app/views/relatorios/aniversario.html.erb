@@ -1,0 +1,227 @@
+<section>
+  <div class="row">
+    <div class="col-12 form-associado shadow-lg px-4 pt-3">
+      <h2 class="text-center text-success mb-3">
+        <b>Relatório de aniversariantes</b>
+      </h2>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3 px-2 mb-3">
+          <div class="card bg-secondary pt-2 px-2">
+            <div class="card-head text-center text-white">
+              <h3 class="card-title">Geral</h3>
+            </div>
+            
+            <div class="card-body">
+              <div class="anual">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Anual</span>
+                </div>
+                
+                <div class="row">
+                  <div class="col-12 px-0">
+                    <button onclick='relatoriosAniversario("geral")' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mensal pt-3 pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Mensal</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="geralMensal" type="text" name="data" class="mes form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("geral", "mensal", $("#geralMensal").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diario pt-3 pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Diário</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="geralDiario" type="text" name="data" class="diames form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("geral", "diario", $("#geralDiario").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3 px-2 mb-3">
+          <div class="card bg-secondary pt-2 px-2">
+            <div class="card-head text-center text-white">
+              <h3 class="card-title">Associados</h3>
+            </div>
+            
+            <div class="card-body">
+              <div class="anual">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Anual</span>
+                </div>
+                
+                <div class="row">
+                  <div class="col-12 px-0">
+                    <button onclick='relatoriosAniversario("associados")' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mensal pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Mensal</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="associadosMensal" type="text" name="data" class="mes form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("associados", "mensal", $("#associadosMensal").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diario pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Diário</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="associadosDiario" type="text" name="data" class="diames form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("associados", "diario", $("#associadosDiario").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3 px-2 mb-3">
+          <div class="card bg-secondary pt-2 px-2">
+            <div class="card-head text-center text-white">
+              <h3 class="card-title">Parentes</h3>
+            </div>
+            
+            <div class="card-body">
+              <div class="anual">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Anual</span>
+                </div>
+                
+                <div class="row">
+                  <div class="col-12 px-0">
+                    <button onclick='relatoriosAniversario("parentes")' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mensal pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Mensal</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="parentesMensal" type="text" name="data" class="mes form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("parentes", "mensal", $("#parentesMensal").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diario pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Diário</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="parentesDiario" type="text" name="data" class="diames form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("parentes", "diario", $("#parentesDiario").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-3 px-2 mb-3">
+          <div class="card bg-secondary pt-2 px-2">
+            <div class="card-head text-center text-white">
+              <h3 class="card-title">Clubes</h3>
+            </div>
+            
+            <div class="card-body">
+              <div class="anual">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Anual</span>
+                </div>
+                
+                <div class="row">
+                  <div class="col-12 px-0">
+                    <button onclick='relatoriosAniversario("clubes")' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mensal pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Mensal</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="clubesMensal" type="text" name="data" class="mes form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("clubes", "mensal", $("#clubesMensal").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diario pt-3">
+                <div class="row text-white">
+                  <span><i class="fas fa-arrow-right"></i> Diário</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 pl-0 pr-2">
+                    <input id="clubesDiario" type="text" name="data" class="diames form-control">
+                  </div>
+
+                  <div class="col-6 pr-0 pl-2">
+                    <button onclick='relatoriosAniversario("clubes", "diario", $("#clubesDiario").val())' class="btn btn-default btn-block">Gerar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

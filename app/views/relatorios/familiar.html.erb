@@ -1,0 +1,90 @@
+<section>
+  <div class="row">
+    <button class="btn btn-success weight-500 text-uppercase mb-2 tabela-padrao" onclick="imprimir()">Imprimir</button>
+
+    <div class="col-12 form-associado shadow-lg px-4 pt-3">
+			<p class="text-center mt-3 mb-2">
+				<b class="h3">Relatório familiar</b>
+			</p>
+
+			<div class="text-center">
+				<table class="table table-striped table-responsive w-100 d-block d-md-table bg-secondary b-0">
+					<tr>
+						<th class="b-l-0">Associado</th>
+						<th>Parente</th>
+						<th class="b-r-0">Parentesco</th>
+					</tr>
+
+					<% @temp = "" %>
+					<% @familiar.each do |a| %>
+						<% if @temp != a.associado.nome %>
+							<% @temp = a.associado.nome %>
+
+							<tr>
+								<td class="b-l-0"><b><%= a.associado.nome %></b></td>
+								<td></td>
+								<td class="b-r-0"></td>
+							</tr>
+
+							<tr>
+								<td class="b-l-0">
+									<i class="fas fa-level-up-alt fa-90d"></i>
+								</td>
+								<td><%= a.nome %></td>
+								<td class="b-r-0"><%= a.parentesco %></td>
+							</tr>
+							<%  %>
+						<% else %>
+							<tr>
+								<td class="text-center b-l-0">
+									<i class="fas fa-level-up-alt fa-90d"></i>
+								</td>
+								<td><%= a.nome %></td>
+								<td class="b-r-0"><%= a.parentesco %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</table>
+			</div>
+
+			<div class="imprimir">
+				<table class="table table-striped text-center">
+					<tr>
+						<th class="b-l-0">Nome</th>
+						<th>Parente</th>
+						<th class="b-r-0">Parentesco</th>
+					</tr>
+
+					<% @temp = "" %>
+					<% @familiar.each do |a| %>
+						<% if @temp != a.associado.nome %>
+							<% @temp = a.associado.nome %>
+
+							<tr>
+								<td class="b-l-0"><b><%= a.associado.nome %></b></td>
+								<td></td>
+								<td class="b-r-0"></td>
+							</tr>
+
+							<tr>
+								<td class="b-l-0">
+									<i class="fas fa-level-up-alt fa-90d"></i>
+								</td>
+								<td><%= a.nome %></td>
+								<td class="b-r-0"><%= a.parentesco %></td>
+							</tr>
+						<% else %>
+							<tr>
+								<td class="text-center b-l-0">
+									<i class="fas fa-level-up-alt fa-90d"></i>
+								</td>
+								<td><%= a.nome %></td>
+								<td class="b-r-0"><%= a.parentesco %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

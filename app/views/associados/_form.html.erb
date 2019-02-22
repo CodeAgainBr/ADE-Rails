@@ -10,115 +10,33 @@
   </li>
 </ul>
 
-<%= form_for(associado) do |f| %>
-  <% if associado.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(associado.errors.count, "error") %> erros proibem este associado de ser salvo:</h2>
-
-      <ul>
-      <% associado.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="informacoes">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :nome, class: "form-control", placeholder: "Nome", required: "required" %>
-        </div>
+<%= simple_form_for(associado) do |f| %>
+  <div class="form-inputs">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="informacoes">
+        <%= f.input :nome, label: "Nome", required: "required", autofocus: true, label_html: { class: "text-success" } %>
+        <%= f.input :data_nascimento, as: :date, start_year: Date.today.year - 100, end_year: Date.today.year, label: "Data de nascimento: ", label_html: { class: "text-success" } %>
+        <%= f.input :local_nascimento, label: "Local de nascimento: ", label_html: { class: "text-success" } %>
+        <%= f.input :rg, label: "RG: ", label_html: { class: "text-success" }, input_html: { class: "rg" } %>
+        <%= f.input :cpf, label: "CPF: ", label_html: { class: "text-success" }, input_html: { class: "cpf" } %>
+        <%= f.input :prato_preferido, label: "Prato preferido: ", label_html: { class: "text-success" } %>
+        <%= f.input :observacoes, label: "Observações: ", label_html: { class: "text-success" } %>
       </div>
 
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.date_field :data_nascimento, class: "form-control", placeholder: "Data de nascimento", max: "2999-12-31" %>
-        </div>
+      <div role="tabpanel" class="tab-pane" id="contato">
+        <%= f.input :email, label: "Email: ", label_html: { class: "text-success" } %>
+        <%= f.input :telefone, label: "Telefone: ", label_html: { class: "text-success" }, input_html: { class: "celular" } %>
       </div>
 
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :local_nascimento, class: "form-control", placeholder: "Local de nascimento" %>
-        </div>
+      <div role="tabpanel" class="tab-pane" id="endereco">
+        <%= f.input :cep, label: "CEP: ", label_html: { class: "text-success" }, input_html: { class: "cep" } %>
+        <%= f.input :cidade, label: "Cidade: ", label_html: { class: "text-success" } %>
+        <%= f.input :estado, label: "Estado: ", label_html: { class: "text-success" }, input_html: { class: "uf" } %>
+        <%= f.input :bairro, label: "Bairro: ", label_html: { class: "text-success" } %>
+        <%= f.input :rua, label: "Rua: ", label_html: { class: "text-success" } %>
+        <%= f.input :numero, label: "Número: ", label_html: { class: "text-success" } %>
       </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :rg, class: "rg form-control", placeholder: "RG" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cpf, class: "cpf form-control", placeholder: "CPF" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :prato_preferido, class: "form-control", placeholder: "Prato preferido" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_area :observacoes, class: "form-control", placeholder: "Observações" %>
-        </div>
-      </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="contato">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :telefone, class: "celular form-control", placeholder: "Telefone" %>
-        </div>
-      </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="endereco">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cep, class: "cep form-control", placeholder: "CEP" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :cidade, class: "form-control", placeholder: "Cidade" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :estado, class: "uf form-control", placeholder: "Estado" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :bairro, class: "form-control", placeholder: "Bairro" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.text_field :rua, class: "form-control", placeholder: "Rua" %>
-        </div>
-      </div>
-
-      <div class="row no-gutters">
-        <div class="col-12">
-          <%= f.number_field :numero, class: "form-control", placeholder: "Número" %>
-        </div>
-      </div>
-    </div>
+    </div>    
   </div>
 
   <div class="actions row">

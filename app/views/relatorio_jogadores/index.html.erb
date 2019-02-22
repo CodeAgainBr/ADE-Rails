@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Relatorio Jogadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Participante confraternizacao</th>
+      <th>Cartao amarelo</th>
+      <th>Cartao vermelho</th>
+      <th>Goleiro</th>
+      <th>Gol pro</th>
+      <th>Gol sofrido</th>
+      <th>Destaque</th>
+      <th>Associado</th>
+      <th>Relatorio_jogo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relatorio_jogadores.each do |relatorio_jogador| %>
+      <tr>
+        <td><%= relatorio_jogador.status %></td>
+        <td><%= relatorio_jogador.participante_confraternizacao %></td>
+        <td><%= relatorio_jogador.cartao_amarelo %></td>
+        <td><%= relatorio_jogador.cartao_vermelho %></td>
+        <td><%= relatorio_jogador.goleiro %></td>
+        <td><%= relatorio_jogador.gol_pro %></td>
+        <td><%= relatorio_jogador.gol_sofrido %></td>
+        <td><%= relatorio_jogador.destaque %></td>
+        <td><%= relatorio_jogador.associado %></td>
+        <td><%= relatorio_jogador.relatorio_jogo %></td>
+        <td><%= link_to 'Show', relatorio_jogador %></td>
+        <td><%= link_to 'Edit', edit_relatorio_jogador_path(relatorio_jogador) %></td>
+        <td><%= link_to 'Destroy', relatorio_jogador, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relatorio Jogador', new_relatorio_jogador_path %>

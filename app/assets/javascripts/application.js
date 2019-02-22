@@ -1,15 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -19,13 +7,15 @@
 //= require jquery.mask
 
 $(document).on('turbolinks:load', function() {
-	$('.date').mask('00/00/0000');
+	$('.data').mask('00/00/0000');
 	$('.celular').mask('(00) 00000-0000');
 	$('.telefone').mask('(00) 0000-0000');
 	$('.cep').mask('00000-000');
 	$('.rg').mask('0.000.000');
 	$('.cpf').mask('000.000.000-00');
 	$('.horario').mask('00:00');
+	$('.mes').mask('00');
+	$('.diames').mask('00/00');
 });
 
 function limpa_formulario_cep(prefix, sufix) {
@@ -84,4 +74,17 @@ function cep(prefix, sufix) {
 			limpa_formulario_cep(prefix, sufix);
 		}
 	}
+}
+
+function relatoriosAniversario(referente, tipo, valor) {
+	if((tipo == "" || tipo == undefined) && (valor == "" || valor == undefined)) {
+		window.open("/relatorios/aniversario/pdf?referente=" + referente + "&tipo=anual", "_blank");
+	} else {
+		window.open("/relatorios/aniversario/pdf?referente=" + referente + "&tipo=" + tipo + "&data=" + valor, "_blank");
+	}
+}
+
+//Botão de imprimir das telas de relatorios
+function imprimir(){
+	window.print();
 }

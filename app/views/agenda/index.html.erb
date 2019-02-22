@@ -1,11 +1,9 @@
 <section> 
-  <div class="row">
-    <div class="col-12 form-associado px-5">
-      <h1 class="text-center text-success">
-        Agenda de jogos <%= @data.strftime("%Y") %>
+  <div class="row my-3">
+    <div class="col-12 form-associado px-4 shadow-lg">
+      <h1 class="text-center text-success my-3">
+        <b>Agenda de jogos <%= @data.strftime("%Y") %></b>
       </h1>
-
-      <hr>
       
       <% @i = 0 %>
       <% @jogos_ano.each do |jogos| %>
@@ -16,8 +14,18 @@
               <b><%= @meses[@i-1] %></b>
             </h3>
             <% jogos.each do |jogo|  %>
-              <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0">
-                <div class="col-3">
+              <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-success br-0 text-center">
+                <div class="col-md-12 col-lg-4">
+                  <h5>
+                    <%= link_to jogo, class: "row bg-transparent" do %>
+                      <div class="col-12">
+                        <%= jogo.clube.nome %><i class="fas fa-times text-dark mx-2"></i>ADE
+                      </div>
+                    <% end %>
+                  </h5>
+                </div>
+
+                <div class="col-md-12 col-lg-3">
                   <h5>
                     <% if (jogo.data != "" and !jogo.data.nil?) and (jogo.horario != "" and !jogo.horario.nil?) %>
                       <%= jogo.data.strftime("%d/%m/%Y") %> - <%= jogo.horario %>
@@ -29,15 +37,7 @@
                   </h5>
                 </div>
                 
-                <div class="col-4">
-                  <h5>
-                    <%= link_to jogo do %>
-                      <%= jogo.clube.nome %> <i class="fas fa-times text-dark"></i> ADE
-                    <% end %>
-                  </h5>
-                </div>
-                
-                <div class="col-3">
+                <div class="col-md-12 col-lg-3">
                   <h5>
                     <% if jogo.campo_adversario %>
                       <% if (jogo.clube.bairro_campo != "" and !jogo.clube.bairro_campo.nil?) and (jogo.clube.cidade_campo != "" and !jogo.clube.cidade_campo.nil?) %>
@@ -57,11 +57,11 @@
                   </h5>
                 </div>
 
-                <div class="col-auto ml-auto">
+                <div class="col-md-12 col-lg-auto ml-md-auto">
                   <% if jogo.relatorio %>
-                    <button class="btn btn-outline-primary btn-sm mb-2 ml-2" disabled="disabled">Editar relatório</button>
+                    <%= link_to 'Editar relatório', edit_relatorio_jogo_path(jogo), class: "btn btn-outline-primary btn-sm mb-2 ml-2" %>
                   <% else %>
-                    <button class="btn btn-primary btn-sm mb-2 ml-2" disabled="disabled">Fazer relatório</button>
+                    <%= link_to 'Fazer relatório', novo_relatorio_jogo_path(jogo), class: "btn btn-primary btn-sm mb-2 ml-2" %>
                   <% end %>
                 </div>
               </div>

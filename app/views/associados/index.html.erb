@@ -1,6 +1,6 @@
 <section>
-  <div class="row">
-    <div class="col-12">
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-11 mx-auto">
       <table class="table table-stripped">
         <thead>
           <tr>
@@ -10,21 +10,23 @@
           </tr>
         </thead>
         <tbody>
+          <% if @associados == [] %>
+            <tr class="row no-gutters">
+              <td class="col-12 text-center">
+                <span class="weight-500">Não há associados cadastrados!</span>
+              </td>
+            </tr>          
+          <% end %>
+
           <% @associados.each do |associado| %>
             <tr class="row no-gutters">
-              <td class="col-sm-8 col-5">
+              <td class="col-assoc-name col-5">
                 <%= link_to associado.nome, associado %>
               </td>
 
-              <td class="col-auto ml-auto">
-                <%= link_to 'Parentes', parentes_path(associado_id: associado.id), class: "btn btn-outline-info btn-sm" %>
-              </td>
-
-              <td class="col-auto">
-                <%= link_to 'Editar', edit_associado_path(associado), class: "btn btn-outline-success btn-sm" %>
-              </td>
-
-              <td class="col-auto">
+              <td class="col-assoc-actions col-auto ml-auto">
+                <%= link_to 'Parentes', parentes_path(associado_id: associado.id), class: "btn btn-outline-info btn-sm mr-2" %>
+                <%= link_to 'Editar', edit_associado_path(associado), class: "btn btn-outline-success btn-sm mr-2" %>
                 <%= link_to 'Apagar', associado, method: :delete, data: { confirm: 'Realmente deseja apagar?' }, class: "btn btn-danger btn-sm" %>
               </td>
             </tr>

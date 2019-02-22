@@ -1,0 +1,435 @@
+/* Importing Bootstrap CSS */
+@import "bootstrap";
+
+.scroll-y {
+	overflow-y: auto;
+}
+
+body {
+	height: 100vh;
+	background: url("<%= asset_path('fundo.png') %>");
+	background-size: cover;
+	/* background-color: #D3D3D3; */
+}
+
+section {
+	padding-top: 10px;
+}
+
+.btn-table {
+	border-radius: 10px 10px 0px 0px !important;
+}
+
+table {
+	box-shadow: 0px 0px 2px 2px #28a745 !important;
+	border-radius: 10px;
+	
+	th {
+		border-top: 0px !important;
+	}
+
+	thead {
+		tr {
+			border-radius: 10px 10px 0px 0px;
+		}
+	}
+}
+
+.pagination {
+	padding-bottom: 0 !important;
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid black;
+
+	.btn {
+    border-bottom: 0;
+    border-radius: 0 !important;
+	}
+
+  li:first-child .btn {
+    margin-left: 0;
+    border-top-left-radius: 5px !important;
+	}
+
+	li:last-child .btn {
+		border-top-right-radius: 5px !important;
+	}
+}
+
+@media(max-width: 720px) {
+	tbody {
+		font-size: 0.9em;
+	}
+}
+
+.form-associado {
+	background-color: white;
+	border-radius: 5px;
+	padding: 15px;
+	padding-top: 0;
+
+	.pagination {
+		margin-left: -15px;
+		margin-right: -15px;
+		width: calc(100% + 30px);
+		margin-bottom: 15px;
+		border-radius: 0;
+	}
+
+	.row {
+		margin-bottom: 5px;
+	}
+}
+
+.form-control {
+	border-color: #28a745;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: inset 0 1px 1px #28a745, 0 0 8px #28a745;
+}
+
+table {
+	tbody {
+		tr {
+			background-color: white;
+			border-top: 1px solid #28a745;
+		}
+
+		td {
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
+	}
+
+	thead {
+		tr {
+			background-color: white;
+		}
+
+		th {
+			padding-left: 10px !important;
+			padding-right: 10px !important;
+		}
+	}
+}
+
+.pagination {
+	border-bottom: none !important;
+}
+
+table.table-stripped {
+	box-shadow: none !important;
+
+	tbody {
+		tr:first-child {
+			border-top: 0px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #ededed;
+		}
+
+		tr:last-child {
+			border-radius: 0px 0px 10px 10px;
+		}
+	}
+}
+
+.text-dark {
+	color: black !important;
+}
+
+.btn-dark, .bg-dark {
+	background-color: black !important;
+}
+
+.btn-outline-dark {
+	border-color: black !important;
+	color: black !important;
+}
+
+.table-cadastro {
+	tr {
+		th {
+			border-bottom: 1px solid #28a745 !important;
+		}
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+label[for] {
+	cursor: pointer;
+}
+
+input[type=checkbox] {
+  display:none; /* Esconde os inputs */
+}
+
+input[type="checkbox"] + label:not(.form-control):after {
+  border: 1px solid #5D5C5C;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 20px;
+  width: 20px;
+  margin: 0 .25em 0 .25em;
+  padding: 2px;
+  vertical-align: middle;
+  border-radius:4px;
+}
+ 
+input[type="checkbox"]:checked + label:not(.form-control):after {
+  background-color: #28a745;
+  color: #FFF;
+  content: "\2713";
+  text-align: center;
+  font-weight: bold;
+}
+
+.weight-500 {
+	font-weight: 500 !important;
+}
+
+input[type="checkbox"] + label.form-control {
+	border: 0;
+	text-align: center;
+  color: white !important;
+}
+
+input[type="checkbox"]:checked + label.form-control {
+  background-color: #28a745;
+  color: white !important;
+}
+
+input[type="checkbox"]:not(:checked) + label.form-control {
+  background-color: #dc3545;
+  color: white !important;
+}
+
+textarea.form-control {
+	min-height: 31px !important;
+}
+
+h3.text-center {
+	width: 100%;
+}
+
+.weight-500 {
+	font-weight: 500 !important;
+}
+
+label::after {
+	border-color: #28a745 !important;
+	margin-left: 3px !important;
+}
+
+#logo-green {
+	background-color: white;
+	padding: 8px;
+	border: 1px solid #28a745;
+	border-radius: 50%;
+}
+
+.card {
+
+	.title {
+		text-shadow: 1px 1px #28a745;
+	}
+
+	.card-head, .card-footer {
+		text-shadow: 2px 2px black;
+	}
+
+	.card-body {
+		border-radius: 10px;
+
+		.vs {
+			border-radius: 5px;
+
+			h3 {
+				font-size: 3em;
+			}
+		}
+	}
+}
+
+.card-auth {
+	@media (max-width: 527px) {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* background: radial-gradient(#28a745 60%, darkgreen); */
+}
+
+.card.with-border {
+	border: 1px solid black;
+
+	.card-head {
+		border-bottom: 1px solid black;
+	}
+
+	.card-footer {
+		border-top: 1px solid black;
+	}
+}
+
+@media(min-width: 720px) {
+	.card.t-5 {
+		margin-top: 50px;
+	}
+
+	.card.t-10 {
+		margin-top: 100px;
+	}
+}
+
+@media(max-width: 720px) {
+	.card {
+		.text-left {
+			text-align: center !important;
+		}
+
+		.text-right {
+			text-align: center !important;
+		}
+	}
+}
+
+select.btn-sm {
+	height: 30px !important;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
+
+.b-success {
+	border-color: #28a745 !important;
+}
+
+.b-0 {
+	border: none;
+}
+
+.b-l-0 {
+	border-left: none;
+}
+
+.b-r-0 {
+	border-right: none;
+}
+
+.b-1 {
+	border: 1px solid black;
+}
+
+.b-2 {
+	border: 2px solid black;
+}
+
+.bb-1 {
+	border-bottom: 1px solid black;
+}
+
+.bg-gray {
+	background-color: #F0FFF0;
+}
+
+.br-0 {
+	border-radius: 0 !important;
+}
+
+.br-5 {
+	border-radius: 15px 15px 10px 10px;
+}
+
+.br-tlr-5 {
+	border-radius: 10px 10px 0 0;
+}
+
+.br-blr-4 {
+	border-radius: 0 0 8px 8px;
+}
+
+.br-blr-5 {
+	border-radius: 0 0 10px 10px;
+}
+
+
+.list-agenda {
+	.row:nth-child(odd) {
+		background-color: #E0EEE0;
+	}
+
+	.row:last-child {
+		border: 0;
+		border-radius: 0 0 10px 10px !important;
+	}
+}
+
+.list-agenda:last-child {
+	margin-bottom: 0 !important;
+}
+
+.text-outline-dark {
+	color: white;
+	text-shadow: 0px 0px 5px black;
+}
+
+.fa-90d {
+	transform: rotate(90deg);
+}
+
+.row-auth {
+	margin-top: 30px;
+}
+
+@media (max-width: 890px) {
+	#logo-green {
+		width: 110px !important;
+		margin-top: 5px !important;
+	}
+
+	.row-auth {
+		margin-top: 20px;
+	}
+}
+
+.imprimir {
+	display:none;
+}
+
+@media print {
+	.tabela-padrao {
+		display: none;
+	}
+	
+	.imprimir {
+		display: block;
+	}
+}
+
+.modal .form-check {
+	padding-left: 0;
+
+	.radio_buttons {
+		margin-left: 2.5em;
+	}
+}
