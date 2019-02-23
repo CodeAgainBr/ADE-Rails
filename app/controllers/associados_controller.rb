@@ -4,7 +4,7 @@ class AssociadosController < ApplicationController
   # GET /associados
   # GET /associados.json
   def index
-    @associados = Associado.all
+    @associados = Associado.all.order(:nome)
   end
 
   # GET /associados/1
