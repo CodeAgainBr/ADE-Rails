@@ -22,3 +22,6 @@
 
 # Only windows, ignore Gemfile.lock
 Gemfile.lock
+
+# Ignore IDE files
+.idea/*
