@@ -33,8 +33,17 @@
           <i class="fas fa-calendar-alt text-light"></i> Agenda
         <% end %>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link text-light" href="/relatorios"><i class="fas fa-calendar-check text-light"></i> Relatórios</a>
+        <%= link_to relatorios_path, class: "nav-link text-light" do %>
+          <i class="fas fa-calendar-check text-light"></i> Relatórios</a>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to agenda_telefonica_path, class: "nav-link text-light" do %>
+          <i class="fas fa-address-book text-light"></i> Agenda Telefônica
+        <% end %>
       </li>
     </ul>
     <ul class="navbar-nav">
