@@ -6,6 +6,14 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+        already_confirmed: "já foi confirmado, por favor faça login"
+        confirmation_period_expired: "precisava ser confirmada em %{period}, por favor solicite um novo link"
+        expired: "expirou, por favor solicite uma nova"
+        not_found: "não encontrado"
+        not_locked: "não está bloqueada"
+        not_saved:
+          one: "1 erro impediu que %{resource} fosse salvo(a):"
+          other: "%{count} erros impediram que %{resource} fosse salvo(a):"
 
   date:
     formats:
@@ -13,57 +21,15 @@ pt-BR:
       long: "%d de %B de %Y"
       short: "%d de %B"
 
-    abbr_day_names:
-    - Dom
-    - Seg
-    - Ter
-    - Qua
-    - Qui
-    - Sex
-    - Sáb
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
 
-    abbr_month_names:
-    - Jan
-    - Fev
-    - Mar
-    - Abr
-    - Mai
-    - Jun
-    - Jul
-    - Ago
-    - Set
-    - Out
-    - Nov
-    - Dez
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
 
-    day_names:
-    - Domingo
-    - Segunda-feira
-    - Terça-feira
-    - Quarta-feira
-    - Quinta-feira
-    - Sexta-feira
-    - Sábado
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
 
-    month_names:
-    -
-    - Janeiro
-    - Fevereiro
-    - Março
-    - Abril
-    - Maio
-    - Junho
-    - Julho
-    - Agosto
-    - Setembro
-    - Outubro
-    - Novembro
-    - Dezembro
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
 
-    order:
-    - :day
-    - :month
-    - :year
+    order: [day, month, year]
 
   datetime:
     distance_in_words:
@@ -578,14 +544,3 @@ pt-BR:
       send_instructions: "Você receberá um email com instruções para desbloquear sua conta em alguns minutos."
       send_paranoid_instructions: "Se sua conta existir, você receberá um email com instruções para desbloqueá-la em alguns minutos."
       unlocked: "Sua conta foi desbloqueada com sucesso. Por favor, faça login para continuar."
-
-  errors:
-    messages:
-      already_confirmed: "já foi confirmado, por favor faça login"
-      confirmation_period_expired: "precisava ser confirmada em %{period}, por favor solicite um novo link"
-      expired: "expirou, por favor solicite uma nova"
-      not_found: "não encontrado"
-      not_locked: "não está bloqueada"
-      not_saved:
-        one: "1 erro impediu que %{resource} fosse salvo(a):"
-        other: "%{count} erros impediram que %{resource} fosse salvo(a):"
