@@ -1,6 +1,6 @@
 <section>
-	<div class="row">
-		<div class="col-sm-7 col-12 ml-auto mr-auto">
+	<div class="row no-gutters">
+		<div class="col-sm-12 mx-aut=">
 			<div class="card mt-5 p-2 pt-3 bg-success text-white">
 				<div class="card-head row no-gutters">
 					<div class="col">
@@ -16,7 +16,7 @@
           </div>
         <% else %>
           <% @jogos.each do |jogo| %>
-            <div class="card-body row no-gutters bg-white text-dark">
+            <!-- <div class="card-body row no-gutters bg-white text-dark">
               <div class="col-sm-5 col-12 text-left align-self-center">
                 <h3>ADE</h3>
               </div>
@@ -28,16 +28,22 @@
               <div class="col-sm-5 col-12 text-right align-self-center">
                 <h3><%= jogo.clube.nome %></h3>
               </div>
-            </div>
+            </div> -->
 
-            <div class="card-footer row no-gutters">
-              <div class="col-sm-6 col-12 text-left">
+            <div id="home-card" class="card-footer row no-gutters">
+              <div class="col-jogo-data col-sm-12 col-md-4">
                 <h5>
                   <%= jogo.data.strftime('%A - %d/%m/%Y') %> - <%= jogo.horario %>
                 </h5>
               </div>
 
-              <div class="col-sm-6 col-12 text-right">
+              <div class="col-jogo-times col-sm-12 col-md-4 text-center">
+                <h5>
+                  ADE <i class="fas fa-times"></i> <%= jogo.clube.nome %>
+                </h5>
+              </div>              
+
+              <div class="col-jogo-local col-sm-12 col-md-4 text-right">
                 <h5>
                   <% if jogo.campo_adversario? %>
                     <% if jogo.clube.bairro_campo != "" and jogo.clube.cidade_campo != "" %>
