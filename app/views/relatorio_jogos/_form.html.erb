@@ -1,19 +1,19 @@
 <ul class="nav nav-tabs pagination" role="tablist">
   <li class="nav-item">
-    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+    <a class="nav-link btn btn-outline-red-ade active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
   </li>
 
   <li class="nav-item">
-    <a class="endereco_tab nav-link btn btn-outline-success" href="#jogadores" role="tab" data-toggle="tab">Relatório de jogadores</a>
+    <a class="endereco_tab nav-link btn btn-outline-red-ade" href="#jogadores" role="tab" data-toggle="tab">Relatório de jogadores</a>
   </li>
 
   <li class="nav-item hiden">
-    <a class="endereco_tab nav-link btn btn-outline-success" href="#parentes" role="tab" data-toggle="tab">Relatório de parentes</a>
+    <a class="endereco_tab nav-link btn btn-outline-red-ade" href="#parentes" role="tab" data-toggle="tab">Relatório de parentes</a>
   </li>
 </ul>
 
-<div class="tab-content scroll-y" style="height: 60vh;">
-  <%= link_to jogo_path(@relatorio_jogo.jogo), class: "row no-gutters bg-transparent h3 text-primary" do %>
+<div class="tab-content scroll-y pt-3" style="height: 60vh;">
+  <%= link_to jogo_path(@relatorio_jogo.jogo), class: "row no-gutters bg-transparent h3 text-primary mb-3" do %>
     <div class="col-6 text-right pr-4"><%= @relatorio_jogo.jogo.clube.nome %></div> <div class="col-6"><i class="fas fa-times text-dark mr-4"></i>ADE</div>
   <% end %>
 

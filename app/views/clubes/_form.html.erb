@@ -1,15 +1,15 @@
 <ul class="nav nav-tabs pagination" role="tablist">
   <li class="nav-item">
-    <a class="nav-link btn btn-outline-success active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
+    <a class="nav-link btn btn-outline-red-ade active" href="#informacoes" role="tab" data-toggle="tab">Informações gerais</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link btn btn-outline-success" href="#contato" role="tab" data-toggle="tab">Contato</a>
+    <a class="nav-link btn btn-outline-red-ade" href="#contato" role="tab" data-toggle="tab">Contato</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link btn btn-outline-success" href="#endereco_sede" role="tab" data-toggle="tab">Endereço</a>
+    <a class="nav-link btn btn-outline-red-ade" href="#endereco_sede" role="tab" data-toggle="tab">Endereço</a>
   </li>
   <li class="nav-item">
-    <a class="endereco_clube_tab nav-link btn btn-outline-success" href="#endereco_campo" role="tab" data-toggle="tab">Endereço do campo</a>
+    <a class="endereco_clube_tab nav-link btn btn-outline-red-ade" href="#endereco_campo" role="tab" data-toggle="tab">Endereço do campo</a>
   </li>        
 </ul>
 
@@ -17,41 +17,41 @@
   <div class="form-inputs">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="informacoes">
-        <%= f.input :nome, label: "Nome: ", required: "required", autofocus: true, label_html: { class: "text-success" } %>
-        <%= f.input :categoria, label: "Categoria: ", label_html: { class: "text-success" } %>
-        <%= f.input :cor_camisa_uniforme, label: "Cor da camisa de uniforme: ", label_html: { class: "text-success" } %>
-        <%= f.input :cor_bermuda_uniforme, label: "Cor da bermuda de uniforme: ", label_html: { class: "text-success" } %>
-        <%= f.input :cor_meias_uniforme, label: "Cor das meias de uniforme: ", label_html: { class: "text-success" } %>
-        <%= f.input :data_fundacao, label: "Data de fundação: ", label_html: { class: "text-success" } %>
+        <%= f.input :nome, label: "Nome: ", required: "required", autofocus: true %>
+        <%= f.input :categoria, label: "Categoria: " %>
+        <%= f.input :cor_camisa_uniforme, label: "Cor da camisa de uniforme: "%>
+        <%= f.input :cor_bermuda_uniforme, label: "Cor da bermuda de uniforme: "%>
+        <%= f.input :cor_meias_uniforme, label: "Cor das meias de uniforme: "%>
+        <%= f.input :data_fundacao, label: "Data de fundação: "%>
         <% if @clube.campo %>
-          <%= f.input :campo, label: "Possui campo?", label_html: { class: "text-success" }, input_html: { checked: true, class: "campo" } %>
+          <%= f.input :campo, label: "Possui campo?", input_html: { checked: true, class: "campo" } %>
         <% else %>
-          <%= f.input :campo, label: "Possui campo?", label_html: { class: "text-success" }, input_html: { class: "campo" } %>
+          <%= f.input :campo, label: "Possui campo?", input_html: { class: "campo" } %>
         <% end %> 
       </div>
 
       <div role="tabpanel" class="tab-pane" id="contato">
-        <%= f.input :telefone_clube, label: "Telefone do clube: ", label_html: { class: "text-success" }, input_html: { class: "telefone" } %>
-        <%= f.input :nome_contato, label: "Nome do contato: ", label_html: { class: "text-success" } %>
-        <%= f.input :telefone_contato, label: "Telefone do contato: ", label_html: { class: "text-success" }, input_html: { class: "celular" } %>
+        <%= f.input :telefone_clube, label: "Telefone do clube: ", input_html: { class: "telefone" } %>
+        <%= f.input :nome_contato, label: "Nome do contato: "%>
+        <%= f.input :telefone_contato, label: "Telefone do contato: ", input_html: { class: "celular" } %>
       </div>
 
       <div role="tabpanel" class="tab-pane" id="endereco_sede">
-        <%= f.input :cep, label: "CEP: ", label_html: { class: "text-success" }, input_html: { class: "cep" } %>
-        <%= f.input :estado, label: "Estado: ", label_html: { class: "text-success" } %>
-        <%= f.input :cidade, label: "Cidade: ", label_html: { class: "text-success" } %>
-        <%= f.input :bairro, label: "Bairro: ", label_html: { class: "text-success" } %>
-        <%= f.input :rua, label: "Rua: ", label_html: { class: "text-success" } %>
-        <%= f.input :numero, label: "Número: ", label_html: { class: "text-success" } %>     
+        <%= f.input :cep, label: "CEP: ", input_html: { class: "cep" } %>
+        <%= f.input :estado, label: "Estado: "%>
+        <%= f.input :cidade, label: "Cidade: "%>
+        <%= f.input :bairro, label: "Bairro: "%>
+        <%= f.input :rua, label: "Rua: "%>
+        <%= f.input :numero, label: "Número: "%>     
       </div> 
     
       <div role="tabpanel" class="tab-pane" id="endereco_campo">
-        <%= f.input :cep_campo, label: "CEP: ", label_html: { class: "text-success" }, input_html: { class: "cep" } %>
-        <%= f.input :estado_campo, label: "Estado: ", label_html: { class: "text-success" } %>
-        <%= f.input :cidade_campo, label: "Cidade: ", label_html: { class: "text-success" } %>
-        <%= f.input :bairro_campo, label: "Bairro: ", label_html: { class: "text-success" } %>
-        <%= f.input :rua_campo, label: "Rua: ", label_html: { class: "text-success" } %>
-        <%= f.input :numero_campo, label: "Número: ", label_html: { class: "text-success" } %>
+        <%= f.input :cep_campo, label: "CEP: ", input_html: { class: "cep" } %>
+        <%= f.input :estado_campo, label: "Estado: "%>
+        <%= f.input :cidade_campo, label: "Cidade: "%>
+        <%= f.input :bairro_campo, label: "Bairro: "%>
+        <%= f.input :rua_campo, label: "Rua: "%>
+        <%= f.input :numero_campo, label: "Número: "%>
       </div>
     </div>
   </div>
