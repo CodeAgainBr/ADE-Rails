@@ -1,11 +1,8 @@
 class HomeController < ApplicationController
-	def index
-		Time.zone = "America/Sao_Paulo"
-		@data = Date.current
+  def index
+    Time.zone = 'America/Sao_Paulo'
+    @data = Date.current
 
-		@jogo = Jogo.where("data >= ?", @data).order(:data).limit(1)[0]
-		if !@jogo.nil?
-			@jogo.clube = Clube.find(@jogo.clube)
-		end
-	end
+    @jogos = Jogo.where('data >= ?', @data).order(:data).limit(2)
+  end
 end
