@@ -71,7 +71,7 @@ class JogosController < ApplicationController
   def set_jogo
     @jogo = Jogo.find(params[:id])
 
-    @jogo.data_format
+    @jogo.date_format
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

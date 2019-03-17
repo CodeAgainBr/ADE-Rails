@@ -19,7 +19,8 @@
             <div id="home-card" class="card-footer row no-gutters">
               <div class="col-jogo-data col-sm-12 col-md-4">
                 <h5>
-                  <%= jogo.data.strftime('%A - %d/%m/%Y') %> - <%= jogo.horario %>
+                  <%= jogo.date_week %>
+                  <%= jogo.data.strftime('%d/%m/%Y') %> - <%= jogo.horario %>
                 </h5>
               </div>
 
