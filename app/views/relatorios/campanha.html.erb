@@ -22,8 +22,8 @@
 					<tr>
 						<td class="b-l-0"><%= @jogos %></td>
 						<td><%= @vitorias %></td>
-						<td><%= @derrotas %></td>
 						<td><%= @empates %></td>
+						<td><%= @derrotas %></td>
 						<td><%= @gols_pro %></td>
 						<td><%= @gols_contra %></td>
 						<td class="b-r-0"><%= @gols_saldo %></td>
@@ -57,7 +57,7 @@
 					<tr>
 						<th class="col-auto b-l-0">#</th>
 						<th class="col">Nome</th>
-						<th class="col-auto b-r-0">Nº Jogos</th>
+						<th class="col-auto b-r-0">Jogos</th>
 					</tr>
 					<% @posicao = 1 %>
 					<% @jogadores.sort_by{|e| -e.total_de_jogos}.each do |jogador| %>
