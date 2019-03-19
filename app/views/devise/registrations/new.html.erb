@@ -1,6 +1,6 @@
 <div class="container pt-4 px-0">
   <div class="text-center">
-    <img id="logo-green" src="<%= asset_path('logo-verde.png') %>" width="150" class="shadow mt-2">
+    <img id="logo" src="<%= asset_path('logo.png') %>" width="150" class="shadow mt-2">
   </div>
   <div class="row row-auth">
     <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
@@ -11,7 +11,7 @@
             <%= devise_error_messages! %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mb-2 col-12", placeholder: "Email" %>
             <% if @minimum_password_length %>
-            <em class="ml-3">(<%= @minimum_password_length %> characters minimum)</em>
+            <em class="ml-2">(No mínimo <%= @minimum_password_length %> caractéres)</em>
             <% end %><br />            
             <%= f.password_field :password, autocomplete: "off", class: "form-control col-12 mb-3", placeholder: "Senha" %>
             <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control col-12 mb-2", placeholder: "Confirmar senha" %>            

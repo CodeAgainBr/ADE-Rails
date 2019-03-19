@@ -4,7 +4,7 @@ class ClubesController < ApplicationController
   # GET /clubes
   # GET /clubes.json
   def index
-    @clubes = Clube.order(id: :desc)
+    @clubes = Clube.order(:nome)
   end
 
   # GET /clubes/1

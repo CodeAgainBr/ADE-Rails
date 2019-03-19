@@ -1,63 +1,56 @@
 <section>
 	<div class="row">
 		<div class="col-sm-7 col-12 ml-auto mr-auto">
-			<div class="card t-10 p-2 pt-3 bg-success text-white">
+			<div class="card t-10 p-2 pt-3 bg-red-ade text-white">
 				<div class="card-head row no-gutters">
 					<div class="col">
-						<h1 class="text-center">Próximo Jogo</h1>
+						<h1 class="text-center">Próximos Jogos</h1>
 					</div>
 				</div>
 
-				<% if !@jogo.nil? %>
-					<div class="card-body row no-gutters bg-white text-dark">
-						<div class="col-sm-5 col-12 text-left align-self-center">
-							<% if(@jogo != nil) %>
-								<h3>ADE</h3>
-							<% end %>
-						</div>
+				<% if @jogos.nil? %>
+          <div class="card-body row no-gutters bg-white text-dark">
+            <div class="col-12">
+              <h3 class="text-center">Sem próximo jogo cadastrados!</h3>
+            </div>
+          </div>
+        <% else %>
+          <% @jogos.each do |jogo| %>
+            <div id="home-card" class="card-footer row no-gutters">
+              <div class="col-jogo-data col-sm-12 col-md-4">
+                <h5>
+                  <%= jogo.date_week %>
+                  <%= jogo.data.strftime('%d/%m/%Y') %> - <%= jogo.horario %>
+                </h5>
+              </div>
 
-						<div class="offset-5 offset-sm-0 col-2 vs text-center align-self-center">
-							<h3><i class="fas fa-times"></i></h3>
-						</div>
+              <div class="col-jogo-times col-sm-12 col-md-4 text-center">
+                <h5>
+                  ADE <i class="fas fa-times"></i> <%= jogo.clube.nome %>
+                </h5>
+              </div>              
 
-						<div class="col-sm-5 col-12 text-right align-self-center">
-							<h3><%= @jogo.clube.nome %></h3>
-						</div>
-					</div>
-
-					<div class="card-footer row no-gutters">
-						<div class="col-sm-6 col-12 text-left">
-							<h5>
-								<%= @jogo.data.strftime("%d/%m/%Y") %> - <%= @jogo.horario %>
-							</h5>
-						</div>
-
-						<div class="col-sm-6 col-12 text-right">
-							<h5>
-								<% if(@jogo.campo_adversario) %>
-	                <% if(@jogo.clube.bairro_campo != "" and @jogo.clube.cidade_campo != "") %>
-	                  <%= truncate(@jogo.clube.bairro_campo, {length: 15}) %> - <%= truncate(@jogo.clube.cidade_campo, {length: 15}) %>
-	                <% else %>
-	                  <%= @jogo.clube.bairro_campo %>
-	                  <%= @jogo.clube.cidade_campo %>
-	                <% end %>
-	              <% else %>
-	              	<% if(@jogo.bairro != "" and @jogo.cidade != "") %>
-	                  <%= truncate(@jogo.bairro, {length: 15}) %> - <%= truncate(@jogo.cidade, {length: 15}) %>
-	                <% else %>
-	                  <%= truncate(@jogo.bairro, {length: 30}) %>
-	                  <%= truncate(@jogo.cidade, {length: 30}) %>
-	                <% end %>
-	              <% end %>
-	            </h5>
-						</div>
-					</div>
-				<% else %>
-					<div class="card-body row no-gutters bg-white text-dark">
-						<div class="col-12">
-							<h3 class="text-center">Sem próximo jogo cadastrados!</h3>
-						</div>
-					</div>
+              <div class="col-jogo-local col-sm-12 col-md-4 text-right">
+                <h5>
+                  <% if jogo.campo_adversario? %>
+                    <% if jogo.clube.bairro_campo != "" and jogo.clube.cidade_campo != "" %>
+                      <%= truncate(jogo.clube.bairro_campo, {length: 15}) %> - <%= truncate(jogo.clube.cidade_campo, {length: 15}) %>
+                    <% else %>
+                      <%= jogo.clube.bairro_campo %>
+                      <%= jogo.clube.cidade_campo %>
+                    <% end %>
+                  <% else %>
+                    <% if jogo.bairro != "" and jogo.cidade != "" %>
+                      <%= truncate(jogo.bairro, {length: 15}) %> - <%= truncate(jogo.cidade, {length: 15}) %>
+                    <% else %>
+                      <%= truncate(jogo.bairro, {length: 30}) %>
+                      <%= truncate(jogo.cidade, {length: 30}) %>
+                    <% end %>
+                  <% end %>
+                </h5>
+              </div>
+					  </div>
+          <% end %>
 				<% end %>
 			</div>
 		</div>
