@@ -23,5 +23,5 @@
 # Only windows, ignore Gemfile.lock
 Gemfile.lock
 
-# Folders of RubyMine
-.idea
+# Ignore IDE files
+.idea/*

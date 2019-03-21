@@ -2,7 +2,7 @@
   <div class="row">
 		<button class="btn btn-success weight-500 text-uppercase mb-2 tabela-padrao" onclick="imprimir()">Imprimir</button>
 
-    <div class="col-12 form-associado shadow-lg px-4 pt-3">
+    <div class="col-12 form-associado shadow-lg px-4 pt-3 mb-2">
 			<p class="text-center mt-3 mb-2">
 				<b class="h3">Campanha</b>
 			</p>
@@ -22,16 +22,17 @@
 					<tr>
 						<td class="b-l-0"><%= @jogos %></td>
 						<td><%= @vitorias %></td>
-						<td><%= @derrotas %></td>
 						<td><%= @empates %></td>
+						<td><%= @derrotas %></td>
 						<td><%= @gols_pro %></td>
 						<td><%= @gols_contra %></td>
 						<td class="b-r-0"><%= @gols_saldo %></td>
 					</tr>
 				</table>
-				<br>
 
-				<center><h3>Goleadores</h3></center>
+				<p class="text-center mt-4 mb-2">
+					<b class="h3">Goleadores</b>
+				</p>
 				<table class="table table-striped bg-secondary"><!-- Goleadores -->
 					<tr>
 						<th class="col-auto b-l-0">#</th>
@@ -49,12 +50,14 @@
 					<% end %>
 				</table>
 
-				<center><h3>Participações</h3></center>
+				<p class="text-center mt-4 mb-2">
+					<b class="h3">Participações</b>
+				</p>
 				<table class="table table-striped bg-secondary"><!-- participação -->
 					<tr>
 						<th class="col-auto b-l-0">#</th>
 						<th class="col">Nome</th>
-						<th class="col-auto b-r-0">Nº Jogos</th>
+						<th class="col-auto b-r-0">Jogos</th>
 					</tr>
 					<% @posicao = 1 %>
 					<% @jogadores.sort_by{|e| -e.total_de_jogos}.each do |jogador| %>
@@ -67,7 +70,9 @@
 					<% end %>
 				</table>
 
-				<center><h3>Cartões amarelos</h3></center>
+				<p class="text-center mt-4 mb-2">
+					<b class="h3">Cartões amarelos</b>
+				</p>
 				<table class="table table-striped bg-secondary"><!-- Cartões amarelos -->
 					<tr>
 						<th class="col-auto b-l-0">#</th>
@@ -85,7 +90,9 @@
 					<% end %>
 				</table>
 
-				<center><h3>Cartões Vermelhos</h3></center>
+				<p class="text-center mt-4 mb-2">
+					<b class="h3">Cartões vermelhos</b>
+				</p>
 				<table class="table table-striped bg-secondary"><!-- Cartões vermelhos -->
 					<tr>
 						<th class="col-auto b-l-0">#</th>

@@ -13,7 +13,6 @@ class JogosController < ApplicationController
   # GET /jogos/1
   # GET /jogos/1.json
   def show
-    @jogo.clube = Clube.find(@jogo.clube)
   end
 
   # GET /jogos/new
@@ -68,13 +67,15 @@ class JogosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_jogo
-      @jogo = Jogo.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def jogo_params
-      params.require(:jogo).permit(:data, :horario, :local, :relatorio, :campo_adversario, :cep, :rua, :bairro, :cidade, :estado, :numero, :clube_id)
-    end
+  def set_jogo
+    @jogo = Jogo.find(params[:id])
+
+    @jogo.date_format
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def jogo_params
+    params.require(:jogo).permit(:data, :horario, :local, :relatorio, :campo_adversario, :cep, :rua, :bairro, :cidade, :estado, :numero, :clube_id)
+  end
 end
