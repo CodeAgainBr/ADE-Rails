@@ -18,12 +18,12 @@ class JogosController < ApplicationController
   # GET /jogos/new
   def new
     @jogo = Jogo.new
-    @clubes = Clube.all
+    @clubes = Clube.order(:name)
   end
 
   # GET /jogos/1/edit
   def edit
-    @clubes = Clube.all
+    @clubes = Clube.order(:name)
   end
 
   # POST /jogos
