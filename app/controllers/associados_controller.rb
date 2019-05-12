@@ -1,5 +1,5 @@
 class AssociadosController < ApplicationController
-  before_action :set_associado, only: [:show, :edit, :update, :destroy]
+  before_action :set_associado, only: %i[show edit update destroy]
 
   # GET /associados
   # GET /associados.json
@@ -20,7 +20,7 @@ class AssociadosController < ApplicationController
 
   # GET /associados/1/edit
   def edit
-    if (@associado.data_nascimento != nil)
+    unless @associado.data_nascimento.nil?
       @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
     end
   end
@@ -66,13 +66,13 @@ class AssociadosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_associado
-      @associado = Associado.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_associado
+    @associado = Associado.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def associado_params
-      params.require(:associado).permit(:nome, :data_nascimento, :local_nascimento, :rg, :cpf, :cep, :email, :cidade, :estado, :bairro, :rua, :numero, :telefone, :prato_preferido, :observacoes)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def associado_params
+    params.require(:associado).permit(:nome, :data_nascimento, :local_nascimento, :rg, :cpf, :cep, :email, :cidade, :estado, :bairro, :rua, :numero, :telefone, :prato_preferido, :observacoes)
+  end
 end
