@@ -20,9 +20,9 @@ class AssociadosController < ApplicationController
 
   # GET /associados/1/edit
   def edit
-    if (@associado.data_nascimento != nil)
-      @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
-    end
+    # if @associado.data_nascimento != nil
+    #   @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
+    # end
   end
 
   # POST /associados
@@ -73,6 +73,6 @@ class AssociadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def associado_params
-      params.require(:associado).permit(:nome, :data_nascimento, :local_nascimento, :rg, :cpf, :cep, :email, :cidade, :estado, :bairro, :rua, :numero, :telefone, :prato_preferido, :observacoes)
+      params.require(:associado).permit(:nome, :data_nascimento, :local_nascimento, :rg, :cpf, :cep, :email, :cidade, :estado, :bairro, :rua, :numero, :telefone, :data_ingresso, :prato_preferido, :observacoes)
     end
 end
