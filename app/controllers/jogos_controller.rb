@@ -5,9 +5,6 @@ class JogosController < ApplicationController
   # GET /jogos.json
   def index
     @jogos = Jogo.order(id: :desc)
-    @jogos.each do |jogo|
-      jogo.clube = Clube.find(jogo.clube)
-    end
   end
 
   # GET /jogos/1
@@ -18,12 +15,12 @@ class JogosController < ApplicationController
   # GET /jogos/new
   def new
     @jogo = Jogo.new
-    @clubes = Clube.order(:name)
+    @clubes = Clube.order(:nome)
   end
 
   # GET /jogos/1/edit
   def edit
-    @clubes = Clube.order(:name)
+    @clubes = Clube.order(:nome)
   end
 
   # POST /jogos
