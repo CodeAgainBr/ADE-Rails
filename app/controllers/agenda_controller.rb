@@ -24,7 +24,7 @@ class AgendaController < ApplicationController
     while @months <= 12
       @jogos = Jogo.where(
         'extract(month from data)  = ? and extract(year from data) = ?',
-        @i.to_s,
+        @months.to_s,
         @data.strftime('%Y')
       ).order(:data)
 
