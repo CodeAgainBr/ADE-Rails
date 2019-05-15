@@ -28,7 +28,7 @@
 
           <p>
             <strong>Data de nascimento:</strong>
-            <% if (@associado.data_nascimento != nil) %>
+            <% if @associado.data_nascimento %>
               <%= @associado.data_nascimento.strftime("%d/%m/%Y") %>
             <% end %>
           </p>
@@ -43,12 +43,19 @@
             <%= @associado.rg %>
           </p>
 
-          <p>
-            <strong>CPF:</strong>
-            <%= @associado.cpf %>
-          </p>
+	        <p>
+		        <strong>CPF:</strong>
+		        <%= @associado.cpf %>
+	        </p>
 
-          <p>
+	        <p>
+		        <strong>Data de ingresso:</strong>
+		        <% if @associado.data_ingresso %>
+		          <%= @associado.data_ingresso.strftime("%d/%m/%Y") %>
+		        <% end %>
+	        </p>
+
+	        <p>
             <strong>Prato preferido:</strong>
             <%= @associado.prato_preferido %>
           </p>
@@ -105,12 +112,12 @@
         
         <div role="tabpanel" class="tab-pane" id="parentes">
           <div class="container">
-            <table class="table table-stripped table-responsive">
+            <table class="table table-stripped table-responsive text-center">
               <thead>
                 <tr>
-                  <th class="col-4">Nome</th>
-                  <th class="col-4">Parentesco</th>
-                  <th class="col-4">Data de Nascimento</th>
+                  <th class="col-4">Nome</th>  
+                  <th class="col-4">Parentesco</th>  
+                  <th class="col-4">Data de Nascimento</th>  
                 </tr>
               </thead>
               <tbody>
@@ -125,7 +132,7 @@
                     </td>
 
                     <td>
-                      <% if(parente.data_nascimento != nil) %>
+                      <% if parente.data_nascimento %>
                         <%= parente.data_nascimento.strftime("%d/%m/%Y") %>
                       <% end %>
                     </td>

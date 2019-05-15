@@ -15,10 +15,11 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="informacoes">
         <%= f.input :nome, label: "Nome", required: "required", autofocus: true %>
-        <%= f.input :data_nascimento, as: :date, start_year: Date.today.year - 100, end_year: Date.today.year, label: "Data de nascimento: " %>
+        <%= f.input :data_nascimento, start_year: Date.today.year, end_year: Date.today.year - 100, label: "Data de nascimento: " %>
         <%= f.input :local_nascimento, label: "Local de nascimento: " %>
         <%= f.input :rg, label: "RG: " %>
         <%= f.input :cpf, label: "CPF: "  %>
+	      <%= f.input :data_ingresso, start_year: Date.today.year, end_year: Date.today.year - 100, label: "Data de Ingresso: " %>
         <%= f.input :prato_preferido, label: "Prato preferido: " %>
         <%= f.input :observacoes, label: "Observações: " %>
       </div>
