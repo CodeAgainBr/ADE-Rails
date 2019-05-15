@@ -20,9 +20,6 @@ class AssociadosController < ApplicationController
 
   # GET /associados/1/edit
   def edit
-    # if @associado.data_nascimento != nil
-    #   @associado.data_nascimento = @associado.data_nascimento.strftime("%d/%m/%Y")
-    # end
   end
 
   # POST /associados
