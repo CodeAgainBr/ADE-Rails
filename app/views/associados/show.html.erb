@@ -115,9 +115,9 @@
             <table class="table table-stripped table-responsive text-center">
               <thead>
                 <tr>
-                  <th>Nome</th>  
-                  <th>Parentesco</th>  
-                  <th>Data de Nascimento</th>  
+                  <th class="col-4">Nome</th>  
+                  <th class="col-4">Parentesco</th>  
+                  <th class="col-4">Data de Nascimento</th>  
                 </tr>
               </thead>
               <tbody>
@@ -132,7 +132,7 @@
                     </td>
 
                     <td>
-                      <% if(parente.data_nascimento != nil) %>
+                      <% if parente.data_nascimento %>
                         <%= parente.data_nascimento.strftime("%d/%m/%Y") %>
                       <% end %>
                     </td>

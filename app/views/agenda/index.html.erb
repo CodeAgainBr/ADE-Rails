@@ -17,8 +17,8 @@
               <div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-red-ade br-0 text-center">
                 <div class="col-md-12 col-lg-4">
                   <h5>
-                    <% if (jogo.data != "" and !jogo.data.nil?) %>
-                      <%= jogo.data.strftime("%d/%m/%Y") %>  
+                    <% if jogo.data %>
+                      <%= jogo.data.strftime("%d/%m/%Y") %>
                     <% end %>
                   </h5>
                 </div>
@@ -28,25 +28,37 @@
                     <%= jogo.date_week %>
                   </h5>
                 </div>
-                
+
                 <div class="col-md-12 col-lg-auto mx-auto">
                   <h5>
-                    <% if (jogo.horario != "" and !jogo.horario.nil?) %>
+                    <% unless jogo.horario == "" or jogo.horario.nil? %>
                       <%= jogo.horario %>
                     <% end %>
                   </h5>
-                </div>                
+                </div>
 
                 <div class="col-md-12 col-lg-4">
                   <h5>
                     <%= link_to jogo, class: "row bg-transparent" do %>
                       <div class="col-12">
-                        <%= jogo.clube.nome %><i class="fas fa-times text-dark mx-2"></i>ADE
+                        <%= jogo.clube.nome %>
+
+                        <% if jogo.relatorio and jogo.gols_contra %>
+                           <span class="text-dark"><%= jogo.gols_contra %></span>
+                        <% end %>
+
+                        <i class="fas fa-times text-dark mx-2"></i>
+
+                        <% if jogo.relatorio and jogo.gols_pro %>
+                          <span class="text-dark"><%= jogo.gols_pro %></span>
+                        <% end %>
+
+                        ADE
                       </div>
                     <% end %>
                   </h5>
                 </div>
-                
+
                 <div class="col-md-12 col-lg-4">
                   <h5>
                     <% if jogo.campo_adversario %>
@@ -58,7 +70,7 @@
                       <% end %>
                     <% else %>
                       <% if (jogo.bairro != "" and !jogo.bairro.nil?) and (jogo.cidade != "" and !jogo.cidade.nil?) %>
-                        <%= truncate(jogo.bairro, {length: 18}) %> - <%= truncate(jogo.cidade, {length: 18}) %> 
+                        <%= truncate(jogo.bairro, {length: 18}) %> - <%= truncate(jogo.cidade, {length: 18}) %>
                       <% else %>
                         <%= truncate(jogo.bairro, {length: 25}) %>
                         <%= truncate(jogo.cidade, {length: 25}) %>
