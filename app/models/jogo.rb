@@ -1,7 +1,5 @@
-# Jogo class
 class Jogo < ApplicationRecord
   belongs_to :clube
-  has_many :relatorio_jogos, dependent: :delete_all
 
   def date_format
     unless data.nil?
