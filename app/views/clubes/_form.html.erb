@@ -22,7 +22,6 @@
         <%= f.input :cor_camisa_uniforme, label: "Cor da camisa de uniforme: "%>
         <%= f.input :cor_bermuda_uniforme, label: "Cor da bermuda de uniforme: "%>
         <%= f.input :cor_meias_uniforme, label: "Cor das meias de uniforme: "%>
-        <%= f.input :data_fundacao, label: "Data de fundação: "%>
         <% if @clube.campo %>
           <%= f.input :campo, label: "Possui campo?", input_html: { checked: true, class: "campo" } %>
         <% else %>
@@ -31,7 +30,7 @@
       </div>
 
       <div role="tabpanel" class="tab-pane" id="contato">
-        <%= f.input :telefone_clube, label: "Telefone do clube: ", input_html: { class: "telefone" } %>
+        <%= f.input :telefone_clube, label: "Telefone do clube: ", input_html: { class: "celular" } %>
         <%= f.input :nome_contato, label: "Nome do contato: "%>
         <%= f.input :telefone_contato, label: "Telefone do contato: ", input_html: { class: "celular" } %>
       </div>
