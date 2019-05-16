@@ -1,17 +1,15 @@
 class AssociadosController < ApplicationController
-  before_action :set_associado, only: [:show, :edit, :update, :destroy]
+  before_action :set_associado, only: %i[show edit update destroy]
 
   # GET /associados
   # GET /associados.json
   def index
-    @associados = Associado.all.order(:nome)
+    @associados = Associado.order(:nome)
   end
 
   # GET /associados/1
   # GET /associados/1.json
-  def show
-    @parentes = Parente.where(associado_id: @associado.id)
-  end
+  def show; end
 
   # GET /associados/new
   def new
@@ -19,8 +17,7 @@ class AssociadosController < ApplicationController
   end
 
   # GET /associados/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /associados
   # POST /associados.json
@@ -63,13 +60,14 @@ class AssociadosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_associado
-      @associado = Associado.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def associado_params
-      params.require(:associado).permit(:nome, :data_nascimento, :local_nascimento, :rg, :cpf, :cep, :email, :cidade, :estado, :bairro, :rua, :numero, :telefone, :data_ingresso, :prato_preferido, :observacoes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_associado
+    @associado = Associado.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def associado_params
+    params.require(:associado).permit(:nome, :data_nascimento, :local_nascimento, :rg, :cpf, :cep, :email, :cidade, :estado, :bairro, :rua, :numero, :telefone, :data_ingresso, :prato_preferido, :observacoes)
+  end
 end

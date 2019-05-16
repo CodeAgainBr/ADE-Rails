@@ -1,4 +1,6 @@
+# Jogo class
 class Jogo < ApplicationRecord
+  has_many :relatorio_jogos, dependent: :destroy
   belongs_to :clube
 
   def date_format
