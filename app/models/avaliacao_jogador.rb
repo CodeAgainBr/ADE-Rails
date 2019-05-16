@@ -4,7 +4,7 @@ class AvaliacaoJogador < ApplicationRecord
   belongs_to :relatorio_jogo
 
   def self.relatorio
-    find_by_sql("
+    self.find_by_sql("
       select
       ass.nome as nome,
       count(aj.id) as total_de_jogos,
