@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark" ng-class="navbarHidden">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark" ng-class="navbarHidden">
   <a class="navbar-brand" href="/">
     <i class="fas fa-futbol bg-dark"></i>
     <b>Sistema ADE</b>
@@ -12,37 +12,37 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <%= link_to associados_path, class: "nav-link text-light" do %>
-          <i class="fas fa-user text-light"></i> Associados
+          <i class="fas fa-user text-light"></i> <span>Associados</span>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to clubes_path, class: "nav-link text-light" do %>
-          <i class="fas fa-users text-light"></i> Clubes
+          <i class="fas fa-users text-light"></i> <span>Clubes</span>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to jogos_path, class: "nav-link text-light" do %>
-          <i class="far fa-futbol text-light"></i> Jogos
+          <i class="far fa-futbol text-light"></i> <span>Jogos</span>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to agenda_path, class: "nav-link text-light" do %>
-          <i class="fas fa-calendar-alt text-light"></i> Agenda
+          <i class="fas fa-calendar-alt text-light"></i> <span>Agenda</span>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to relatorios_path, class: "nav-link text-light" do %>
-          <i class="fas fa-calendar-check text-light"></i> Relatórios</a>
+          <i class="fas fa-calendar-check text-light"></i> <span>Relatórios</span>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to agenda_telefonica_path, class: "nav-link text-light" do %>
-          <i class="fas fa-address-book text-light"></i> Agenda Telefônica
+          <i class="fas fa-address-book text-light"></i> <span>Agenda Telefônica</span>
         <% end %>
       </li>
     </ul>
@@ -51,15 +51,15 @@
         <a class="nav-link text-light" href="/"><i class="fas fa-bell text-light"></i> Notificações</a>
       </li> -->
 
-      <li class="nav-item">
+      <li class="nav-item item-hide">
         <%= link_to edit_user_registration_path, class: "nav-link text-light" do %>
-          <i class="fas fa-cog text-light"></i> Configurações
+          <i class="fas fa-cog text-light"></i> <span>Configurações</span>
         <% end %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item item-hide">
       	<%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
-      		<i class="fas fa-sign-out-alt text-light"></i> Sair
+      		<i class="fas fa-sign-out-alt text-light"></i> <span>Sair</span>
       	<% end %>
       </li>
     </ul>
