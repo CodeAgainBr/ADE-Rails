@@ -14,7 +14,14 @@ $(document).on('turbolinks:load', function() {
 	$('.cep').mask('00000-000');
 	$('.rg').mask('0.000.000');
 	$('.cpf').mask('000.000.000-00');
-	$('.horario').mask('00:00');
+	$('.horario')
+		.mask('00:00')
+		.blur(function() {
+		var value = $(this).val();
+		if (value > 9 && value < 100) {
+			$(this).val(value + ":00");
+		}
+	});
 	$('.mes').mask('00');
 	$('.diames').mask('00/00');
 });
