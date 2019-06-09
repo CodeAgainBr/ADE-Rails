@@ -7,15 +7,15 @@
         </h3>
   			<% @associados.each do |associado| %>
     			<div class="row no-gutters col-12 pt-2 mb-0 br-blr-4 bb-1 b-red-ade br-0">
-		      	<div class="col-5">
+		      	<div class="col-12 col-md-5 text-center text-sm-left">
 		      		<h5><%= associado.nome %></h5>
 		      	</div>
 
-		      	<div class="col-5">
+		      	<div class="col-12 col-md-5 text-center text-sm-left">
 		      		<h5><%= associado.email %></h5>
 		      	</div>
 
-		      	<div class="col-auto ml-auto">
+		      	<div class="col-12 col-md-auto ml-auto text-center text-sm-left">
 		      		<h5><%= associado.telefone %></h5>
 		      	</div>
 		      </div>
