@@ -3,7 +3,7 @@ class AvaliacaoJogador < ApplicationRecord
   belongs_to :associado
   belongs_to :relatorio_jogo
 
-  def relatorio
+  def self.relatorio
     find_by_sql("
       select
       ass.nome as nome,
