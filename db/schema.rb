@@ -39,16 +39,16 @@ ActiveRecord::Schema.define(version: 20190516014554) do
   create_table "avaliacao_jogadores", force: :cascade do |t|
     t.string   "status"
     t.boolean  "participante_confraternizacao"
-    t.integer  "cartao_amarelo"
-    t.integer  "cartao_vermelho"
+    t.integer  "cartao_amarelo",                default: 0, null: false
+    t.integer  "cartao_vermelho",               default: 0, null: false
     t.boolean  "goleiro"
-    t.integer  "gol_pro"
-    t.integer  "gol_sofrido"
+    t.integer  "gol_pro",                       default: 0, null: false
+    t.integer  "gol_sofrido",                   default: 0, null: false
     t.boolean  "destaque"
     t.integer  "associado_id"
     t.integer  "relatorio_jogo_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.index ["associado_id"], name: "index_avaliacao_jogadores_on_associado_id", using: :btree
     t.index ["relatorio_jogo_id"], name: "index_avaliacao_jogadores_on_relatorio_jogo_id", using: :btree
   end
@@ -111,29 +111,29 @@ ActiveRecord::Schema.define(version: 20190516014554) do
   create_table "relatorio_jogadores", force: :cascade do |t|
     t.string   "status"
     t.boolean  "participante_confraternizacao"
-    t.integer  "cartao_amarelo"
-    t.integer  "cartao_vermelho"
+    t.integer  "cartao_amarelo",                default: 0, null: false
+    t.integer  "cartao_vermelho",               default: 0, null: false
     t.boolean  "goleiro"
-    t.integer  "gol_pro"
-    t.integer  "gol_sofrido"
+    t.integer  "gol_pro",                       default: 0, null: false
+    t.integer  "gol_sofrido",                   default: 0, null: false
     t.boolean  "destaque"
     t.integer  "associado_id"
     t.integer  "relatorio_jogo_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.index ["associado_id"], name: "index_relatorio_jogadores_on_associado_id", using: :btree
     t.index ["relatorio_jogo_id"], name: "index_relatorio_jogadores_on_relatorio_jogo_id", using: :btree
   end
 
   create_table "relatorio_jogos", force: :cascade do |t|
-    t.integer  "gols_pro"
-    t.integer  "gols_contra"
+    t.integer  "gols_pro",             default: 0, null: false
+    t.integer  "gols_contra",          default: 0, null: false
     t.string   "observacao"
     t.string   "uniforme"
     t.string   "responsavel_uniforme"
     t.integer  "jogo_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["jogo_id"], name: "index_relatorio_jogos_on_jogo_id", using: :btree
   end
 
