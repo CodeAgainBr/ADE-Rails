@@ -7,15 +7,15 @@
 
     <%= f.input :participante_confraternizacao, label: "Participou da confraternização: " %>
 
-    <%= f.input :cartao_amarelo, as: :radio_buttons, label: "Cartão amarelo: ", collection: [0, 1, 2] %>
+    <%= f.input :cartao_amarelo, as: :radio_buttons, label: "Cartão amarelo: ", collection: [0, 1, 2], checked: :first %>
 
     <%= f.input :cartao_vermelho, as: :boolean, label: "Cartão vermelho: ", checked_value: 1, unchecked_value: 0 %>
 
     <%= f.input :goleiro, label: "Goleiro: " %>
 
-    <%= f.input :gol_pro, label: "Gol(s) pró: " %>
+    <%= f.input :gol_pro, label: "Gol(s) pró: ", unchecked_value: nil %>
 
-    <%= f.input :gol_sofrido, label: "Gol(s) sofridos: " %>
+    <%= f.input :gol_sofrido, label: "Gol(s) sofridos: ", unchecked_value: nil %>
 
     <%= f.input :destaque, label: "Jogador destaque: " %>
 
